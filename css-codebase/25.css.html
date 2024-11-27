@@ -1,0 +1,80 @@
+ Pseudo element & Pseudo class :- 
+ a botton changing a little bit of its colour when we put crussor to it
+ that is done by something known as pseudo classes 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>pseudo</title>
+
+<!-- syntex of the Pseudo psudo-classes
+
+button : pseudo_class_name {
+
+} -->
+
+<style>
+
+button {
+    background-color: yellow;
+}
+/* <!-- syntex of the Pseudo psudo-classes (no space allowed)
+
+button : pseudo_class_name {
+
+} -- */
+
+/* button:hover */
+#btn1:hover  
+/* using id selector only for btn 1 */
+{
+  /* hover (particular state)->>> pseudo class */
+    background-color: teal;
+ /* we can do a lot of thing just for at some instance  */
+ width: 200px; 
+ /* its very intresting thing */
+}
+/* using id  selector for selecting one  */
+
+
+/* making a class name span */
+span{
+    color: red;
+}
+
+/* we have to colour text lorem inside p tag without using span or  whtever tag  */
+    
+#para2::first-letter{
+  /* this will creat a fake element around the first letter and colour it */
+color: red;
+font-size: 20px;
+font-weight: 700px;
+} 
+</style>
+</head>
+<body>
+    <!-- psudo-classes, 
+    Psudo-Elements -->
+    <button id="btn1">Button1</button>
+    <button>Button2</button>
+
+
+let assume if i have a para and i want to change colour of any marked text only 
+so we can use span here not only span we have to seprate that text with a tag inside the bigger 
+tag ...
+<p> 
+    <span>L</span> ipsum, dolor sit amet consectetur adipisicing elit. Sit perspiciatis ea dignissimos culpa debitis assumenda vel accusantium omnis, delectus iste reiciendis quaerat ipsa illum eum, sint fugiat quisquam magni commodi laboriosam modi aliquid. Quidem atque fugit, consequuntur accusantium, necessitatibus minus totam alias consequatur voluptatibus, eveniet nobis nesciunt magni nemo in.
+</p>
+       <!--Pseudo-Element-->
+<p id="para2"> 
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit perspiciatis ea dignissimos culpa debitis assumenda vel accusantium omnis, delectus iste reiciendis quaerat ipsa illum eum, sint fugiat quisquam magni commodi laboriosam modi aliquid. Quidem atque fugit, consequuntur accusantium, necessitatibus minus totam alias consequatur voluptatibus, eveniet nobis nesciunt magni nemo in.
+</p>
+<!--NOTE IF ONE LETTER/WORD IS NOT SEPARATED BY USING TAG WE CAN'T STYLE IT  -->
+Conclusion
+Pseudo class(has one colon ) it allow me to achieve a particular state of an element 
+pseudo element(has two colon ) -it allow to creat a fake element around a letter and the to apply stylings to it ...
+ 
+</body>
+</html>
+

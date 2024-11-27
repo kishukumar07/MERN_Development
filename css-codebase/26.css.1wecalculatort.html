@@ -1,0 +1,110 @@
+<!-- "https://students.masaischool.com/assignments/19700?tab=assignmentDetails" -->
+
+<!-- AAO_BAIYA_CALCULATOR_BNAYE000000 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAO_BAIYA_CALCULATOR_BNAYE</title>
+</head>
+<style>
+#maindiv{
+    /* border:2px solid yellow; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    width: 270px;
+    height:370px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px 10px 10px 10px;
+}
+
+#displaydiv{
+
+    width: 85%;
+    /* border: 2px solid gold; */
+margin: auto;
+margin-bottom: 20px;
+margin-top: 20px;
+height: 50px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+border-radius: 5%;
+}
+
+#keyboarddiv{
+    width: 85%;
+    /* border: 2px solid greenyellow; */
+    margin: auto;
+
+}
+ 
+#keyboarddiv > div{
+ display: flex;
+ /* border: 1px solid rebeccapurple; */
+ margin-bottom: 20px;
+ 
+}
+
+#keyboarddiv > div >div {
+    width: 50px;
+    height: 50px;
+background-color: rgb(255, 255, 255);
+color: black;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ margin: auto;
+ text-align: center;
+ /* text-align:  is used for horizontal alignment; */
+ line-height: 50px; 
+ /* line-height -used for vertical centering  */
+ border-radius: 11%;
+}
+
+#keyboarddiv > div > #add{
+    background-color: rgb(2, 14, 14);
+   color: white;
+  
+}
+#keyboarddiv > div >#clear{
+    background-color: red; 
+    color: white;
+}
+
+
+
+</style>
+<body>
+    
+<div id="maindiv">
+<div id="displaydiv">
+    <!-- display -->
+</div>
+<div id="keyboarddiv">
+    <div >
+        <div id="num">1</div>
+        <div id="num" >2</div>
+        <div id="num" >3</div>
+        <div id="add" >+</div>
+    </div>
+    <div >
+        <div id="num">4</div>
+        <div id="num" >5</div>
+        <div id="num" >6</div>
+        <div id="add" >-</div>
+    </div>
+    <div >
+        <div id="num">7</div>
+        <div id="num" >8</div>
+        <div id="num" >9</div>
+        <div id="add" >*</div>
+    </div>
+    <div >
+        <div id="clear">C</div>
+        <div id="num" >0</div>
+        <div id="add" >=</div>
+        <div id="add" >/</div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

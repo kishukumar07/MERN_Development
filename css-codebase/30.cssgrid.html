@@ -1,0 +1,106 @@
+<!-- /* WE HAVE ONE MORE THING KNOWN AS LINE BASED PLACEMENT  */
+/* if you have to creat n rows you will sketch n+1 line 
+ if you have to creat n coloumns you will sketch n+1 line
+*/ -->
+
+<!-- the true power of this grid comes with this LINE BASED PLACEMENT  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE BASED PLACEMENT</title>
+
+<style>
+    .grid{
+  width: 90%;
+margin: auto;
+  display: grid;
+
+grid-template-columns: repeat(3 ,200px);
+/* grid-template-rows: repeat(3 ,300px); */
+/* in this row part we have two things how many rows we want and how much value of each 's height we want  for this we have one more property grid auto rows  */
+grid-auto-rows: 200px;
+/* in this we have only give height and it will take care of no of rows  */
+
+
+/* gap: 10px 20px; */
+
+
+
+
+    }
+ .grid>div{
+    font-size: 30px;
+    color: white;
+    border: 3px solid black;
+ }
+ /* ALL THE PROPERTY TILL NOW IS PARENT PROPERTY AND (LINE BASED PLACEMENT ) IS CHILD PROPERTY  */
+
+.grid > div:nth-child(1){
+background-color: brown;
+/* lets see what the properties is  */
+grid-row-start: 1;
+grid-row-end: 2;
+grid-column-start: 1;
+grid-column-end: 4;
+/* this properties will make the placement of the child div 1 which will start from 1st line to 4th line column wise 
+and 1st to 2nd row wise */
+/*
+ YOU JUST HAVE TO REMEMBER THAT FROM WHICH LINE TO WHICH LINE WE HAVE TO SPAN THE ELEMENT
+ */
+
+
+/*
+ by default it was starting from line 1 to 2 row wise 
+and 1 to 2 coloumn wise 
+with the help of this property you can align any element anywhere just you have to know the row no
+*/
+/* DONE!!! */
+
+}
+
+.grid > div:nth-child(2){
+    background-color: pink;
+}.grid > div:nth-child(3){
+    background-color:red;
+}.grid > div:nth-child(4){
+    background-color: green;
+}.grid > div:nth-child(5){
+    background-color:yellow ;
+}.grid > div:nth-child(6){
+ background-color: blue;   
+}.grid > div:nth-child(7){
+    background-color: maroon;
+}.grid > div:nth-child(8){
+    background-color: teal;
+}.grid > div:nth-child(9){
+    background-color: violet;
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+ 
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+Now we  have to cover universal selectors ..
+how to select all the players that is our task  
+let assume tata sponsored ipl team just by giving foods for them 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+ <title>Universal element</title>
+     <style>
+/* the universal selector is defined with estric * sign */
+*{
+    h1{ 
+        /* here the h1 is for applying the style universally for all h1 element you may not apply it*/
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+       }
+       button{
+        border: 1px solid red;
+       }
+       /* here i wrote button can we able to write same name again ~ yes this will work  ~if they are conflicting with each other the last will apply its like js*/
+       button{
+         
+       font-size: 30px;
+        }
+        button{
+         
+         font-size: 50px;
+          }
+          /* ~if they are conflicting with each other the last will apply its like js */
+          /* what if same font-size is defined with a class inside universal selector which would be taken for this we have to understand one more thing SCORES OF VARIOUS SELECTORS*/
+          .font{
+            font-size: 50px;
+          }
+          
+}
+
+ /* now u can se the same style is applied to all element */
+ 
+     </style>
+</head>
+<body>
+    <h1>Heading 1</h1>
+    <h1>Heading 2</h1>
+
+ <button >click1</button>
+ <button >click2</button>
+ <button >click3</button>
+ <button >click4</button>
+ <button >click5</button>
+
+<!--  
+you can add other tag here also like para  
+whaterver tag is present there the css style is applied universally  using universal selector
+
+ -->
+
+ 
+
+
+
+
+
+</body>
+</html>
+ 
+
+
+
+

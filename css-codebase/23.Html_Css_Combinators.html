@@ -1,0 +1,103 @@
+<!-- What comes to mind about the word combinators -somthing combining right 
+~we will combine selectors to catch any element 
+
+THERE ARE FOUR DIFFERENT COMBINATORS IN CSS: 
+
+*descendant selector (space)
+*child selector (>)
+*general sibling selector (~)
+*adjacent sibling selector (+)
+ 
+why we need is selector not enough>?
+=> think logically what if you have to colour all the h1 tags inside the container 
+if you use tag selector then it will applied also to the outside container h1 element
+if you use class selector then you have to give each element the class leanthy process
+so what if we use 
+ .container h1{
+    style here 
+}  
+~this is descendant selector 
+and give the class to the container only 
+yeh it is simple and easy to use 
+(this is combinators )
+
+*difference bw the child and descendant
+lets assume three generation 
+GRANDFATHER (harivasnsh rai bacchan)
+FATHER(child of harivasnsh)
+child  (decendant of harivasnsh)
+cild's child(decendant)
+here i am descendant and the father is child  (understood the differrence bw the decendant and the child )
+  -->
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+
+
+     <style>
+            /* <!-- using decendant selector for styling the specific element inside the container  -->  */
+        .container h1 {
+            background-color:  yellow;
+        }
+        /* using child(greater than symbol )selector and see the same thing   */
+    .container > h1{
+    color: red;
+    }
+
+
+     </style>
+</head>
+<body>
+    <h1>Heading-6</h1>
+    
+    <div class="container">
+        <h1>Heading-1</h1>
+        <h1>heading-2</h1>
+        <h1>heading-3</h1>
+        <h1>heading-4</h1>
+        <h1>heading-5</h1>
+
+        <!-- now below we have one more container and inside that container we have one more h1 tag
+        this heading tag is very special because this is not directly inside the previous container but inside the container which is inside the previous container -->
+        <div>
+
+            <h1> Headign inner</h1>
+        
+        </div>
+        <!-- so wheever we using decendant selector it doesnt matter how much nested divs inside one div ,the style written in that decendant selector will applied to all element  -->
+
+        now going with the child selector you defined inside style tag 
+        the style is only applied to the child  element of the parent div's only 
+        (it selects the element direct one only ).
+        as u can see the text colour is not applied in headding inner but the 
+        background-color is applied to all heading(1-6)
+        as well as the inner-heading(nested div same element)
+        <div>
+    <p>para</p>
+</div> 
+    </div>
+ 
+
+
+
+    
+<h1>Heading-7 </h1>
+
+
+
+</body>
+</html>
+
+
+
+
+
+Now we learnt about the decendent selectors and the child selector
+
+

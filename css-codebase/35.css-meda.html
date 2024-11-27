@@ -1,0 +1,64 @@
+  <!-- you just have to know about id class tag decendent child nth-child hover thats all 
+  coding is not a game of remembering
+   -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute-selector</title>
+
+<style>
+    .yellow{
+        background-color: yellow; 
+    }
+
+
+    input[type="password"]{
+        background-color: red; 
+     }
+
+     a[href="www.google.com"]{
+    color: teal;
+}
+</style>
+
+</head>
+<body>
+    <input type="text">
+    <input type="number">
+    <input type="email">
+    <input class="yellow" type="password">
+    <input class="yellow" type="password">
+    <!-- all the password input tag i want to give them a colour yellow how can i do this
+    .yellow{
+    } -->
+    <!-- here is one problem : whenever i will creat a password input tag i have to pu tthe class again  to get out with this issue we have attribute selector-->
+     <!-- defining attribute-selector inside style tag like: 
+     input[type="password"]{
+        background-color: yellow; 
+     } -->
+<input type="password">
+<input type="password">
+<input type="password">
+<input type="password">
+
+
+<!-- 
+let's say i have 3 anchor tags  -->
+
+<a href="www.google.com">google</a>
+<a href="www.google.com">google</a>
+<a href="">wekipedia</a>
+<a href="">linkedin</a>
+<!-- i want is  to give google a different colour i can also do that with attribute selector-->
+<!-- 
+a[href="www.google.com"]{
+    background-color yellow
+} -->
+
+</body>
+</html>
+
+
+thats all in specificity part !!

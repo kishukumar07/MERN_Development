@@ -1,0 +1,93 @@
+Now lets talk about flex-wrap and align-content
+flex-wrap is a little bit important
+
+<html >
+<head>
+    
+    <title>warp and align content</title>
+
+<style>
+    .container {
+                width: 90%;
+                margin: auto;
+                background-color: yellow;
+                display: flex;
+                /*  NOTE WORKS ONLY WHEN THE CHILD DIV SIZE IS FIXED  (PX) IF % IT WILL AUTO  ADJUST THE SIZE ACCORDINGLY IF THE DIVS IS DECRESING 
+If you want to achieve the phenomenia where 
+if the size of the web is decreasing the no of div's getting substracted 
+just its possible with the flex property called as flex wrap
+*/ 
+flex-wrap: wrap; 
+/* you can se with this value wrap of flex wrap property 
+- when we are decreasing the width of the web page the child
+divs is moving in the next line downward  */
+       
+/* the default value is nowrap */
+/* flex-wrap: nowrap; */
+ /* one more value is here wrapreverse - this will make movement in of divs in the next line upward*/
+/* flex-wrap: wrap-reverse;  */
+
+/* NEXT IS ALIGN CONTENT IT HARDLY HAVE ANY USE cases BUT  LETS STUDY HAHAHH... */
+
+/* we have one more thing align-content:
+now lets give the parent elemnt height  */
+height: 500px;
+/* 
+can you see there are two different rows present 
+previously  it was only one  whithout using wrap 
+so how should we align this rows 
+that's why we have align-content: ; */
+
+/* align-content:flex-end; */
+/* align-content: flex-start; */
+/* align-content: space-between; */
+/* align cotent is going to work only with wrap  */
+
+/* thats all to cover in here!! lets move to the todays We setion */
+
+}
+
+.container >div{
+    width: 200px;
+    color: white;
+    font-size: 25px;
+    height: 100px;
+ }
+
+
+.container > div:nth-child(1){
+    background-color: red;
+}
+.container > div:nth-child(2){
+    background-color: green;
+}
+.container >div:nth-child(3)
+{
+    background-color: blue;
+}
+.container >div:nth-child(4)
+{
+    background-color: orange;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+<div class="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+

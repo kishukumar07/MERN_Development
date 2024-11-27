@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-shrink</title>
+    <style>
+        
+/* now lets understand flex-shrink just by creating container2*/
+
+
+.container2{
+        width: 90%;
+        margin: auto;
+        background-color: yellow;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container2 >div {
+ width : 23%; 
+color: white;
+font-size: 25px;
+height: 100px;
+
+    }
+   
+  
+ /* lets understand flex-shrink property */
+
+ /* if the width of parent is too big the child is ok
+ but as the width of parent is not too big  the child is shrinking smaller not over floating 
+   you can see it just by sliding the with of the web page*/
+   /* the property which controls this is flex-shrink property */
+/* with this property we can manupulate how much which div is going to shrink (ratio works same as works in flex-grow ) 
+higher the ratio higher the shrinking  */
+
+
+
+    .container2 >div:nth-child(1){
+        background-color: rebeccapurple;
+        /* flex-shrink: 1; */
+        flex-shrink: 5;
+        }
+
+    .container2 >div:nth-child(2){
+        background-color:aqua ;
+    /* bydefault 0 */
+    }
+    .container2 >div:nth-child(3){
+        background-color: sienna;  
+     /* bydefault 0 */       
+    }
+    .container2 >div:nth-child(4){
+        background-color:purple;
+       /* bydefault 0 */}
+
+    </style>
+</head>
+<body>
+    
+    <!-- creating one more div -->
+
+    <div class="container2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

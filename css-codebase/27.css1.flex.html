@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-properties()</title>
+
+<style>
+
+.container{
+width: 90%;
+display: flex;
+background-color: yellow;
+margin: auto;
+flex-direction:  row ;
+/* justify-content: space-evenly; */
+
+/* NOW WE DONE WITH flex-direction & JUSTIFY-CONTENT  */
+
+
+/* LET's MOVE TOWARDS THE ALIGN-ITEM */
+
+/* Justify-content: works for the main  bcs here the flex direction is row so the justify content is working toward the main(and the main is X-axis here (at this side we typically talk about width )) 
+WE CAN SAY JUSTIFY CONTENT WORKS FOR THE MAIN AXIS 
+& align-item works for the (cross_axis(at this side we typically talk about height)) */
+
+
+/* NOTE: ALIGN ITEM WORKS FOR THE CROSS- AXIS ONLY  */
+
+/* align-items: flex-start;  */
+/* align-items: flex-end;*/
+/* align-items: center; */
+align-items: stretch;
+/* 
+The div is a block element so by-default it will take the complete width 100%
+can you tell me how much hight they have by default-the height is the content's height 
+(try to make a div with class and give the style background-color: dont giving the height :   you will se default height  is taken as the content's height
+if you remove the content then the div is no more visible bcs of lacking height
+) 
+*/
+/* 
+NOW COMES THE NEXT PART WHICH IS 
+Rather than giving the height to the child div 
+I will give the height to the parent div  */
+
+height: 100px;
+/* now parent element have the 100percent height and the child element(child div)have height of their content */
+/* and you can see because of the align items (child -divs) they are sticking at top of the container , they are currently where the flex boxex starting (height 1) ~line 30*/ 
+
+/* if you change the value of align-items: flex-end ; they are sticking at the bottom at last height of the parent div
+ ~line 31*/
+
+/* similarly we have centre as well line 32 -now all the divs are allined at the center of the parent div  */
+
+/* SO WHAT IS THE DEFAULT VALUE OF THE text-align:  ;
+IF WE DONT USE IT BY DEFAULT THE CHILD TAKING THE WHOLE WIDTH OF THE CONTAINER 
+IT HAPPENS SOMETHING VALUE align-items:stretch; ~line 34 */
+
+
+/* 
+THATS ALL WE HAVE DONE 4 VALUES OF align-items: PROPERTY;
+1.FLEX-START~align-items: flex-start; 
+2.FLEX-END~align-items: flex-end;
+3.CENTRE~align-items: center;
+4.STRETCH ~align-items: stretch (DEFAULT) 
+thats all here in align-items: */
+
+
+
+
+
+}
+
+
+.container >div{
+    width: 23%;
+    /* margin: auto; */
+    color: white;
+    font-size: 25px;
+    /* height: 100px; adding height to the parent div removing from child div */
+    
+}
+
+.container> div:nth-child(1){
+    background-color: red;
+}
+
+
+.container> div:nth-child(2){
+    background-color: blue;
+}
+
+
+.container > div:nth-child(3){
+    background-color: green;
+}
+
+
+.container> div:nth-child(4){
+    background-color: fuchsia;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+
+    
+</body>
+</html>

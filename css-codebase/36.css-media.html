@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi-Queries</title>
+
+    <style>
+        h1 {
+            color: red;
+        }
+
+        /* when the certain condition will true the code under media is going to be
+executed as if statement */
+        /* the basic syntax of media-query  */
+
+        /* @media only screen and (max-width: 700px)    {
+    /* here the condition is saying that if the screen width is going to be lesser than 700px the heading element's colour is going to green; (Desktop,Tablet,Smartphone-layout)*/
+        /* h1 {
+        colour : green; 
+       } */
+        /* } */
+        */
+        /* you can change any css property with this media quory */
+        /* we define the screen width wrt the screen of phone, tablet , desktop  */
+        /* for mobile  */
+        /* if (scrensize>= some && screensize <=some){
+//tablet 
+
+}else if(screensize <=some){
+mobile
+
+}  */
+        @media only screen and (min-width:500px) and (mix-width : 1000px) {
+
+            /* 500 to to 1000px here the value should  always be in px only */
+            h1 {
+                colour: teal;
+            }
+
+        }
+
+        @media only screen and (max-width: 500px) {
+
+            /* 0 to 500px or phone */
+            h1 {
+                color: green;
+            }
+        }
+
+        /* the compiler runs from below to top  */
+
+        /* working with media part do not delete the meta part  even a space matters in this syntax*/
+        /* thats it in the basic media quory part  */
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Heading</h1>
+</body>
+
+</html>

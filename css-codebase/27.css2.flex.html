@@ -1,0 +1,70 @@
+<!-- /* 
+
+NOW LETS MOVE TO THE NEXT TOPIC :-  
+SURE WE WILL DISCUSS FLEX-WRAP & ALIGN-CONTENT LATER ON FIRST LETS DISCUSS ABOUT SOME CHILD PROPERTIES 
+till now all the property we learnt we were writing in the parent's container class 
+and from now onwarda whatever property we are learning we will be applying in the child class selector combinator */ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child properties-Order</title>
+     
+<style>
+    .container{
+        width: 90%;
+        margin: auto;
+        background-color: yellow;
+        display: flex;
+   /* you remember flex-direction: row-reverse;
+   property it will make the div arrangemnet reverse 1234 to 4321
+   but what if i want the order  1423 
+   do u think it is possible with flex-direction property */
+   /* so we have to learn one more property called order  */
+   /* and we write this property in the child class */
+
+    }
+
+    .container >div {
+ width : 23%; 
+color: white;
+font-size: 25px;
+height: 100px;
+
+    }
+    /* Higher the order value behind the element will be */
+    /* if all have same order value it is going to happen nothing */
+    /* least value is on the first  */
+    .container >div:nth-child(1){
+        background-color: rebeccapurple;
+        order: 2;
+    }
+    .container >div:nth-child(2){
+        background-color:aqua ;
+        order: 3;
+    }
+    .container >div:nth-child(3){
+        background-color: sienna;
+        order:4;
+    }
+    .container >div:nth-child(4){
+        background-color:purple;
+        order: 1;
+    }
+
+</style>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    
+</body>
+</html>

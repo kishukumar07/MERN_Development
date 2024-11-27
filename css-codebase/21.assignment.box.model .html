@@ -1,0 +1,116 @@
+movie website assignment with css- selectors we 
+<!-- 1. Dr. Strange:- https://assetscdn1.paytm.com/images/cinema/Doctor-Strange--In-The-Multiverse-Of-Madness-r-705x750-36f0e140-b752-11ec-a762-319bdb0970f2.jpg
+
+2. Bhool Bhulaiya2:- https://assetscdn1.paytm.com/images/cinema/bb2--705x750-cbc15240-8a94-11ec-8efd-6d205f33f529.jpg
+
+3. Jayeshbhai Jordaar:- https://assetscdn1.paytm.com/images/cinema/Jayeshbhai-Jordaar---705x750-660c01c0-cf7c-11ec-98b3-41c37f260d1c.jpg
+
+4.  Jurasic World:- https://assetscdn1.paytm.com/images/cinema/Jurassic-World--Dominion-705x750-b554ee90-cd51-11ec-8d22-2363945d80ef.jpg
+
+5. KGF2:- https://assetscdn1.paytm.com/images/cinema/KGF-705x750-76008750-b6fd-11ec-9639-8322852eadd4.jpg
+
+6. RRR:- https://assetscdn1.paytm.com/images/cinema/RRR-North-705x750-fd78d9c0-693d-11ec-bbcd-5d122dc4018b.jpg -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>Movie assignment</title>
+
+<style>
+ /* px and percentage */
+ .container{
+    display: flex;
+width:90%; 
+margin :auto; 
+margin-top: 20px;
+ }
+
+ .card{
+width:30%; 
+margin: auto; 
+/* border: 2px solid red;   */
+/* get css scan is a website that provides you the background shadow effect  */
+box-shadow:rgba(99,99,99,0.2) 0px 2px 8px 0px ;
+/* lets make box corner shadow roundish     */
+ border-radius: 4px;
+}
+
+.card-img
+{
+width:100%;   
+
+}
+
+.card-head
+{
+text-align: center;
+
+}
+.card-rating{
+    text-align: center ;
+}
+.card-btn
+{
+margin: auto;
+display: block;
+}
+
+</style>
+
+
+</head>
+<body>
+<!-- shortcut if you write .nameof the class it will give you div with class -->
+
+<div class="container">
+ <div class="card">
+ <img class="card-img" src="https://assetscdn1.paytm.com/images/cinema/Doctor-Strange--In-The-Multiverse-Of-Madness-r-705x750-36f0e140-b752-11ec-a762-319bdb0970f2.jpg" alt="error">
+<h3 class="card-head">Dr Strange</h3>
+<p class="card-rating">Rating:- 4.5</p>
+<button class="card-btn">Book now</button>
+ </div>   
+ <div class="card">
+    <img class="card-img" src=" https://assetscdn1.paytm.com/images/cinema/bb2--705x750-cbc15240-8a94-11ec-8efd-6d205f33f529.jpg" alt="error">
+   <h3 class="card-head">Bhool Bhulaiya2</h3>
+   <p class="card-rating">Rating:- 4.5</p>
+   <button class="card-btn">Book now</button>
+    </div> 
+    <div class="card">
+        <img class="card-img" src="https://assetscdn1.paytm.com/images/cinema/Jayeshbhai-Jordaar---705x750-660c01c0-cf7c-11ec-98b3-41c37f260d1c.jpg
+        " alt="error">
+        <h3 class="card-head">Jayeshbhai Jordaar</h3>
+       <p class="card-rating">Rating:- 4.5</p>
+       <button class="card-btn">Book now</button>
+        </div> 
+</div>
+
+
+<div class="container">
+    <div class="card">
+    <img class="card-img" src="https://assetscdn1.paytm.com/images/cinema/Jurassic-World--Dominion-705x750-b554ee90-cd51-11ec-8d22-2363945d80ef.jpg" alt="error">
+    <img class="card-img" src=" Jurasic World" alt="error">
+    <h3 class="card-head"></h3>
+   <p class="card-rating">Rating:- 4.5</p>
+   <button class="card-btn">Book now</button>
+    </div>   
+    <div class="card">
+       <img class="card-img" src=" https://assetscdn1.paytm.com/images/cinema/KGF-705x750-76008750-b6fd-11ec-9639-8322852eadd4.jpg
+       " alt="error">
+      <h3 class="card-head">KGF2</h3>
+      <p class="card-rating">Rating:- 4.5</p>
+      <button class="card-btn">Book now</button>
+       </div> 
+       <div class="card">
+           <img class="card-img" src="https://assetscdn1.paytm.com/images/cinema/RRR-North-705x750-fd78d9c0-693d-11ec-bbcd-5d122dc4018b.jpg" alt="error">
+          <h3 class="card-head">RRR</h3>
+          <p class="card-rating">Rating:-4.5</p>
+          <button class="card-btn">Book now</button>
+           </div> 
+   </div>
+   
+
+thats all to cover here lets move to todys section (here we learnt how to use  selectors and percentage vs pixels)
+
+
+</body>
+</html>

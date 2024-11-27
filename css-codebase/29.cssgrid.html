@@ -1,0 +1,162 @@
+why grids? 
+u remember flexbox is one dimensional 
+we aplicable to align items in only one direction(either in x or y  axis).
+but css grids is two dimensional   
+it is more like a table we can (use) align in both  rows and coloumns
+there will be multiple coloumns and multiple rows 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css grid</title>
+<style>
+
+.grid{
+    width: 90%;
+    margin: auto;
+    display: grid;
+/* while using flex we were defining height and width  inside the child 
+in grid we dont define any width and height it is grid property to do that we'll know about it later 
+grid is like a table it has there own width and height kind of like that in grid we can give that row and coloumn*/
+/* 
+general:- 
+rows in x (width)
+coloumns in y (height)
+
+but grid does just opposite of this 
+row is coloumn &coloumn is row  on the basis of this >>>
+coloumn>>>>>width 
+row>>>>>>>>height  
+from now we wont define width and height property
+we'll define row and coloumn
+
+grid-template-columns: it takes two thing here 1.width size 2.how many le (copy n tymes);
+*/
+/* grid-template-columns: 200px 200px; */
+/* grid-template-columns: 200px 200px 200px; */
+/* grid-template-columns: 200px 300px 400px; */
+/* rows no depend on how many coloumns *how many child items */
+grid-template-rows: 200px 200px ;
+/* what if we add one row it will not going does'nt do  anything  */
+/* grid-template-rows: 200px 200px 200px ; */
+/* we can set different heights of different rows  */
+/* grid-template-rows: 200px 300px ; */
+
+/* one issue is there in with this properties 
+let say we have 10 coloumns 
+so we have to write the values 10 times 
+and what about nth times
+it is not viable so for that we have something known as 
+repeat (n,xpx);
+(css builtin function -it takes two parameter (how many coloumns,size) ) */
+/* grid-template-columns: repeat(3 ,200px); */
+
+/* what if i want to give 60th coloumn a different width  */
+/* ~if we want to give specific value to specific element  then the manual way is the best way 
+but if you want to same things (repeating) then we should use inbult function */
+
+
+/* if i will not define the height of row then the content's height is going to applied */
+/* repeat works for both row as well as coloumn  */
+/* grid-template-rows: repeat(2,200px); */
+
+
+/* we can also put measurement in terms  of percentage */
+grid-template-columns: repeat(3,25%);
+grid-template-rows: repeat(2,200px );
+
+/* GAP  */
+/* HOW TO GIVE SPACE B/W THE ELEMNETS THAT IS DONE BY SOMETHING KNOWN AS gap: ; */
+/* row-gap: 10px ; */
+/* bw height */
+/* column-gap: 20px ;  */
+/* bw width  */
+
+/* this gap also done in one  */
+/* gap: rowgap px     columngap px; */
+gap: 10px 20px;
+
+
+/* 
+REMEMBER : whenever we working with flex we use justify content for spacing
+         :  and when we working with grid property we use gap properties for  
+            spacing ...
+justify content distributes space ...
+gap creates space like( margin) ..element size changes  */
+
+
+
+/*previously we have to calulate the width  of columns wrt . parent  
+like 100/3  
+grid-template-columns: repeat(3,25%);
+grid-template-columns: repeat(3,1fr);
+the shortcut for that is 1fr  ~autometically going to take 1 fraction of the width wrt parent width 
+ */
+
+/* 
+two things to remember while using with the fr 
+1.  each child div have the same width 
+2.  at the end the child elements should - take the whole width of the parent  
+*/
+/* one thing grid is much powerfulll than flex but we have only use it for complex layouts things -
+such as when we have to make products for a ecom web  
+and use flex for things like a nav bar or easy layouts  */
+
+/* thats all here  */
+ 
+
+}
+ 
+.grid > div {
+
+
+font-size: 30px;
+color:white
+}
+
+.grid > div:nth-child(1){
+
+background-color: red;
+}
+.grid >div:nth-child(2){
+
+    background-color: blue;
+    
+}
+.grid >div:nth-child(3){
+
+    background-color: teal;
+    
+}
+.grid > div:nth-child(4){
+
+    background-color: orange;
+}
+.grid > div:nth-child(5){
+
+    background-color: violet;
+}
+
+.grid > div:nth-child(6){
+
+    background-color: green;
+    
+}
+
+</style>
+
+</head>
+<body>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+
+</body>
+</html>

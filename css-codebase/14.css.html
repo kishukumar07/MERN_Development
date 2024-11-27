@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>DIV IS BLOCK ELEMENT LET MAKE IT INLINE</title>
+</head>
+<body>
+    as you know the div is a block element but lets try to arrange side by side ~
+    put all the div inside one  div and give the parent div style ="display : flex" (in parent only)thats all
+    
+<div style="display: flex;">
+    <!-- jsut created 3div -->
+<div style="height: 50px;width: 50px; background-color: red;font-size: 20px;color: aliceblue;
+margin-right: 5px;margin :auto;  ">1</div>
+
+<div style="height: 50px;width: 50px; background-color: green;font-size: 20px;color: aliceblue;
+margin-right: 5px;margin :auto;  ">2</div>
+<div style="height: 50px;width: 50px; background-color: blue;font-size: 20px;color: aliceblue;
+margin :auto;  ">3</div>
+</div> 
+
+
+
+
+
+<div style="display: flex; margin-top: 60px;">
+    <!-- jsut created 3div -->
+<div style="height: 50px;width: 50px; background-color: red;font-size: 20px;color: aliceblue;
+margin-right: 5px;margin :auto;  ">4</div>
+
+<div style="height: 50px;width: 50px; background-color: green;font-size: 20px;color: aliceblue;
+margin-right: 5px;margin :auto;  ">5</div>
+<div style="height: 50px;width: 50px; background-color: blue;font-size: 20px;color: aliceblue;
+margin :auto;  ">6</div>
+</div>
+
+
+we  wanted to add some gaps bw the div elements so we used margine right 
+
+no what if we want to align the div element to center remember is block element 
+so we can use margin left to manipulate alignment  of div element but if the screen size changes so it is not working
+so MARGIN ALLOWS ME TO one margin auto property (MARGIN AUTO PROPERTY -THIS WOULD APPLY THE SAME MARGIN IN BOTH THE SIDE (LHS AND RHS))
+if it will apply the margin in both side its auto going to be always in center (horizontally
+)
+
+<div>
+    <div style="height: 200px;
+    width: 200px;
+     background-color: green; 
+     /* margin-left:200px ; */
+     margin :auto;  
+     "></div>
+</div>
+
+
+
+let creat 3*3 movie banners 
+first we need to border each div element then its alignment in same line 
+
+<div style="display: flex;">
+    <div style="width: 300px; height: 300px;border: 5px solid red;
+    margin: auto;"> </div>
+     <div style="width: 300px; height: 300px;border: 5px solid red;
+     margin: auto;"> </div> 
+    <div style="width: 300px; height: 300px;border: 5px solid red;
+    margin: auto;"> </div>
+</div>
+  
+then 
+inside each div element we need 
+image element 
+a heading element 
+a para element
+ 
+<div style="display: flex;">
+    <div style="width: 300px; 
+    height: 300px; 
+    border: 1px solid red;
+    margin: auto; padding-bottom: 15px;">
+    <img style="width: 300px;" src="xyz" alt=" put image here ">
+
+    <h3 style="text-align: center;">Doctor Strange-2</h3>
+    <p style="text-align: center;">Rating :- 4.5</p>
+    <!-- <button style="margin :auto;">Book Now</button> --> 
+     <!-- margin auto will only works for block element 
+     but button is not block so we use display block to make it inline  -->
+     <button style="margin : auto; display: block; ">Book Now</button>
+<!-- now this will work -->
+<!-- so there are two steps to centering any inline element margin : auto; display: block; -->
+ we want some space bw the button  and the bottom border  so padding-bottom inside the house 
+ 
+ </div>
+
+ just copied two more time
+     <div style="width: 300px; border: 1px solid red;
+     margin: auto;">
+     </div> 
+    <div style="width: 300px; height: 300px;border: 1px solid red;
+    margin: auto;">
+     </div>
+</div>
+
+<!-- whenever working with images either apply width or the height dont apply both of them -->
+<!-- prefered always to use width of image -->
+  now we never work  apply height of border of house , hight is going to taken by the content (it will auto adjust the height)
+ line 96
+
+
+  till 47:06 sec 
+
+
+
+
+</body>
+</html>

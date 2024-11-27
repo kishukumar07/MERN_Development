@@ -1,0 +1,59 @@
+<!-- LETS SEE SOME APPLICATIONS OF MEDIA QUERI : HOW TO DEAL WITH FLEX AND ALL WITH IT .... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media with flex</title>
+    <style>
+        .cont{
+            width: 80%;
+            background-color: yellow;
+            margin: auto;
+            display: flex;
+         justify-content: space-between;
+        }
+        .cont > div{
+            width: 30%;
+            height: 200px;
+            font-size: 35px;
+            color: white;
+            
+        }
+        .cont >div:nth-child(1){
+            background-color: red;
+        }
+        .cont > div:nth-child(2){
+            background-color: green;
+        }
+        .cont > div:nth-child(3){
+            background-color: blue;
+        }
+        /* when the screen size is decresing they are squezing with each other 
+        whenever it cross less than 600px i want them to come below each other  and take the full width how to do that ?  */
+
+    @media only screen and (max-width: 500px){
+        .cont{
+            flex-direction: column;
+
+        }
+        .cont >div {
+            width: 100%;
+        }
+    }
+
+    /* how to use  this all will come in this evaluation  */
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="cont">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+</body>
+</html>

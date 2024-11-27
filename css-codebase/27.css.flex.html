@@ -1,0 +1,225 @@
+ CSS-Flex  interview perspective 
+
+flex box is one dimensional -we can align divs either in  horizontal manner 
+or in verticall manner  
+
+                         /\
+                          |c
+                          |r
+                          |o
+                          |s
+                          |s
+                <<<< main |     axis>>>
+        <<<<<<<<<  --------------  >>>>>>>>>>>> 
+                          | a
+                          | x
+                          | i
+                          | s
+                          \/
+
+the axis where my div is aligned is my main axis and the other is cross axis
+
+
+
+             ----- FLEX PROPERTY-----
+             |                       |
+1.Parent Properties              2.Child Properties 
+a.flex-direction                  a.order 
+b.flex-warp                       b.flex-grow
+c.justify-content                 c.flex-shrink
+d.align-items                     d.flex-basis 
+e.align-content 
+
+
+these are the buildin Properties that work only with the flex
+if we are applying display flex then only that it will going to work otherwise it doesnot going to work 
+
+
+Flex has two type of Properties
+1.Parent Properties 
+2.child Properties
+
+let assume a dog trainer and their dogs just think about 
+barking of dog is child property  and some of the property is given by the trainer to dog we can say this is parent property 
+..
+..
+..
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-1</title>
+
+<style>
+
+
+.flex {
+    width: 90%; 
+    margin: auto;
+   background-color: yellow ;
+   display: flex;
+   /* the first parent property is Flex-Direction  */
+
+   /* >>>> */
+   flex-direction: row;
+   /* >>>> */
+
+    /* at this time the main is at x asis */
+   /* this will not make any change because the default :row */
+/* flex-direction: column; */
+      /* you can see the divs are now align in the coloumns under container*/
+        /* at this time the main is at  y axis */
+          /* similarly as row, we have row-reverse  */
+
+/* >>>> */
+    /* flex-direction: row-reverse; */
+/* >>>> */
+
+    /* similarly we have coloumn reverse */
+
+
+ /* >>>> */
+/* flex-direction: column-reverse; */
+/* >>>> */
+
+
+/* we covered flex-direction  till now ,lets cover more properties*/
+
+
+
+
+
+
+
+/* if we want to put some space bw the child divs we were putting margin:auto(it is  child property ) 
+to child */
+
+/* margin: auto; */
+
+
+/* now we can see with the help of margin auto we have space in bw the 
+elements ; the margin auto is adding the same space at the left side and 
+the right side of the element and this leads to unbalance of spacing bw the 
+element and at the both edegs of the the big container */
+/* 
+[XelementXXelementXXelementXXelementX]
+you can see x represents the space applied with margin auto property 
+ */
+/* and for that one we have oen parent property called justify-content: ;  */
+
+
+/* >>>> */
+/* justify-content: space-between; */
+/* >>>>> */
+
+
+
+/* [elementXXelementXXelementXXelement] */
+/* justify-content:  will remove the left and right edeg content ; */
+
+
+/* now if the child width is 25% do you think any space would be there  */
+
+/* width: 25%; of child */
+/* you can see no space is there ~what is the reason why no space is there 
+
+lets  parent has 1000px and inside this there are 4 divs and each has 230px 
+so it will take 920 px and there is 80px remaining  will be distributed bw the elements by using justify-content property
+:Now rather than 230px if each has 250px so there is no space left in the parent to distribute them 
+so that is the reason 
+CONCLUSION: IF THERE IS NO ANY SPACE LEFT  JUSTIFY-CONTENT WILL GOING TO DO NOTHING  
+thats how justyfy content property works 
+*/
+
+/* similarly we have justify-content: space-around; */
+
+/* >>>> */
+justify-content: space-around;
+/* >>>>> */
+/* so justify-content: space-around; just works as margin auto */
+  /* [XelementXXelementXXelementXXelementX] */
+
+/* similarly we have one more justify-content: space-evenly; */
+/* justify-content: space-evenly; */
+/* this will distribute space evenly 
+[x----x----x---x ]
+*/
+
+
+/* 
+we have seen different values of justify-content: ;
+1.space-evenly
+2space-around = mrgin auto
+3.space-between
+4.centre 
+it has one value like center it will give space to the corners only 
+[x------x]
+5.flex-start
+(default)
+all the divs are at the start of the element 
+[-----X]
+6.flex-end
+[x-----]
+
+NOTE :THE DEFAULT VALUE OF THE JUSTIFY CONTENT IS FLEX-START BCS THE RESULT REMAIN SAME IF WE DONT USE THE PROPERTY BEFORE !!
+*/
+/* justify-content: flex-start; */
+
+
+/* THATS ALL WE COVERED justify-content */
+
+
+
+
+}
+
+
+
+
+
+
+.flex > div{
+width: 23%;
+height: 100px;
+
+
+}
+
+.flex >div:nth-child(1)  {
+    background-color: red;
+}
+.flex >div:nth-child(2)  {
+    background-color: green;
+}
+
+.flex >div:nth-child(3)  {
+    background-color: magenta;
+} 
+
+.flex > div:nth-child(4)  {
+    background-color: orange;
+}
+
+
+
+
+
+
+
+</style>
+
+ </head>
+ <body>
+    
+    <div class="flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+ </body>
+ </html>

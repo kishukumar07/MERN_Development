@@ -1,0 +1,104 @@
+Now lets see about General sibling (~) and adjacent sibling selector(+) what are these two things
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>General sibling selector</title>
+    <style>
+        /* using general sibling selector */
+        .heading ~ h1 {
+            color: red;
+        }
+
+        /* using adjecent sibling selector  */
+        .border + h1 {
+            background-color: aqua;
+        }
+
+        /* first it will go to the heading and find which element is just right after that elemnet if it is not same as combinator tag then it will not going to work */
+    </style>
+
+</head>
+
+<body>
+    <img src="./Screenshot 2024-09-23 132719.png" alt="amitab generation.png">
+
+    <!-- what is the meaning sibling can i say brother or sister 
+   always remember - sibling mean they should have the same parent  -->
+<!-- 
+    lets take a container div and inside container div 4 more heading element
+    taking one more div and inside this one heading element
+
+
+    How many decendant does this container have =>5 (div is also a decendant but we are counting only h elements)
+    How many child h1 element does this container have =4
+    How many sibling does this heading one has => it has 3 siblings(itself will not counted as sibling &also heading-5
+    will not counted bcs his parent is different )
+
+
+
+
+    _____NOW lets apply the general selector (~)
+
+    defining a general sibling seletor to apply style in all siblings except the one you give the general sibling
+    selector
+    why ? this happens bcs we are calculating siblings of that tag not that itself
+
+
+
+    if we put heading 4 after the heading 5 will it adapt the sibling styling >? ----yes
+    if we put heading 4 before the heading 1 will it adapt the sibling styling >? ----NO
+    why this happens ?
+    ==>> first the css will try to find the heading you gave to sibling selector not it will try to find all the
+    siblings after it (that all the sibling after will be selected )
+
+
+
+
+    using adjecent sibling selectors this will select the sibling only right after that ..
+ -->
+
+
+    <!-- using sibling selector -->
+
+    <div class="container">
+        <h1> Heading-4</h1>
+        <h1 class="heading">Heading-1 </h1>
+
+        <!-- using adjecent sibling selector  in heading2 to select heading-3 -->
+
+
+        <h1 class="border"> Heading-2</h1>
+
+        <!-- <p>para just after the heading 2 if just after heading 2 there is no sibling it will not 
+        going to find next
+    </p> -->
+
+        <h1> Heading-3</h1>
+        <!-- <h1> Heading-4</h1> -->
+
+        <div>
+            <h1>Heading-5</h1>
+        </div>
+        <!-- <h1> Heading-4</h1> -->
+    </div>
+    <!-- 
+Sibling-1, Sibling-2, you
+Sibling-3(adjecent sibling selector )(sibling selector ) ,sibling-4(sibling selector )
+ -->
+
+
+
+
+
+
+
+
+</body>
+
+</html>

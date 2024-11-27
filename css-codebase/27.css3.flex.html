@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-properties_(grow &shrink)</title>
+     
+<style>
+    .container{
+        width: 90%;
+        margin: auto;
+        background-color: yellow;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+
+
+    .container >div {
+ width : 23%; 
+color: white;
+font-size: 25px;
+height: 100px;
+
+    }
+   
+    /* Now we have both flex grow and flex shrink ..
+lets understand first 
+
+ratios 
+can you tell me what are the things you might put in the juice
+Juice --> sugar /water /fruit
+           2       5      1
+2:5:1
+1:1:1=5:5:5 both are the same thing */
+
+/* 
+space remaining 1000px -> 230px *4 ->
+920px -> 80px 
+*/
+
+
+ 
+    .container >div:nth-child(1){
+        background-color: rebeccapurple;
+        flex-grow: 1;  /*it divides spacing in ratios
+        /* you can see with flex-grow: 1; the width of this child is changing  
+        the remaining 80px is added to the 230px of this child div*/
+  /* whatever is the remaining/extra space is going to added with the width of the child div */
+    }
+    .container >div:nth-child(2){
+        background-color:aqua ;
+    /* currently it is growing bydefault 0  */
+flex-grow: 2;
+    }
+    .container >div:nth-child(3){
+        background-color: sienna;  
+            /* currently it is growing bydefault 0  */
+    }
+    .container >div:nth-child(4){
+        background-color:purple;
+            /* currently it is growing bydefault 0  */
+    }
+/* currently the ratio is 
+                         1:2:0:0 */ 
+ /* in this case the extra space is distributed accordingly to the ratios */
+/* IF YOU USE JUSTIFY CONTENT SO FLEX-GROW IS NOT APLICABLE HERE (can use either one of them) */
+/* even if you use both the flex-grow is going to work  */
+
+/* lets put same value in all of them  */
+/* 1:1:1:1 -->> this distributes the space equally */
+
+/* thats all we have to cover in the flex-grow  */
+
+
+</style>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    
+
+
+    
+</body>
+</html>
+ 

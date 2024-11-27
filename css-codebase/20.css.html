@@ -1,0 +1,54 @@
+                      SCORES OF VARIOUS SELECTORS
+                      SELECTOR NAME        SCORES
+  Inline(direct with select tag)             1000
+                         id                 100
+                     Class                  10
+                       Tag                  1
+                       Universal            0 
+if the value  is conflicting then the score value is getting checked  
+whichever has the higher score values that css will be applied
+if there are condn where both have same score value then the last one is applied 
+
+ 
+whenever we are working with the css we need to care of these things
+1. if any of the values are conflicting or not 
+2. what are the selector has been used like tag class class 
+3. write down the scores of ALL
+4. find the higer score value 
+5. which one comes later if the score value is same 
+forthis try practical 
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>conflicting the value</title>
+  <style>
+    
+  h1{
+color: red;
+    height :  5px;
+  }
+    .clr{
+      color: aqua;
+    }
+    #pas
+    {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="clr">Heading-1</h1>
+  <h1 class="clr">Heading-2</h1>
+  <h1>Heading-3</h1>
+  <h1 id="pas">Heading-4</h1>
+  <h1>Heading-5</h1>
+</body>
+</html>
+<!-- just we have to know a more little bit about selectors --> 
+    lets build a movie website with selectors we already done in previous casses
+    
+
+
+

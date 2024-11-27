@@ -1,0 +1,116 @@
+<!-- ui ux designer will give you the value  -->
+
+<!-- NAVBAR  - user can visit any page  througt the NAVBAR -->
+
+<!-- so in todays assignment we have to creat the div along with navbar  -->
+ <!-- you can see file Scssflexproperty  -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>nav</title>
+
+    <style>
+
+body{
+ /* removing default margine and padding of the body   */
+   margin: 0px;
+   padding: 0px;
+}
+.nav{
+   height: 80px;
+   width: 100%; 
+   background-color: #40415b;
+   display: flex;
+   justify-content: space-between; 
+   /* this will add space bw the masai and the  div  */
+   padding-left: 15px;
+   padding-right: 15px;
+   /* you can see even we applied the padding is not not working bcs  */
+   /* 100%+30px */
+   box-sizing: border-box;
+   /* doesnot increase the width when you apply the padding: ; */
+/* now padding is working  */
+
+}
+.nav > div{
+   width: 20%;
+   /* border: 2px solid red; */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  /* align-items: works for the y cross axis; */
+  margin-bottom: 20px;
+}
+
+.nav > div > a{
+   color:  white;
+   font-size: 20px;
+   /* bydefault hyper-text is underlined */
+   text-decoration: none;
+   /* now underlines are gone */
+
+}
+
+
+
+.gallary{
+   display: flex;
+   width:80%;
+margin:auto;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+
+/* 100%/3 in one line  */
+.gallery img{
+width: 30%;
+border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+   </head>
+ <body>
+
+
+<div class="nav">
+
+<h1>masai</h1>
+<div> 
+   <a href="">HOME</a>
+   <a href="">GALLERY</a>
+   <a href="">ABOUT</a>
+</div>
+
+</div>
+
+
+<div class="gallery">
+
+<img src="" alt="put img">
+<img src="" alt="put img">
+<img src="" alt="put img">
+<img src="" alt="put img">
+<img src="" alt="put img">
+<img src="" alt="put img">
+
+</div>
+
+
+ </body>
+ </html>
+  

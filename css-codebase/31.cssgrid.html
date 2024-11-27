@@ -1,0 +1,108 @@
+LAST THING REMAINING SOMETHING KNOWN AS  
+GRID-AREA
+what is this 
+this is something like line based placement but what it allows us to 
+align many boxes like building toy puzzle
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid-3</title>
+  
+<style>
+   .grid{
+  width: 90%;
+margin: auto;
+  display: grid;
+
+grid-template-columns: repeat(3 ,200px);
+grid-auto-rows: 200px; 
+gap: 10px 20px;
+
+/* grid-area depends on name so  */
+ 
+grid-template-areas: 
+"box1 box2 box7"
+"box4 box5 box6"
+"box3 box8 box9" ;
+/* if we swaping the name of box the actual box is going to swaped */
+
+/* here how we defined the name of boxes  now we have to tell that this is the box one this is the box2 and all..  */
+/* here you have to define layout in the parent and  you can order the alignment just with swaping the name  */
+
+
+/* you can use this logic for booking sit in website like book my show */
+/* the layout always should be in rectangle or squire format */
+/* if you do something wrong it will break everything  */
+/* adviceable go and use line alignment   */
+
+    }
+
+
+
+.grid > div{
+    font-size: 30px;
+    color: white;
+    border: 3px solid black;
+  
+   
+   
+ }
+.grid > div:nth-child(1){
+background-color: brown;
+grid-area: box1;
+ /* we are telling that this is box 1 */
+}
+.grid > div:nth-child(2){
+    background-color: pink;
+    grid-area: box2;
+}.grid > div:nth-child(3){
+    background-color:red;
+    grid-area: box3;
+}.grid > div:nth-child(4){
+    background-color: green;
+    grid-area: box4;
+}.grid > div:nth-child(5){
+    background-color:yellow ;
+    grid-area: box5;
+}.grid > div:nth-child(6){
+ background-color: blue; 
+ grid-area: box6;  
+}.grid > div:nth-child(7){
+    background-color: maroon;
+    grid-area: box7;
+}.grid > div:nth-child(8){
+    background-color: teal;
+    grid-area: box8;
+}.grid > div:nth-child(9){
+    background-color: violet;
+    grid-area: box9;
+}
+
+
+</style>
+    
+</head>
+<body>
+    <body>
+ 
+        <div class="grid">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+    
+    
+    
+</body>
+</html>

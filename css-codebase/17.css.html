@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>selectors </title>
+    the tag selector is oky to apply same style in all botton but what if we want to apply style A for 3 button and Style B for next two button (let make buttons naming 3 indian and 2 outer player inside html body element )
+
+
+ using class selector for colouring the indian and outer buttons
+for indian
+<style>
+    /* defining one class for indian buttons  */
+.indian{
+color: orange; 
+}
+/* <!-- defining class for non indian  --> */
+
+.outer{
+    color: blue;
+}
+/* now we have to give the button their classes */
+/* THATS HOW CLASS SELECTER WORKS 
+    YOU DEFINE THE CLASS ONLY ONCE GIVING CLASS ATTRIBUTE YOU CAN APPLY STYLE TO THE ELEMENT  */
+    /* what if we remove dots in front of the class - it will going to find that exact tag name like class name - indian but it not found such tags so we have to use dots telling that find 
+    the  class name not tag */
+
+</style>
+    
+
+/* 
+THATS ALL WE HAD IN A CLASS SELECTOR  */
+
+
+
+</head>
+<body>
+      <!-- lets give the indian button- blue colour -->
+<button class="indian">Dhoni</button>
+<button class="indian">Raina</button>
+<button class="indian">Jadega</button>
+   <!-- orange -->
+<button class="outer">Adam Milne</button>
+ <button class="outer">Chris Jordon</button>
+
+
+</body>
+</html>

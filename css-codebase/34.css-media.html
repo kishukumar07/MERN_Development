@@ -1,0 +1,82 @@
+SCORES OF VARIOUS SELECTORS
+SELECTOR NAME        SCORES
+ Inline               1000
+   id                 100
+Class                  10
+ Tag                  1
+ Universal            0 
+ as previously we saw this ,there is one more 
+ table Known as specificity
+
+Scores of various selectors
+  
+         SPECIFICITY
+         SELECTOR NAME                       SCORES
+         Inline                              1000
+           id                                100
+    Class ,attribute,                        10
+         Tag  ,pseudoelement                 1
+         Universal ,combinators(+,>,~)          0 
+
+
+         <!DOCTYPE html>
+         <html lang="en">
+         <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cs-media</title>
+         
+        <style>
+            /* we saw  in previous section how to deal with scores if selectors were conflicting now we will see what if the combinators will conflicted ~we need to count the specificity   */
+            /* class(10) + space~decendentsel..(0) + tag(1) =total score(11) */
+            .cont h1{
+                colour : red;
+            }    
+
+
+            /* score 1+0+1 =2 */
+            div h1{
+                color: blue;
+            }
+            /* score 1 */
+            h1{
+                color: green;
+            }
+             /* obviously 11 is the highest value so it is selector*/
+            
+            
+            #btn{
+                /* specificity 100 */
+                background-color: red;
+            }
+            /* lets creat hover effect with hover pseudo class */
+            button:hover{
+                /* tag(1)+pseudo-class(10)=11 thats why it will not work */
+                background-color: blue;
+            }
+            #btn:hover{
+                /* id(100)+pseudo-class(10)=110 this will work  */
+                background-color: green;
+            }
+ /* NOTE: in css whenever you want to hover write the things whenever you want to change the things 
+ that has already be given it always comes downs to specificity  
+ you have to take in count of this thing */
+ /* whenever using hover it suggested to use same type of selector  */
+            </style>
+        
+        
+        
+        </head>
+         <body>
+           <div class="cont">
+            <h1>hello</h1>
+            <h1>hello-2</h1>
+            <h1>hello-3</h1>
+           </div>
+
+ <!-- lets creat a button and give it a id selector  -->
+  <button id="btn">BTN</button>
+
+
+         </body>
+         </html>
