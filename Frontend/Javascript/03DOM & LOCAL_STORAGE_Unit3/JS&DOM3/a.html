@@ -1,0 +1,96 @@
+<!-- we have learnt about 
+catching html elements (id , class ,tag , combinator)
+changing the text of any element 
+Events -> attribute, addEventListners
+alert
+taking value from inputs
+changing styles
+ -->
+
+<!-- now we are going to learn
+ 1. changing attribute &
+ 2. Creating any html El with dom
+today  -->
+
+<!-- in website like disnip Hotstar there is sliding image interface linked to button 
+  -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      img{
+         width: 100px;
+      }
+    </style>
+ </head>
+ <body>
+    <!-- if you have to change the image of image tag the src attribute is responsible for this  -->
+    <img src="" alt="">
+ <!-- now let creat two button  -->
+  <button id="next">></button>
+  <button id="Prev"><</button>
+  
+</body>
+<script>
+    //  now we going to catch those two buttons using js 
+let nextBtn = document.getElementById("next"); 
+let prevBtn = document.querySelector("#prev"); 
+// now lets catch the image 
+let imageEl = document.querySelector("img"); 
+
+
+
+// let creat a array of images and put  all the links of the images inside it
+let imageArr = [
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/screencapture-127-0-0-1-5500-index-html-2022-12-22-09_51_50_882696.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%209.57.25%20AM_947533.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-30/Screenshot%202022-12-30%20at%204.28.18%20PM_568815.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%2010.01.20%20AM_739350.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%2010.03.39%20AM_152854.png",
+    ];
+    let imgIndex=0; 
+    // (by default we are showing the first image ie... imageArr[0]  ~we have to show the 0th image of the array .setAttribute  is the builtin function we have to pass the name of the attribute here , value )
+
+
+imageEl.setAttribute("src",imageArr[imgIndex]); //bydefault 
+
+// here we are adding events with each buttons
+
+prevBtn.addEventListener("click" , function(){
+
+   // whenever i click on this button !~ index should be --
+imgIndex--;
+// now lets update the src of the img  
+imageEl.setAttribute("src",imageArr[imgIndex]);
+//  there is one problem what if the index is 0 now andd we are clicking the previous button  the 
+//  index is going to become -1 but we have to do a conditional check 
+if(imgIndex ===-1)
+{
+   imgIndex=imageArr.length-1; 
+}
+}); 
+
+
+nextBtn.addEventListener("click" , function(){
+// whenever i click on this button !~ index should be ++
+imgIndex++; 
+// now lets update the src of the img 
+imageEl.setAttribute("src",imageArr[imgIndex]);
+
+if(imgIndex ===imageArr.length)//more than the index
+{
+   imgIndex=0; 
+}
+
+
+});
+
+</script>
+ </html>
+
+
+
+<!-- here we have two ques. what is .setattributedoes? and what parameters it takes -->

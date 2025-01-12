@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document-object model-2</title>
+</head>
+<body>
+     <!-- how can i catch element with other thing we learnt how to catch element with  id  -->
+      <div class="cont">
+        <h1 class="head">Heading-1</h1>
+        <h1 class="head">Heading2</h1>
+        <h1 class="head">Heading3</h1>
+      </div>
+</body>
+<script>
+ // getElementsByid(here we pass id) ~id is used for single so we were catching a single element but
+    let headings =document.getElementsByTagName("h1"); //here we have catching by tag name and that is plural so we can catch multiple element (here we have to pass all the different tags(tag_name))
+//    lets check what we caught with the getElementsByTagName("h1")
+// console.log(headings); //all heading tag is printed in object format
+ 
+
+//  if i want to store 3 names what is the best way ~ Array (same types of value)
+//  but what if i have to store a name and age(no) ~objects(different types of value) 
+//  Thats why the console will give all headings(whatever tags we caught with .getElementsByTagName(tag) ) in array format  
+
+
+ 
+// here we have to run loop  to catch inner things as previously we were used .innerText or .value for acessing the text of elements
+
+for(let i=0; i<headings.length; i++){
+    console.log(headings[i].innerText); 
+}
+//we can also use for each and map hof in place of for loop 
+// lets catch headings with the class which is given to each heading element
+
+let heading2 = documentElementByClassName("head"); 
+//here we have to provide the name of the class as parameter
+// console.log(heading2); lets check
+
+// and same here also we have to run loop if we want to print all the text withing the headings 
+
+for(let i=0; i<heading2.length; i++){
+    console.log(heading2[i].innerText); 
+}
+
+// so every thing cleared how to catch element with id, tagname and classname (id ,tag ,class selector done )
+
+
+// NOW WE WE LEARN HOW TO  CATCH ElemenTS WTIH COMBINATOR SELECTORS
+//in html css can we use the child selector or decendent (both) for selecting all the h1 element inside div .cont >h1 /.cont h1 
+// Same thing we use for js also like..
+// .querySelectorAll(here you have to give the combinator) note whenever we are using the query Selector we must use css symbols of selectors ./#/* bfr class or bfr id (for defining whatever css combinators we define query selector~here we can apply all the css selecting rules ); 
+let headings3 =doucument.querySelectorAll(".cont >h1");  //this will catch only child  
+let heading4 =doucument.querySelectorAll("h1"); //this will catch all the heading tag universally  
+console.log(headings3);  //array
+
+
+// we have one small thing:- which is HEADING SINGLE
+//  this is bcs querryselector will catch all the elements the que is how to select all the element that is done by justt .querryselector
+
+let headingsingle =document.querySelector(".cont >h1") ; //this will catch only 1stheading
+// here you can pass all the css catching combinators but this will only going to catch the first element of the entire elements 
+console.log(headingsingle); //lets check  ~we can see that only heading 1 is printed in the console pannel
+
+ 
+
+
+</script>
+</html>
+
+
+
+
+
+
+RECAP:-
+THE FIRST THING :how to catch element by tag 
+what is the difference b/w getElementByTagName("xyzz") and 
+getElementByClassName("") is 
+ by tag is singular and by class is plural 
+
+NExt thing is : headings should be stored in array format so whenever we have to acess any element  we have to use loops.
+
+Next thingg catching the element with the classname 
+
+
+the next thing is catching the elements with combinators 
+there  are meathods querySelectorall to catch all the elemtnt   it is stored in the array format .so we need to run loop for acessing elements
+NOTE we have to use the combinator symbol before 
+
+
+
+what is the difference b/w the querySelector(its going to catch only one and first element ) and querySelectorAll(it is going to catch all the element )

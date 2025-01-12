@@ -1,0 +1,111 @@
+<!-- TODAY - BEFORE WE DIVE INTO ANYTHING LETS US FIRST UNDERSTAND a different way of fetching data ..
+
+1.the previous method
+
+const APIURL ="";
+let fetchedData=[];
+fetch(APIURL)
+.then((response)=>{
+return response.json(); //asyncronous behaviour
+})
+.then((data)=>{
+console.log(data);
+fetchedData = data;
+} )
+.catch((err)=>{
+console.log(err);
+})
+// Display(fetchedData);
+
+/*
+this will run first and it will show nothing TO THE TABLE bcs the upper code is asyncronous so UPTILL NOW fetchedData
+will not have data ITS'EMPTY ARRAY & bcs it will run firstly .. IT WILL DISPLAY NOTHING
+after that the asyncronous code will run
+THIS CREATES CONFUSION SOMETIME SO WE HAVE ONE MORE WAY TO FETCH THE DATA ....OF APIURL(I CAN SAY I HAVE ONE MORE WAY OF
+RSOLVING THE PROMISE ).
+AND FOR THIS NEW WAY WE MUST HAVE TO CREAT A FUNCTION .....AND BFR THE FUNCTION WE MUST HAVE TO USE THE KEYWORD 'async'
+THAT TELLS THIS FUNCTION IS asyncronous FROM NOW OWNWARDS...
+*/
+
+async function FetchData(){
+
+try{ 
+    //now we have to resolve the promise
+let res = await fetch(APIURL); //~is equivalent to =>>>> .then(response) whatever we get there
+//now rather than using .then(parameter) syntax we have to use one keyword 'await' and store it in a variable (the variable will be whatever is going to return after the fetching the APIURL/ this await keyword is bassically going to reslove the promise & using this 'await' keyword we are converting asyncronous to a kind of syncronous )
+// console.log(res);
+
+//TILL HERE ONLY ONE PROMISE HAS BEEN RESOLVED I HAVE TO resolve ANOTHER ONE AS IN previous METHOD SO ..
+let data = await res.json();
+console.log(data);
+//u have to use async keyword to the function to use await without async it will give error
+
+// using try-catch for catching errors (all the fetching part will go inside try block and error part in catch ) : syntax:-   try{ }catch(err){ }
+
+}catch(err){ 
+     console.log(err); 
+}
+
+}
+
+
+
+
+
+//the DISPLAY function 
+
+function Display(data){
+    tbodyEl.innerHTML =null ; //without this nothig works it gonna append
+    data.forEach((element)=> {
+   let tr =document.createElement("tr"); 
+  
+   let td1= document.createElement("td"); 
+   let td2= document.createElement("td"); 
+   let td3= document.createElement("td"); 
+   let td4= document.createElement("td"); 
+   
+   td1.innerText = element.userId; 
+   td2.innerText = element.id; 
+   td3.innerText = element.title; 
+   td4.innerText = element.completed; 
+
+   tr.append(td1,td2,td3,td4); 
+   tbodyEl.append(tr); 
+    })
+
+} -->
+     
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    async function FetchData(){
+
+try{ 
+    //now we have to resolve the promise
+let res = await fetch(APIURL); //~is equivalent to =>>>> .then(response) whatever we get there
+//now rather than using .then(parameter) syntax we have to use one keyword 'await' and store it in a variable (the variable will be whatever is going to return after the fetching the APIURL/ this await keyword is bassically going to reslove the promise & using this 'await' keyword we are converting asyncronous to a kind of syncronous )
+// console.log(res);
+
+//TILL HERE ONLY ONE PROMISE HAS BEEN RESOLVED I HAVE TO resolve ANOTHER ONE AS IN previous METHOD SO ..
+let data = await res.json();
+console.log(data);
+//u have to use async keyword to the function to use await without async it will give error
+
+// using try-catch for catching errors (all the fetching part will go inside try block and error part in catch ) : syntax:-   try{ }catch(err){ }
+
+}catch(err){ 
+     console.log(err); 
+}
+
+}
+console.log(data); 
+</script>
+</html>

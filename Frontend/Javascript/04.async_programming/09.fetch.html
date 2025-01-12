@@ -1,0 +1,63 @@
+<!-- Going start with FETCH-->
+<!-- use -to get the data from the backend or the server  -->
+
+API- IS A BRIDGE B/W THE CLIENT AND SERVER 
+?dom is also an api 
+the type of api we are going to learn is rest" API" -it is the work of the backend developer to develope this api 
+
+In the internet we have many open- free source "API".. (json placeholder api -one of the most popular api ) 
+there many api are present !! we are going to use them 
+"https://jsonplaceholder.typicode.com/"
+
+*after fetching the url in new tab -you will see the json (stringifyed) format (that's mean whenever we get the data we are getting it in json format/stringifyed) 
+*api is like url :  jsonplaceholder.typicode.com/users
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    
+
+</body>
+
+
+<script>
+const APIURL ='https://jsonplaceholder.typicode.com/users'; //we have now our API now we'll learn how to get data from the API in our code _      THE METHOD NAME IS FETCH ITS A FUNCTION IT TAKES API AS PARAMETER
+
+fetch(APIURL) //it IS JUST A FUNCTION : returns the new promise 
+// let data =fetch(APIURL) //it returns the new promise 
+// console.log(data); (by default promises are asyncronous so writing code directly after it willnot going to work  ) so we have to write 
+.then((response)=>{  //.this is THE WAY OF RESOLVING THE PROMISE 
+// console.log(response);  //THIS WILL PRINT RESPONSE OBJECT  -- A LOT OF STUF ALSO HAVING BODY:READABLESTREAM (SMALLER PACKETS_DATA IS COMMING LITTLE BY LITTLE ->THIS WILL TAKE A LOT OF TIME SO WHENEVER IT TAKES LOT OF TIME WE USE PROMISE THERE ) ..I CANT USE DIRECTLY SO I HAVE TO GET AND CONVERT IT INTO ARRAY OR OBJECT FORMAT ..SO WE CAN USE 
+return response.json(); // THIS ALSO RETURN A PROMISE _SO THIS IS promise chaining 
+//why this is called as json format~reason? read backend line  50 
+})
+.this ((data)=>{ //.this is the way for resolving the promise 
+console.log(data); //if all resolved i will get my actual data 
+})
+.catch((err)=>{  //.catch just only one time 
+console.log("error happened!"); 
+console.log(err); 
+})
+//first promise  is for resquest and 2nd promise we have to convert the readable stream to our required format 
+
+
+//0-1 in internet data travel in either 0 or 1,can i directly convert a program into 0 and 1 ? 
+// (array and object _they directly do donot getting converted in 0s and 1s so we have to convert it into json format (string )and this can be easily converted into 0s and 1s )
+//BACKEND- > ARRAY,OBJECT -> JSON ->0,1->READABLESTREAM (PACKET) ~WE GET->JSON->array,object 
+
+
+
+
+</script>
+</html>
+
+
+
+

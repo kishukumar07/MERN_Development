@@ -1,0 +1,23 @@
+<!--Write a function named waitPromise that accepts time in ms and returns a promise .The promise should get resolved after given time-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WE -> Timer Promise</title>
+  </head>
+  <body></body>
+  <script>
+    function WaitPromise(ms) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+
+    WaitPromise(3000);
+    WaitPromise(12000);
+  </script>
+</html>

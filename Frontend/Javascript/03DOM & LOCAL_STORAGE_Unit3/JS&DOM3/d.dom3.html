@@ -1,0 +1,33 @@
+<!-- // thats how we created tags within a loop `for this we must have array  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div id="cont"></div>
+</body>
+<script>
+  let arr =["Heading-1"  , "heading-2", " Heading-3", "Heading-4", "Heading-5"];
+  // for each element we want to creat a h1 tag and append it in #contd
+  
+  // we need to take a reference of the div so that we can append in it further-- 
+   let cont =document.getElementById("cont"); 
+
+  //  we need to run loop 
+
+  for(let i=0; i<arr.length; i++){
+       let heading =document.createElement("h1");//creating the heading element  
+       heading.innerText= arr[i]; //assigining the arr[i] to the heading inner text  
+       cont.append(heading);  //appending the heading to the div reference 
+  }
+
+  // thats how we created tags within a loop `for this we must have array 
+  // you can see for all products at amazon 
+  
+
+
+</script>
+</html>   

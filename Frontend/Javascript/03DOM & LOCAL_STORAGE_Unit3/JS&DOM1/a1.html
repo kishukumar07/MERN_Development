@@ -1,0 +1,33 @@
+<!-- small task  -->
+ <!-- <h1>0</h1>
+ <button>+</button>
+ <button>-</button>
+ do it  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-1</title>
+</head>
+<body>
+    <h1 id="counter">0</h1>
+    <button onclick="inc();">+</button>
+    <button onclick="dec();">-</button>
+</body>
+<script>
+  let counterEl= document.getElementById("counter");
+
+    function inc(){
+   let currentCounter = Number(counterEl.innerText);
+   currentCounter++;  
+   counterEl.innerText=currentCounter; 
+    }
+   
+    function dec(){
+        let currentCounter = Number(counterEl.innerText);
+   currentCounter--;  
+   counterEl.innerText=currentCounter; 
+    }
+</script>
+</html>

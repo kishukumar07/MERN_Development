@@ -1,0 +1,94 @@
+            <!-- TODAY --PROMISES --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+</body>
+<script>
+ /*Frontend ,backend 
+  1.user computer (clint/frontend) 2.facebook's computer(server /backend)
+first we'll learn the concept and tommorow class will hold the usecase of it 
+you remember the pizza sinarios*/
+
+/*
+This is the code for fetching data from backend 
+and fething data takes 2s 
+
+setTimeout(function(){
+if(console.log(Math.floor(Math.random()*10)) % 2 !=0 ){
+    //odd (Promise Sucessful)
+
+}
+else{
+    //Even (Promise Rejected)
+
+}
+},2000); //2sec
+*/
+
+// Now lets understand the Promise syntax 
+
+let promise = new Promise(function(resolve , reject){
+let x=false; 
+    //Code for fetching data from backend   
+setTimeout(function(){
+// if(console.log(Math.floor(Math.random()*10)) % 2!=0 )
+if(x==true) 
+{
+    //odd (Promise Sucessful)
+resolve(); 
+}
+else{
+    //Even (Promise Rejected)
+reject(); 
+}
+},2000); 
+
+}); 
+//1.Getting data takes a lot of time -> setTimeOut 
+//2.Getting data can be sucessful/unsucessfull as well->> Math.random 
+
+console.log(promise); 
+//you can check by default the status is pending -asked in interiew 
+//NOTE: using Promise  leads for asyncronous behaviour in js
+
+// if you dont call the resolve(); and reject();~ (functions as parameter) the status will be pending.
+// there are three status does a promise have(pending ,fulfilled, rejected)
+
+/*you can use any variable name in place of -resolve and reject (the ordering matters~ just like forEach the first parameter is the element and the 2nd is index) 
+let arr=[1,2,3,4]; 
+arr.forEach((el,i) => { 
+    console.log(el)
+}) ; 
+*/
+console.log("ok");
+
+//There is more about Promise
+
+promise 
+.then ((abc)=>{
+    console.log("Promise Sucessful"); //.then is running if the promise is resolved
+    // console.log(abc); //undefined 
+}) //you cant use semicolon here  (like if condn )
+.catch((error)=>{
+console.warn("Promise unsucessful");
+// console.log(error); //undefined
+//.catch is for rejected promise(looks like error)
+}); 
+
+//the type of promise is object 
+// console.log(typeof(promise)); 
+
+//  WE HAEVE COMPLETED THE BASIC PART OF PROMISES 
+//Lets move ahead ... 
+
+  
+
+</script>
+
+
+</html>

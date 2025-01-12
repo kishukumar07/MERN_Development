@@ -1,0 +1,45 @@
+<!-- let learn some_thing JSON -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body></body>
+<!-- //JSON -> JAVA script Object Notation  -->
+<!-- when we concatinate a string with other data  the result is always string-->
+<script>
+    const obj ={
+     name: "sourabh", 
+     age : 23,
+}; 
+// localStorage.setItem("data",obj);
+ //we are storing the obj in local storage but this obj will auto be converted in the string nd concatinated check the output in application pannel  
+//  console.log((localStorage.getItem("data")));//[object object]~string
+console.log(obj); 
+console.log(JSON.stringify(obj)); 
+//this two lines will make you clear what is the difference b\w JSON.stringifyed version 
+// ~above at the local storage  there not storing the real object theres we storing the cocatinated obj [obj,obj]  , so we need to use strigy fyed version to store there
+localStorage.setItem("data",JSON.stringify(obj));// this is the correct way for storing obj in local  whenever we are working with local storage ~by converting it into json format  if we didnt do it we are not able to get our data back from [obj obj]
+
+// NOW we'll try to take the data from local storage 
+
+// let ls =localStorage.getItem("data"); 
+// console.log(ls); 
+//this will hold a string version(Json) of the object stored in the local storage 
+// so we have to convert the local storagedata into local format 
+let ls =JSON.parse(localStorage.getItem("data"));//this can be done using JSON.parse 
+console.log(ls); 
+
+
+
+// JSON(works for array and string both ) HAVE HOW MANY PROPERTIES ? TWO  
+// 1.stringify - USE OF JSON.stringify IS TO CONVERT THE DATA(OBJ) INTO JSON
+// 2.PARSE - USE OF JSON.PARSE IS TO CONVERT THE JSON TO DATA(OBJ) 
+
+
+
+
+</script>
+</html>

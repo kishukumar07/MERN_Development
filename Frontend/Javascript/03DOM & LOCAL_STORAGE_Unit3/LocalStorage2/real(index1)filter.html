@@ -1,0 +1,125 @@
+<!-- THE REAK CODE of index1basic.js  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LS2-A</title>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Puppy App</h1>
+      <div>
+        <a href="./index.html">Home</a>
+        <a href="./Favouries.html">Favourites</a>
+      </div>
+
+    </div>
+    <select id="filter">
+      <option value="">Select a Breed</option>
+      <option value="Pitbull">Pitbull</option>
+      <option value="Husky">Husky</option>
+    </select>
+    <div id="puppy-cont">
+      <!-- Here goes the data -->
+    </div>
+  </body>
+  <script>
+    // 1. Showing Data on DOM(Better Way) 2. Filtering 3. Adding to Nexpage(using ls here for adding to data to next page ) 4. Deleting
+    //code 31-35 written for getting /acessing the elemenets which i have clicked
+    let LSData = JSON.parse(localStorage.getItem("fav"));
+ 
+    if (LSData === null) {
+      LSData = [];
+    }
+    const PuppyData = [
+      {
+        name: "Puppy-1",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-2",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-3",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-4",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-5",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-6",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+    ];
+
+    let puppyCont = document.getElementById("puppy-cont");
+    let filterSelect = document.getElementById("filter");
+
+    DisplayPuppies(PuppyData);
+    function DisplayPuppies(data) {
+      puppyCont.innerHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        let puppy = document.createElement("div");
+
+        let img = document.createElement("img");
+        img.setAttribute("src", data[i].img);
+
+        let name = document.createElement("h2");
+        name.innerText = data[i].name;
+
+        let breed = document.createElement("h2");
+        breed.innerText = data[i].bred;
+//add to fav part 
+        let addToFav = document.createElement("button");
+        addToFav.innerText = "Add To Favourites";
+
+        // Add To Fav Part
+        addToFav.addEventListener("click",function () {
+          LSData.push(data[i]); //line 32 ; 
+          localStorage.setItem("fav", JSON.stringify(LSData));
+        });
+
+        puppy.append(img, name, breed, addToFav);
+        puppyCont.append(puppy);
+      }
+    }
+
+    filterSelect.addEventListener("change", function () {
+      if (filterSelect.value === "") {
+        DisplayPuppies(PuppyData);
+      } else {
+        let filtered = PuppyData.filter(function (element) {
+          if (element.bred === filterSelect.value) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        DisplayPuppies(filtered);
+      }
+    });
+  </script>
+</html>
+
+
+<!-- thats how we use fiter nethod !! thats all for now -->

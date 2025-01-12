@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested_Promises-whenever one promises get resolved you creat another one </title>
+</head>
+<body>
+    
+</body>
+<script>
+
+let promise1 =new Promise (function (resolve , reject){
+    setTimeout(function () {
+                let num = Math.floor(Math.random() * 10);
+                if (num % 2 != 0) {
+                    //Odd 
+                    resolve(num);
+                }
+                else {
+                    reject(num);
+                }
+
+            }, 5000);
+}); 
+
+
+promise1
+.then((data)=>{
+    console.log("resolved promise1"); 
+//after the promise1 is resolved i will creat one new promise  here
+// let promise2  = new Promise(function(resolve,reject){
+return  new Promise(function(resolve,reject){   
+                let num = Math.floor(Math.random() * 10);
+                if (num % 2 != 0) {
+                    //Odd 
+                    resolve(num+data);
+                }
+                else {
+                    reject(num+data);
+                }
+
+            });   //inside one . then i can creat another .this   
+ })
+.then((data2)=>{
+    console.log("resolved promise 2"); 
+console.log(data2); 
+ })
+ /* // no need to write catch for 2nd promise if we are returning the 2nd promise to .this of the first promise
+ .catch((err)=>{ //this .catch is for 2nd promise
+  console.log(err); //this linse will do ? take dry run 
+ })
+*/
+.catch((err)=>{ 
+    //this dot is for the first promise 
+    console.log(err); 
+     
+}); 
+ 
+
+
+ //so we are  catching the error of two promises using single dot catch same rule is applied for 5/10/x promises.. this is called promis chaining  
+
+
+// recap?
+// PROMISE TAKES FUNCTION AS A PARAMETER AND THE FUNCTION TAKES RESOLVE , REJECT PARAMETER  (I CAN NAME IT ANYTHING BUT WE HAVE MAINTAIN IT ORDERING )  
+
+//before that we have to run .this part and .catch part 
+
+//this will take a function as parameter and the function will take the parameter that you passed in the main promise resolve or reject part 
+
+// we saw nested part of promises rather than declaring another one just return it and make the promise chaining 
+
+//we saw .finally (as soon as the pending state changes that part is for it )
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch1-B</title>
+  </head>
+  <body>
+    <select id="filter">
+      <option value="">Completed</option>
+      <option value="false">False</option>
+      <option value="true">True</option>
+    </select>
+    <table>
+      <thead>
+        <tr>
+          <th>userId</th>
+          <th>id</th>
+          <th>title</th>
+          <th>completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Here we will append  -->
+      </tbody>
+    </table>
+  </body>
+
+  <script>
+    const APIURL = `https://jsonplaceholder.typicode.com/todos`;
+    const tbodyEl = document.querySelector("tbody");
+    const selectFilter = document.getElementById("filter");
+
+    let fetchedData = [];
+    fetch(APIURL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        fetchedData = data;
+        DisplayTable(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    selectFilter.addEventListener("change", () => {
+      if (selectFilter.value === "") {
+        DisplayTable(fetchedData);
+      } else {
+        let filtered = fetchedData.filter((element) => {
+          return "" + element.completed === selectFilter.value;
+        });
+        DisplayTable(filtered);
+      }
+    });
+    function DisplayTable(data) {
+      tbodyEl.innerHTML = null;
+      data.forEach((element) => {
+        let tr = document.createElement("tr");
+
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        let td4 = document.createElement("td");
+
+        td1.innerText = element.userId;
+        td2.innerText = element.id;
+        td3.innerText = element.title;
+        td4.innerText = element.completed;
+
+        tr.append(td1, td2, td3, td4);
+        tbodyEl.append(tr);
+      });
+    }
+  </script>
+</html>

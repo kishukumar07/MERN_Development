@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises -2</title>
+</head>
+
+<body>
+<p id="load">Loading...</p>
+<h1 id="data"></h1>
+
+
+</body>
+<script>
+
+    function GetARandomODDNumber() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                let num = Math.floor(Math.random() * 10);
+                if (num % 2 != 0) {
+                    //Odd 
+                    resolve(num);
+                }
+                else {
+                    reject(num);
+                }
+            }, 5000);
+        });
+    }
+    let loading = document.getElementById("load");
+let data = document.getElementById("data");
+
+
+GetARandomODDNumber() //ye line ke niche hi sab likhna hai ye nhi hoga to error dega 
+.then((data)=> { 
+    console.log('resolved')
+    console.log(data);
+    
+})
+.catch((error)=>{
+console.log("rejected")
+    console.log(error); 
+})
+//here u understood the function returning a promise 
+
+
+//i want loding like things untill the promise is resolved or reject 
+.finally(()=>{ 
+loading.innerText =""; 
+}); 
+console.log("ok")//syncronous code executed first 
+</script>
+
+</html>

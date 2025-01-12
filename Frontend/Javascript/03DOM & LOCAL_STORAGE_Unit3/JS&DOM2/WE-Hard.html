@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+</head>
+
+<body>
+  <h1 id="display"></h1>
+  <div id="numbers">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>0</button>
+  </div>
+
+  <div id="operators">
+    <button>+</button>
+    <button>-</button>
+    <button>*</button>
+    <button>/</button>
+  </div>
+  <button id="equal">=</button>
+</body>
+
+<script>
+  let display = document.getElementById("display");
+  let numberBtns = document.querySelectorAll("#numbers > button");
+  let operatorBtns = document.querySelectorAll("#operators > button");
+  let equalBtn = document.getElementById("equal");
+
+  let firstNumber = "";
+  let secondNumber = "";
+  let operator = null; // "+" || "-" || "*" || "/"
+  let isFirstNumber = true;
+
+  for (let i = 0; i < operatorBtns.length; i++) {
+    operatorBtns[i].addEventListener("click", function () {
+      operator = operatorBtns[i].innerText;
+      console.log(operator);
+      isFirstNumber = false;
+    });
+  }
+
+  for (let i = 0; i < numberBtns.length; i++) {
+    numberBtns[i].addEventListener("click", function () {
+      // console.log(numberBtns[i].innerText);
+      if (isFirstNumber === true) {
+        firstNumber = firstNumber + numberBtns[i].innerText;
+        display.innerText = firstNumber;
+      } else {
+        secondNumber = secondNumber + numberBtns[i].innerText;
+        display.innerText = secondNumber;
+      }
+    });
+  }
+
+  equalBtn.addEventListener("click", function () {
+    display.innerText = Calculator(operator, firstNumber, secondNumber);
+  });
+
+  function Calculator(operator, number1, number2) {
+    if (operator === "+") {
+      return Number(number1) + Number(number2);
+    } else if (operator === "-") {
+      return Number(number1) - Number(number2);
+    } else if (operator === "*") {
+      return Number(number1) * Number(number2);
+    } else if (operator === "/") {
+      return Number(number1) / Number(number2);
+    }
+  }
+</script>
+
+</html>

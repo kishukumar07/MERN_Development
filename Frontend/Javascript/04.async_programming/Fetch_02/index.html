@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch-2</title>
+  </head>
+  <body></body>
+  <script>
+    const APIURL = `https://jsonplaceholder.typicode.com/todos/`;
+    // let fetchedData = [];
+    // fetch(APIURL)
+    //   .then((respose) => {
+    //     return respose.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     fetchedData = data;
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // Display(fetchedData);
+let x=[]; 
+    async function FetchData() {
+      try {
+        let res = await fetch(APIURL);
+        let data = await res.json();
+        x= data; 
+        console.log(data);
+      Display(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    FetchData();
+    console.log("data",x); 
+
+    function Display(data) {
+      // Display data in DOM
+    }
+  </script>
+</html>

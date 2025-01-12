@@ -1,0 +1,59 @@
+<!-- lets do some real life examples of json  -->
+
+<!-- the task is as soon as someone submit this form i have to store all the data in the array of object  format(i have to store all form data inputs and select) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Form Data in LS</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" placeholder="Name" id="name" />
+      <input type="email" id="email" placeholder="Email" />
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+
+  <script>
+    let AllFormData = JSON.parse(localStorage.getItem("forms"));//for the first time it was empty string and this line for i am getting the data stored in local storage when i refresh the page (previously the data will auto be deleted)
+    //
+    if (AllFormData === null) {
+          // [{},{},{}] like this we have to store
+      AllFormData = []; //default value for the first time 
+    }
+
+    let myFormEl = document.querySelector("form");
+    let nameInp = document.getElementById("name");
+    let emailInp = document.getElementById("email");
+    let genderSelect = document.getElementById("gender");
+
+    myFormEl.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let FormData = {
+        name: nameInp.value,
+        email: emailInp.value,
+        gender: genderSelect.value,
+      };
+
+      AllFormData.push(FormData);
+      localStorage.setItem("forms", JSON.stringify(AllFormData));
+    });
+  </script>
+</html>
+
+
+
+
+<!--
+ real life example of Local storage : wnever i refresh the website of amazon the local storage of amazons storing the login data  
+whenever we logout the data is deleted ~used for some data 
+-->

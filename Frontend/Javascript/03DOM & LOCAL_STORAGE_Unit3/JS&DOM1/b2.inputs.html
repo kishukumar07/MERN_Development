@@ -1,0 +1,26 @@
+//task creat a input element and whatever you put there will be showen in alert when you clicked a button 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    <title>docInput</title>
+</head>
+<body>
+   <input id="inp" type="text"  placeholder="Name">
+   <button onclick="alrt();">submit</button> 
+</body> 
+<script>
+let el= document.getElementById("inp"); 
+ function alrt(){
+ // whenever we work with alert there is no innerText in place of this we use .value 
+    alert(el.value); 
+}
+ 
+// lets know about template litrals from mdn
+</script>
+</html>

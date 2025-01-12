@@ -1,0 +1,108 @@
+<!-- Assignment Details
+Instructions
+Create a file puppy.html
+Create an image of some random puppy (more than one)
+Create 2 buttons Like and Dislike
+On clicking the Like button number of likes should increase by 1
+On clicking the Disike button number of disikes should increase by 1
+Likes and dislikes should be persisted even after we refresh page (use local storage)
+What to submit...
+Submit github repo link -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puppy Likes Counter</title>
+  </head>
+  <body>
+    <div id="puppy-container">
+      <!-- Here will go all puppies -->
+    </div>
+  </body>
+
+  <script>
+    const PuppyData = [
+      {
+        name: "Puppy-1",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Pug",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Labrador",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Poodle",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+    ];
+
+    let LSData = JSON.parse(localStorage.getItem("pupies"));
+
+    if (LSData === null) {
+      LSData = PuppyData;
+    }
+    let puppuContainer = document.getElementById("puppy-container");
+    for (let i = 0; i < LSData.length; i++) {
+      let puppyDiv = document.createElement("div");
+
+      let puppyImg = document.createElement("img");
+      puppyImg.setAttribute("src", LSData[i].img);
+
+      let name = document.createElement("h2");
+      name.innerText = LSData[i].name;
+
+      let breed = document.createElement("p");
+      breed.innerText = LSData[i].bred;
+
+      let likes = document.createElement("p");
+      likes.innerText = LSData[i].likes;
+
+      let LikeButton = document.createElement("button");
+      LikeButton.innerText = "Like";
+      LikeButton.addEventListener("click", function () {
+        LSData[i].likes++;
+        localStorage.setItem("pupies", JSON.stringify(LSData));
+      });
+
+      let DislikeButton = document.createElement("button");
+      DislikeButton.innerText = "Dislike";
+      DislikeButton.addEventListener("click", function () {
+        LSData[i].likes--;
+        localStorage.setItem("pupies", JSON.stringify(LSData));
+      });
+      puppyDiv.append(puppyImg, name, breed, likes, LikeButton, DislikeButton);
+      puppuContainer.append(puppyDiv);
+    }
+  </script>
+</html>
+
+<!-- <div>
+  <img src="" alt="" />
+  <h2>Name</h2>
+  <p>Breed</p>
+  <p>Likes</p>
+  <button>+</button>
+  <button>-</button>
+</div> -->

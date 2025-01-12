@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Finder App</title>
+
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      #filter {
+        font-size: 25px;
+        display: block;
+        margin: auto;
+        margin-top: 25px;
+        padding: 10px 25px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        margin-top: 100px;
+      }
+      #container > div {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        text-align: center;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="filter">
+      <option value="">Select Region</option>
+      <option value="Asia">Asia</option>
+      <option value="Oceania">Oceania</option>
+      <option value="Africa">Africa</option>
+      <option value="Americas">Americas</option>
+      <option value="Europe">Europe</option>
+    </select>
+    <div id="container"></div>
+  </body>
+
+  <script>
+    // name -> element.name.official,  region -> element.region , flag -> element.flags.png
+    const APIURL = `https://restcountries.com/v3.1/all`;
+    let fetchedData = [];
+    const container = document.getElementById("container");
+    const selectFilter = document.getElementById("filter");
+    FetchDataAsync();
+    async function FetchDataAsync() {
+      try {
+        let res = await fetch(`https://restcountries.com/v3.1/all`);
+        let data = await res.json();
+        data = data.map((element) => {
+          return {
+            name: element.name.official,
+            region: element.region,
+            flag: element.flags.png,
+          };
+        });
+        fetchedData = data;
+        DisplayCountries(fetchedData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    function DisplayCountries(data) {
+      container.innerHTML = null;
+      data.forEach((element) => {
+        const country = document.createElement("div");
+
+        const flag = document.createElement("img");
+        flag.setAttribute("src", element.flag);
+
+        const name = document.createElement("h3");
+        name.textContent = element.name;
+
+        const region = document.createElement("h4");
+        region.textContent = element.region;
+
+        country.append(flag, name, region);
+        container.append(country);
+      });
+    }
+
+    selectFilter.addEventListener("change", () => {
+      let filtered = fetchedData.filter((element) => {
+        return element.region === selectFilter.value;
+      });
+      DisplayCountries(filtered);
+    });
+    function FetchDataNormal() {
+      // .then,.catch -> student task
+    }
+  </script>
+</html>

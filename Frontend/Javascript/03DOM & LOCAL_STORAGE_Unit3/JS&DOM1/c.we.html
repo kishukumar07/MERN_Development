@@ -1,0 +1,83 @@
+<!--1. RING bell assignment  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+</head>
+<body>
+   <button onclick="log();">Ring Bell</button> 
+</body>
+<script>
+    //write js here
+     function log(){
+      console.log("Please open the door"); 
+     }
+</script>
+</html> -->
+
+
+
+<!-- 2.ring bell alert--  when someone click on image the alert happens-->
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+</head>
+<body>
+   <img src="xyzz" alt="error" onclick="alrt();">
+</body>
+<script>
+    //write js here
+     function alrt(){
+      alert("xyzzzzzzz"); 
+     }
+</script>
+</html>
+
+ -->
+
+
+<!-- 3.Show quote -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+</head>
+<body>
+   <button onclick="print();">show Quote in cons.</button>
+   <p id="xy">Talk is cheap show me the code</p>
+</body>
+<script>
+    let el =document.getElementById("xy"); 
+    function print(){
+        console.log(el.innerText); 
+    }
+</script>
+</html>
+
+
+<!-- 4.Login and logout basic form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & logout</title>
+</head>
+<body>
+<h1>This example demonstrate how we can change text content when clicking on button</h1>
+<hr>
+<h1 id="display">Click on Login to continue </h1>
+<button onclick="login();">Login</button>
+<button onClick="logout();">Logout</button> 
+</body>
+</html>
+<script>
+    function login(){
+        document.getElementById("display").innerText="login Sucess";
+    }
+    function logout(){
+        document.getElementById("display").innerText="logout Sucess";
+    }
+</script>

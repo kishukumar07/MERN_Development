@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dom2</title>
+    <style>
+         h1{
+            background-color: aqua;
+            /* here we are adding background-color to the element further we will use js to change it  */
+         }
+    </style>
+</head>
+<body>
+ <!-- i want whenever i click on button the colour of the heading text should changes  we can do this with js  -->
+    <h1>I am heading </h1>
+    <button>Button</button>
+</body>
+<script>
+    // catching the btn and the heading with .querySelector
+let  btn =document.querySelector("button"); 
+let heading = document.querySelector("h1"); 
+
+// now adding event with .addEventListener
+btn.addEventListener("click",function(){
+
+heading.style.color ="red"; //we can change any css property using this syntax 
+// eg if i want to hide the heading  i will use(commented-below)  value should be in string always 
+// heading.style.display="none"; 
+
+// lets change it's background colour ~but in js we can not make background-colour a variable bcs of hypen containing  in it so we remove hypen and make the C capital (backgroundColour)
+ heading.style.backgroundColor ="green"; 
+
+
+}); 
+
+
+
+</script>
+</htm\>
+
+RECAP: HOW WE change any css property with using js 
+
+
+
+

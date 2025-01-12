@@ -1,0 +1,164 @@
+<!-- Todays Agenda --
+1.Showing Data on Dom (we already learrnt but we'll learn a better approach)- ->funtion
+2. Filtering
+3. Adding to  Next page 
+4. deleting  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering(LS2-A)</title>
+</head>
+<body>
+    <select  id="filter">
+    <option value="">Select a Bread</option>
+    <option value="Pitbull">Pitbull</option>
+    <option value="Husky">Husky</option>
+</select>
+    <div id="puppy-container">
+        <!-- here goes the data -->
+
+
+    </div>
+</body>
+<script>
+    // this is the yesterday puppy data given to us we are using this  
+    const PuppyData = [
+      {
+        name: "Puppy-1",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Pitbull",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+      {
+        name: "Puppy-1",
+        bred: "Husky",
+        img: "./puppy.jpeg",
+        likes: 0,
+      },
+    ];
+//the queation is how can i loop over the data and show it on the dom how to do that 
+// lets creat a container inside the body and there we'll append there all the data 
+// the first thing is to catch the div (i created )
+let puppyCont =document.getElementById("puppy-container");
+// catching puppy-container div using a reference variable puppyCont
+  
+//creating a function read code line 144  we replaced the PuppyData with the data parameter 
+//& passing argument as puppydata at first 
+DisplayPuppies(PuppyData); 
+function DisplayPuppies(data){
+puppyCont.innerHTML =""; 
+//  next thing is we have to run the loop on the data (on puppydata given data )
+   for (let i=0; i<data.length; i++ ){
+
+// inside the for loop i have to creat the cart(structure we created below the body of html  ) and within the cart we have to creat all items given in the element of the data 
+
+let puppy = document.createElement("div"); 
+// we creat a div stored it in a reference variable name puppy and we have to append this div inside the puppy-cont 
+
+// and within this puppy div we have to append the image first then name then bread 
+// so first let creat the image with using reference variable let say img 
+
+let img = document.createElement("img"); 
+//now let set the attribute of the image
+img.setAttribute("src", data[i].img); //we are setting the img src 
+// now we'll append this image iside puppy (the reference variable we declared with a element div under the main containerdiv ) 
+
+// let creat name and bread then we'll append alll these stuffs in the puppy 
+let name =document.createElement("h2");
+//we created a name variable holding a element h2 for  name of the puppy 
+//lets add the value to it 
+name.innerText = data[i].name; 
+
+
+//let creat bread 
+let bread = document.createElement("h2"); 
+bread.innerText = data[i].bred; 
+
+
+
+
+//lets append 
+puppy.append(img,name,bread); 
+
+puppyCont.append(puppy); 
+
+   }
+  
+  
+  
+                          }
+// NOW IF YOU SEE THERE IS LOT OF PUPPY DATA GIVEN BUT THERE IS OF ONLY TWO BREAD 1.HUSKY 2.Pitbull AND WE HAVE TO MAKE THE FILLER ON THE BASIS OF THESE TWO CHOICES 
+// ~for this we created a select tag withing the body having two options for selecting the bread value 
+// now we have to creat such code if we select husky only husky bread puppy is visible and when we select the Pitbull only pitbulls are visible (we are not selecting we are changing the value -Event name ----CLICK----) 
+
+
+
+// !First we have to catch the select tag  by id   
+
+let filterSelect = document.getElementById("filter"); 
+ 
+//now we have to add event when event  change occurs 
+filterSelect.addEventListener("change",function(){
+//here we have to do the our actuall filtering thing 
+//~we'll run the array.filter hof for filtering the given data on the array of puppydata
+//you have to check the file index1basic.js for understanding the filter HOF
+let filtered = PuppyData.filter(function(element){
+//whatever i selected the value how can i get ~ by --filterSelect.value(filterSelect is variable that is used as ref.var for catching the select tag )
+ console.log(filterSelect.value); 
+ //whenever you select the value at application pannel the value of select tag getting printed by the console.log(filterSelect.value);  
+if(element.bred=== filterSelect.value){
+    return true; 
+}
+else {
+    return false ; 
+}
+});
+console.log(filtered); //this will print those element which bread value you changed to the select tag it will console  in the application Pannel
+// it will not updating the dom we have to update it so lets write the code for this 
+
+
+
+
+// till code_line 64 to 100 is responsible for updating the dom
+
+
+// so if i copy the whole code and paste it here just with changing puppydata to filltered is it  going to work what do you think?
+// yes we just have to run the same code again ---but the again writting code is too burden and not viable to use 
+// solution: bfr that code lines we have to creat a function 
+DisplayPuppies(filtered); 
+//now this will add a a new data below the old data  (no any visible change) //so we'll  add line no 
+});
+</script>
+</html>
+// <!-- 
+// <div> 
+//      img tag
+//     name  p-tag
+//     bread  p-tag 
+    
+// </div>-->
+
+// <!-- check line 123 -->
+
+<!-- // this code have lot of syntax mistake so check next checkfile.html where the same working code is pasted  -->

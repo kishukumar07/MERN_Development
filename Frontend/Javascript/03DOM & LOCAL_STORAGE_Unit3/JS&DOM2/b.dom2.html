@@ -1,0 +1,72 @@
+<!-- here we will learn how to add events with the different elements 
+lets take caluclator for calculations -->
+ <!DOCTYPE html>
+<html >
+<head>
+    <title>linking events with varity of elements </title>
+</head>
+<body>
+    <div id="numbers">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+    </div> 
+</body>
+<script>
+    let numberPads= document.querySelectorAll("#numbers > button");
+//   how to add specific events for every single buttons   
+// can i catch one single element using this? numberPads[0]  
+//  numberPads[0].addEventListner("click, LogNumber"); 
+//  .addEventListner("1st paramete  is event name(just click) ,2nd parameter is function name (not a function call)   ") ~this also works not only for buttons only but also with divs and images 
+
+// now lets put the whole thing inside a loop for covering all the elemetns 
+// NOTE :EVENT RELETED ATTRIBUTE ALWAYS WORKS WITH on but the actual event is after on  --onclick 
+for(let i=0; i < numberPads.length; i++){
+//this is same as higher order function we  just pass the function  we dont call it 
+    // numberPads[i].addEventListener("click",LogNumber);  
+    // with this we can not pass anything to the function bcs we are not calling(it will auto be executed ) it 
+    // so we can replace function name from here with an anonomus function and able to call the function inside this anonomus fun 
+    numberPads[i].addEventListener("click",function(){
+        LogNumber(numberPads[i].innerText); 
+    });
+    // now we are able to pass and call my function  first addEventListener function is going to call anonomus funtn and anonomus will call the actual funtn
+}  
+function LogNumber(i) {
+    console.log(i); 
+}
+ 
+
+// TOPIC EVENT OBJECT -  what happens is that  whatever events is occouring here they have some data here  and js stores that events data  in the single object  i.e known as event object.
+//  try to passs xyz/event/e as argument in the previous anonomous function and console it inside that anonomous funtn you will see all the records  of all the events like:-- 
+// numberPads[i].addEventListener("click", function(e){
+//         console.log(e); 
+// one thing is here what if e is object and we acess its targget key
+// console.log(e.target); ~this will tell you that on which element  you are taking on (cicking)
+// one more thing if we use 
+// console.log(e.target.innerText);  what will happen think! it will going to print the inner text (acessing innertext) of that element which i am touching  
+//  CONCLUSION /application: using this we can actually acess which element is on action or being activated });
+
+
+
+</script>
+
+</html>
+
+
+RECAP:- 
+here we learnt how we add the event not using attributes but with a method .addEventListner("nameoftheevent" , functionneme of function(){function1(parameter) }) justpassing aurgument with the help of  anonomus function at- 2nd parameter .
+Usecases -
+when we have multiple element and in that case adding the events one by one is not viable there we use (simmilar element)
+
+
+now one more thing if i pass a parameter what it will give ? eventobject(object)
+
+howcan i catch the element of the eventobject
+== event.target  this will give that element which is at action

@@ -1,0 +1,107 @@
+<!-- whenever we are refreshing the page the data is getting deleted how to deal with that -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>0</h1>
+<button id="incr">+</button>
+<button id="decr">-</button>
+
+
+    
+</body>
+<script>
+//increment-decrement code 
+
+let heading = document.querySelector("h1"); 
+let incrBtn = document.getElementById("incr"); 
+let decrBtn = document.getElementById("decr"); 
+let defalutCounter = 0; 
+// let counter = 0;
+// let counter =localStorage.getItem("count"); 
+//console.log(typeof(counter )) -->>string so we have to convert this into number as well 
+let counter =+(localStorage.getItem("count"));  //this gives the value we stored in local storage name count
+ // First time counter will be null so this null checking
+ if (counter === null) {
+      counter = defalutCounter;
+    }
+// we have to do this bcs we have now update the value of count to heading 
+heading.innerText  =counter; 
+
+
+incrBtn.addEventListener("click", function(){
+    counter++; 
+    //here we will store the value of counter in local storage whenever the counter value is getting updated 
+    localStorage.setItem("count",counter);  //it takes two parameter 1st is some id or name (key) & 2nd is value 
+    heading.innerText  =counter; 
+}); 
+decrBtn.addEventListener("click", function(){
+    counter--;
+    localStorage.setItem("count",counter); //it takes two parameter 1st is some id or name (key) & 2nd is value 
+    //here we will store the value of counter in local storage whenever the counter value is getting updated 
+    // checking using application portal
+
+
+
+heading.innerText  = counter; 
+}); 
+
+// as soon as i am refreshing the page the counter will again set to  0 now it is not storing the value 
+
+
+// NOW WE'LL SE HOW TO STORE THE VALUE IN THE BROWSER ? -in local storage 
+// only storing will not going to work we have to retrive the value 
+
+
+</script>
+</html>
+
+
+<!-- 
+
+the real working code below 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage-1A</title>
+  </head>
+  <body>
+    <h1>0</h1>
+    <button id="incre">+</button>
+    <button id="decre">-</button>
+  </body>
+  <script>
+    let defalutCounter = 0;
+    let heading = document.querySelector("h1");
+    let increBtn = document.getElementById("incre");
+    let decreBtn = document.getElementById("decre");
+    console.log(localStorage.getItem("count"));
+    let counter = Number(localStorage.getItem("count"));
+
+    // First time counter will be null so this null checking
+    if (counter === null) {
+      counter = defalutCounter;
+    }
+    heading.innerText = counter;
+
+    increBtn.addEventListener("click", function () {
+      counter++;
+      localStorage.setItem("count", counter);
+      heading.innerText = counter;
+    });
+
+    decreBtn.addEventListener("click", function () {
+      counter--;
+      localStorage.setItem("count", counter);
+      heading.innerText = counter;
+    });
+  </script>
+</html> -->

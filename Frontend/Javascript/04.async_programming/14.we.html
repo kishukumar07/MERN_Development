@@ -1,0 +1,82 @@
+
+<!-- POSTMAN INTERFACE --industry level software used for seeing the data(get) of api in different formats rather than seeing the data into browser.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>country Finder App</title>
+</head>
+<body>
+ <div class="container"></div>
+</body>
+<script>
+   const APIURL ='https://restcountries.com/v3.1/all'
+
+/*
+   do we need all the data from the api ? 
+   i will see only one object  - i need only these keys //this makes our program fast 
+   name->  elmeent.name.official 
+   region -> element.region 
+   flags ->  element.flags.png
+*/
+
+let fetchedData =[]; //we are storing data globaly reason-- for filtering purpose 
+
+   FetchDataAsync(); 
+    async  function FetchDataAsync(){
+    try{
+        let res =await fetch(APIURL); 
+        let data =await res.json(); 
+        // console.log(data); 
+        data = data.map((element)=>{ //map returns the array of same length with the different objects 
+            return {
+                name : element.name.official , 
+                region : element.region ,
+                flag : element.flags.png
+            }; //returning the new object -with these keys only 
+        });
+    fetchedData = data; 
+    // console.log(data);  //.filter will change the length of array 
+     DisplayCountries(fetchedData); 
+    }catch(errr){
+console.log(errr); 
+    }
+} 
+
+
+function DisplayCountries(data){
+  const container =document.getElementById("container"); 
+  container.innerHTML=null; 
+  data.forEach((element) => {
+    const country =document.createElement("div");
+    const flag =document.createElement("img") ; 
+  flag.setAttribute("src",element.flag); 
+  country.append(flag); 
+  container.append(country); 
+
+  });
+  
+
+ }
+
+
+
+
+
+
+   
+    function FetchDataNormal(){
+   //you have to complete it with normal method  .then .catch
+    }
+
+ 
+
+
+
+</script>
+</html>
+
+THIS FILES HAVE CONFLICTS SO USE
+FILE NO FETCH2 .WE 

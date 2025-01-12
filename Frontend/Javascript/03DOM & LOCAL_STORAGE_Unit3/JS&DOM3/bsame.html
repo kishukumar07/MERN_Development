@@ -1,0 +1,62 @@
+<!-- the same code copied for working -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM-3A</title>
+    <style>
+      img {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" alt="" />
+    <button id="next">></button>
+    <button id="prev"><</button>
+  </body>
+  <script>
+    // Catching html elements (id,class,tag,combinator)
+    // Changing the text of any element
+    // Events -> attribute, addEventListener
+    // alert
+    // taking value from inputs-select
+    // Changing Style
+    // Changing attribute(today)
+    // Creating El with dom(today)
+
+    let prevBtn = document.getElementById("prev");
+    let nextBtn = document.querySelector("#next");
+    let imageEl = document.querySelector("img");
+    let imageArr = [
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/screencapture-127-0-0-1-5500-index-html-2022-12-22-09_51_50_882696.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%209.57.25%20AM_947533.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-30/Screenshot%202022-12-30%20at%204.28.18%20PM_568815.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%2010.01.20%20AM_739350.png",
+      "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%2010.03.39%20AM_152854.png",
+    ];
+
+    let imageIndex = 0;
+
+ 
+
+    imageEl.setAttribute("src", imageArr[imageIndex]);
+    prevBtn.addEventListener("click", function () {
+      imageIndex--;
+      if (imageIndex === -1) {
+        imageIndex = imageArr.length - 1;
+      }
+      imageEl.setAttribute("src", imageArr[imageIndex]);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      imageIndex++;
+      if (imageIndex === imageArr.length) {
+        imageIndex = 0;
+      }
+      imageEl.setAttribute("src", imageArr[imageIndex]);
+    });
+  </script>
+</html>

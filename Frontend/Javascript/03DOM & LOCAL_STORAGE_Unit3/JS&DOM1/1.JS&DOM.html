@@ -1,0 +1,57 @@
+<!-- what is dom? it is something given to js by broweser. 
+lets see how to connect our html with js page.
+we have to creat a script element and we write js codes as a content of this element which is writen always after the body  tag of html  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* <!-- we have different way to catch a html element with css ~tag ,class,id,combinators --> */
+    </style>
+</head>
+<body>
+   <h1 id="head">Getting stated with dom and js</h1> 
+   <button onclick="console.log('hello world')">BTN</button>
+  
+   <!-- same thing we are going to do with divs but with function approach read the line 45 -->
+   <div onclick="MyOnClick();">div BTN</div>
+   <button onclick="MyOnClick();">BTN2</button>
+</body>
+<!-- we have to creat a script element and we write js codes as a content of this element which is writen always after the body  tag of html  -->
+<script>
+// console.log("DOm Starts"); 
+// // whatever js we learnt but we didnt know how to deal connect these js codes with the html elements ~DOM(document object model)
+//js directly do not understand the syntax of html so what the browser does is they convert the html in a object called document(we dont need to creat this this is given by browser auto) and thats why the dom is called as document object model and now js understand this 
+// console.log(document); 
+// IN JS WE ARE JUST FOCUS ON CATCHING A ELEMENT WITH ID ONLY 
+// console.log(document.getElementById("head")); 
+// we can do the same thing using a reference variable
+let headingEl = document.getElementById("head");
+// console.log(headingEl); 
+// you can see the h1 tag is printed now 
+console.log(headingEl.innerText); 
+// we were trying to acess the innerText of the element tag(heading tag)
+// headingEl.innerText="some Random Text"; //we are trying to change the inner text of heading element here
+// INNER TEXT 
+
+
+// NOW I WANT , WHEN I CLICK ON BUTTON , ITS SOMETHING TO DO 
+// AND FOR THIS WE HAVE TO LEARN A SMALL CONCEPT 
+
+
+
+// EVENT-LISTNER(we difine events and when ever this events happens we going to run the specific code)
+// so lets understand it see the butoon element has given a js code through oneclick attribute 
+ 
+// whats the problem is if i want to write a complex code should we not use functions like 
+function MyOnClick() {
+    // console.log('hello world');
+    // console.log('button clicked ')
+    headingEl.innerText="some Random Text";
+}
+ 
+</script>
+</html>

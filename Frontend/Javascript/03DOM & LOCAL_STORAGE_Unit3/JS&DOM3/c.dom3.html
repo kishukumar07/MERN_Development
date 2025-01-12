@@ -1,0 +1,40 @@
+<!-- Creating any html El with using dom -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document-object -model 3</title>
+    <style>
+        .cont{
+            height: 50px;
+            width: 50px;
+            border: 2px solid red; 
+        }
+    </style>
+</head>
+<body>
+    <div class="cont"></div>
+</body>
+<script>
+    // here we have to creat a html element using js lets creat a h1 tag 
+    let heading =document.createElement("h1"); 
+    heading.innerText ="I am Gandu"; 
+    // i just created only now i have to tell js explicitly append it somewhere
+    // the methodname is document.body.append
+    document.body.append(heading); 
+    // now you can see the output 
+    //once you created the element using dom you dont need to catch those element 
+
+
+let cont=document.getElementById("cont"); //first we have to catch the element div
+// let creat a p tag inside a div(already created there )
+// eg. let bodyel = document.querySelector("body"); --->bodyel.append(xyzzz)
+let para =document.createElement("p"); //creating
+para.innerText ="I am para"; //setting the text 
+cont.append(para); //appending
+// whenever we want to append to an element we need a referencce of that element like here we are catcing div in cont var
+
+ 
+</script>
+</html>

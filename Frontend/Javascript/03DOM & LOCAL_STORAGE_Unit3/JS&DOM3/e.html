@@ -1,0 +1,91 @@
+<!-- amazon product listing-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM-3D</title>
+    <style>
+      #product-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      #product-container > div img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="product-container">
+      <!-- All Products Goes Inside it  -->
+    </div>
+  </body>
+
+  <script>
+    const ProductData = [
+      {
+        title: "Product-1",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 100,
+      },
+      {
+        title: "Product-2",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 101,
+      },
+      {
+        title: "Product-3",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 102,
+      },
+      {
+        title: "Product-4",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 103,
+      },
+      {
+        title: "Product-5",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 104,
+      },
+      {
+        title: "Product-6",
+        image:
+          "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UY327_FMwebp_QL65_.jpg",
+        price: 105,
+      },
+    ];
+
+    let container = document.querySelector("#product-container");
+
+    ProductData.forEach(function (el) {
+      let product = document.createElement("div");
+
+      let image = document.createElement("img");
+      image.setAttribute("src", el.image);
+      image.setAttribute("alt", "Image Error");
+
+      let title = document.createElement("h2");
+      title.innerText = el.title;
+
+      let price = document.createElement("p");
+      price.innerText = el.price;
+
+      product.append(image, title, price);
+      container.append(product);
+    });
+  </script>
+</html>
+
+<!-- <div>
+  <img src="" alt="" />
+  <h2>Title</h2>
+  <p>Price</p>
+</div> -->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+
+  <script>
+    const APIURL = `https://fakestoreapi.com/products`;
+
+    const container = document.getElementById("container");
+    fetch(APIURL)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        Display(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    function Display(data) {
+      container.innerHTML = null;
+
+      data.forEach((element) => {
+        let product = document.createElement("div");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", element.image);
+
+        let title = document.createElement("h2");
+        title.textContent = element.title;
+
+        let ratings = document.createElement("p");
+        ratings.innerText = element.rating.rate;
+
+        product.append(image, title, ratings);
+        container.append(product);
+      });
+    }
+  </script>
+</html>

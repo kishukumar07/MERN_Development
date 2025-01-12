@@ -1,0 +1,79 @@
+<!--ADD to next page  what we want that when we click on fav button the card is added to the fav page/place -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LS.2-B</title>
+</head>
+<body>
+ <div class="nav">
+    <!-- linking other pages  -->
+     <h1>PUPPY APP</h1>
+<a href="./real(index1)filter.html">Home</a>
+<a href="./xFavourite.html">Favourites</a>
+ </div>
+ <!-- we have linked two pages but do we have anything to sending data from one page to another page? No - so we'll use local storage here (directly we cant send data from one page to another page but we can use LC as the mediator)-->
+<!-- we are just going to use this thing in our application what we'll do we'll click on a button add to cart and whenever i click on it the element is going added to the favpage\IN the first page we'll set the data in the 2nd page we'll get the data-->
+ <!-- now see the fav part in the file ./real(index) -->
+
+
+
+ <!-- just copied at last -->
+ <div id="puppy-cont">
+    <!-- Here goes the data -->
+  </div>
+
+</body>
+<script>
+    // jsut copy pasting thing(taking the ls data just checking if it is null or not and passing ls data to the function which will creat all elements of the puppy data's element whatever we selected to fav )
+    let LSData = JSON.parse(localStorage.getItem("fav"));
+
+if (LSData === null) {
+  LSData = [];
+}
+
+let puppyCont =document.getElementById("puppy-cont");
+
+
+DisplayPuppies(LSData); //passing lsdata here  
+// just copy pasting thing
+function DisplayPuppies(data) {
+      puppyCont.innerHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        let puppy = document.createElement("div");
+
+        let img = document.createElement("img");
+        img.setAttribute("src", data[i].img);
+
+        let name = document.createElement("h2");
+        name.innerText = data[i].name;
+
+        let breed = document.createElement("h2");
+        breed.innerText = data[i].bred;
+        //but here we need to delete we dont need aad to fav btn 
+        let deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "DELETE";
+
+        // delete part 
+        deleteBtn.addEventListener("click", function () {
+            //it should be deleted from both from dom and from local storage also 
+            // you must know the chocolate concept for this  => 
+            LSData = LSData.filter(function (element, index) {
+            if (i === index){
+              return false;
+            } else {
+              return true;
+            }
+          });
+          localStorage.setItem("fav", JSON.stringify(LSData));
+          DisplayPuppies(LSData);
+        });
+        puppy.append(img, name, breed, deleteBtn);
+        puppyCont.append(puppy);
+      }
+    }
+</script>
+</html>
