@@ -1,3 +1,3 @@
-This Repo Two folder FrontEnd andBackend 
-Frontend Contains -html , css , js folder 
-Backend Contains -Nodejs, ....
+This Repo has Two folder FrontEnd and Backend concepts whatever i learnt  
+*Frontend Contains -html , css , js folder  
+*Backend Contains -Nodejs, ....

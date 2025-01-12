@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* Write all necessery css here  */
+
+      #product-container {
+        /* border: 2px solid red; */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+      }
+      #product-container > div {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 20px;
+      }
+      #product-container > div > img {
+        width: 100%;
+        height: 200px;
+      }
+      #product-container > div > button {
+        display: block;
+        margin: auto;
+      }
+
+      #filter {
+        display: block;
+        margin: auto;
+        font-size: 15px;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Masai E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <!-- Use this Select Tag for Filtering the Products  -->
+    <select id="filter">
+      <option value="">Filter By Category</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Speakers">Speakers</option>
+    </select>
+    <div id="product-container">
+      <!-- Here Append All the Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here
+    async function FetchData() {
+      try {
+        let res = await fetch(
+          "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products"
+        );
+        res = await res.json();
+        FilterData(res.data);
+        //  console.log(data)
+      } catch (err) {
+        console.log("error", err);
+      }
+    }
+
+    FetchData();
+    let filterby = document.getElementById("filter");
+    filterby.addEventListener("change", () => {
+      FetchData();
+    });
+    function FilterData(data) {
+      if (filterby.value === "") {
+        DisplayData(data);
+      } else {
+        data = data.filter((ele) => {
+          return ele.category == filterby.value;
+        });
+        DisplayData(data);
+      }
+      // console.log("data",data)
+    }
+    let Cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let Container = document.getElementById("product-container");
+    function DisplayData(data) {
+      Container.innerHTML = "";
+      data.forEach((product) => {
+        let Card = document.createElement("div");
+        let Image = document.createElement("img");
+        let Brand = document.createElement("h2");
+        let Category = document.createElement("h4");
+        let Price = document.createElement("h3");
+        let Detail = document.createElement("p");
+        let AddtoCart = document.createElement("button");
+        Image.src = product.img;
+        Brand.textContent = product.brand;
+        Category.textContent = product.category;
+        Price.textContent = `₹${product.price}`;
+        Detail.textContent = product.details;
+        AddtoCart.textContent = "Add To Cart";
+
+        AddtoCart.addEventListener("click", () => {
+          if (checkDuplicate(product)) {
+            alert("Product Already in Cart");
+          } else {
+            Cart.push({ ...product, quantity: 1 });
+            localStorage.setItem("cart", JSON.stringify(Cart));
+            alert("Product Added To Cart");
+          }
+        });
+
+        Card.append(Image, Brand, Price, Detail, Category, AddtoCart);
+        Container.append(Card);
+      });
+
+      console.log("display", data);
+    }
+
+    function checkDuplicate(product) {
+      for (let i = 0; i < Cart.length; i++) {
+        if (Cart[i].id == product.id) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+</html>
