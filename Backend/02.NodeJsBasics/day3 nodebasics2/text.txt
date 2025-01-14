@@ -1,0 +1,1 @@
+"hello this is text and you have to read it in index file "
