@@ -45,6 +45,43 @@ app.post("/students",(req,res)=>{
 })
 
 
+//till now we have seen how to get and post now we'll see about update and delete wheneve we have to update or delete we have to use param you'll learn what is param/:id
+
+app.patch("/updatestudentcity",(req,res)=>{
+    const data = JSON.parse(fs.readFileSync("./db.json","utf-8"))
+
+for(let i=0; i<data.students.length; i++){
+    if(data.students[i].name==="xyzz"){
+        data.students[i].city = req.body.city  //only patching the city
+    }
+}
+
+fs.writeFileSync("./db.json",JSON.stringify(data))
+res.send("data is patched"); 
+
+})
+
+
+
+//let learn delete functionality 
+
+app.delete("/deletestudent",(req,res)=>{
+    const data = JSON.parse(fs.readFileSync("./db.json","utf-8"))
+    let new_data = data.students.filter((el)=>{
+        return el.name!="xyzz";
+
+    })
+
+console.log(new_data);  //we got our new_data now just we have to update the part in the whole data 
+
+data.students=new_data; 
+fs.writeFileSync("./db.json",JSON.stringify(data))
+res.send("data is deleted"); 
+
+})
+
+
+
 app.listen("9000",()=>{
     console.log("listening at port 9000")
 })
