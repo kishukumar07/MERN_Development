@@ -1,0 +1,26 @@
+{
+    "students": [
+        {
+            "name": "Rahul",
+            "city": "Delhi"
+        },
+        {
+            "name": "Niket",
+            "city": "Delhi"
+        },
+        {
+            "name": "xyzz",
+            "city": "ranchi"
+        }
+    ],
+    "teachers": [
+        {
+            "name": "Ankush",
+            "city": "delhi"
+        },
+        {
+            "name": "Anu",
+            "city": "delhi"
+        }
+    ]
+}
