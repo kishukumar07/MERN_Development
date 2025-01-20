@@ -12,7 +12,7 @@ usage
 console.log("byy!!"); 
 
 
-the above code behaves async  will resolve promise
+// the above code behaves async  will resolve promise
 
 
 

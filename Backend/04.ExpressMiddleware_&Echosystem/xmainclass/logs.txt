@@ -1,0 +1,11 @@
+Route : /home , Method: GET Route : /home , Method: GET 
+Route : /home , Method: GET 
+Route : /home , Method: GET 
+Route : /home , Method: GET 
+Route : /home , Method: GET 
+Route : /about , Method: PUT 
+Route : /home , Method: GET 
+Route : /favicon.ico , Method: GET 
+Route : /home , Method: GET 
+Route : /home , Method: GET ,Time: Sat Jan 18 2025 20:53:45 GMT+0530 (India Standard Time) 
+Route : /home , Method: GET ,Time: Sat Jan 18 2025 20:54:38 GMT+0530 (India Standard Time) 
