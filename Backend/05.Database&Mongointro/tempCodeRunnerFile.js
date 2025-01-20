@@ -1,0 +1,1 @@
+onst data= fs.readFileSync("./db.json","utf-8"); 
