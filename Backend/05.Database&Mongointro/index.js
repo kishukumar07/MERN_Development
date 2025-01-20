@@ -4,6 +4,9 @@ const timeLogger = require('./timelogger');
 const { logger } = require("./logger");
 
 
+
+
+
 let app = express(); //creating the server
 
 
@@ -44,44 +47,10 @@ let result = data[student_id];
     res.end(`The SCGPA of ${student_id} is ${result}`); 
 })
 
+// what is the diff b/w ?param and query ??? while using params we have to creat a specific routes but in query(within same route we can handle all types of queries...) we dont need it (see /:student_id or may be there was /:course_id and so on.... )
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.put("/about", (req, res) => {
-    console.log("About page")
-    res.end("about page");
-})
-
-app.patch("/contact", (req, res) => {
-    console.log("Contact Page")
-    res.end("patched the  contact");
-})
-
-app.delete("/data", (req, res) => {
-    console.log("data Page")
-    res.end("data deleted");
-})
 
 app.listen(9000, () => {
     console.log("server is live at 9000");
