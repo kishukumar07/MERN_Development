@@ -13,7 +13,7 @@ main=async ()=>{
 
 const user =new UserModel({ //constructor object
    name:"Niket",
-   age:"22",
+   age:"233",
    city :"Ranchi"
 })
 await user.save(); //this will insert the single constructor obj inside database learning mongoose  
@@ -37,7 +37,7 @@ main()
 
 //Schema
 const userSchema =mongoose.Schema({
-    name:String,
+    name:{type:String,require:true}, //validation 
     age:Number,
     city:String
 })
