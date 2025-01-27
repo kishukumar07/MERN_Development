@@ -27,18 +27,34 @@ app.post("/adduser", async (req, res) => {
 
 
 //READ
-app.get("/users", async (req, res) => {
+app.get("/users", async(req, res) => {
+    
+    const query = req.query;  //you can't use distructor when there is more than one query
+    console.log(query);
+
     try{
-        const users = await UserModel.find();
+        const users = await UserModel.find(query) ;//{is_married:`${query}` previously we used this-think logically  
         res.send(users);
     }catch(err){
 res.send(err); 
     } 
+
 })
 
 
 
 //Update
+app.patch("/updateuser/:id",async (req,res)=>{
+    const {id} =req.params;  //you can use distructor bcs here only one params is passed
+console.log(id)
+try{
+await UserModel.findByIdAndUpdate({ _id:id} , req.body)// ({takes"filter"},"update stuff")
+res.send("data Updated"); 
+}catch(err){
+res.send(err); 
+}
+
+})
 
 
 
