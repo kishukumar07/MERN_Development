@@ -28,7 +28,7 @@ app.post("/adduser", async (req, res) => {
 
 //READ
 app.get("/users", async(req, res) => {
-    
+       
     const query = req.query;  //you can't use distructor when there is more than one query
     console.log(query);
 
@@ -38,7 +38,7 @@ app.get("/users", async(req, res) => {
     }catch(err){
 res.send(err); 
     } 
-
+//for practice : can try sorting the data in the basis of req.query wrt. age   
 })
 
 
@@ -53,8 +53,24 @@ res.send("data Updated");
 }catch(err){
 res.send(err); 
 }
-
 })
+
+
+
+
+//DELETE
+app.delete("/deleteuser/:id",async(req,res)=>{
+
+    const {id}=req.params
+    try{
+  await UserModel.findByIdAndDelete({ _id:id})//({takes"filter"})
+res.send("UserDeleted"); 
+    }catch(err){
+ res.send(err); 
+    }
+})
+
+
 
 
 
