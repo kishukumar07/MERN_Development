@@ -2,3 +2,6 @@
 
 
 // so in only one line of code makes our crud operations  like :get ,post ,put ,patch ,delete 
+
+
+//  read mongosh cheet sheet
