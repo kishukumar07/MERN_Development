@@ -5,10 +5,7 @@ const jwt = require('jsonwebtoken');
 
 auth = (req, res, next) => {
 
-
-  
         const token = req.headers.authorization; //removing .split(" ")[1] from here cause : readme.md 3rd point 
-
 
     if (token) { //if token is there lets decode and verify
 
