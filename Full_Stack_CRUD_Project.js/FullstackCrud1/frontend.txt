@@ -1,0 +1,6 @@
+fetch(url,{
+    method:"post",
+    headers:{
+        authorization: `Bearer ${token}` //passing token to backend
+    }
+}) //like this youll send the token to backend with frontend
