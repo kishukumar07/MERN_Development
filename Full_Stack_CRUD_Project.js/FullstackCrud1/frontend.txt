@@ -10,7 +10,6 @@ fetch(url,{
 
 
 Notes Taking app
- 
     Users Routes 
       ==>/users/register: To register a new user
       ==>/user/login : for Authenticating the registerd user
@@ -21,6 +20,8 @@ authorization before acessing these route
 
     Notes Routes
         ==>/notes/create :creating a new note about some concept that you have learnt 
-        ==>/notes :To get all the created notes
+
+Need to check who is making this requests ...(by the help of user id you can do it!! (user-1-Many-notes #relatioship))
+        ==>/notes :To get all the created notes   
         ==>/notes/update/:noteID :To update any note
         ==>/notes/delete/:nodeID :To delete a note
