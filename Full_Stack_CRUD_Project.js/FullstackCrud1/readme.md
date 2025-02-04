@@ -8,3 +8,5 @@ Agenda of this file ---
   4.Hashing the password bfr storing it in database &&  while login also make some changes bcs in db its incrpted and whil login we send decoded format of pass -bcrypt (package/module is there) --during regestration process 
  
  5.Planning of a Notes Taking app (in frontend.txt)
+    --created notesrouter and used it under authorization 
+    --creatd schema and model as well 

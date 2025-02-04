@@ -11,7 +11,7 @@ userRouter.get('/', (req, res) => {
 })
 
 
-userRouter.post('/register', async (req, res) => {
+userRouter.post('/register', async (req, res) => { //check async??
     const { email, pass, name, age } = req.body //try validation here
     try {
         bcrypt.hash(pass, 5, async (err, hash) => {

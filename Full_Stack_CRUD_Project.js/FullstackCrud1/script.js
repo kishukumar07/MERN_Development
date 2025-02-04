@@ -9,6 +9,9 @@ const jwt = require('jsonwebtoken');
 
 const {auth} =require('./middleware/authmiddleware') //importing
 
+const {noteRouter}=require('./controllers/note.route');
+
+
 
 
 const app = express();
@@ -39,6 +42,23 @@ app.get('/about',(req,res)=>{
 //AUTHORISED :Protected (bfr entering ,you need to login)
 
 app.use(auth)//using middleware here for below acessing the procted routes
+
+
+app.use('/notes',noteRouter); //written bellow auth bcs i want to be protect these route 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/series',(req,res)=>{
 
