@@ -55,14 +55,14 @@ Backend/
 
 ## 🔗 API Endpoints  
 ### User Authentication  
-- `POST /api/auth/register` – Register a new user  
-- `POST /api/auth/login` – Login and receive JWT  
+- `POST api/users/register` – Register a new user  
+- `POST api/users/login` – Login and receive JWT  
 
 ### Notes Management  
-- `GET /api/notes` – Get all notes (Authenticated users only)  
-- `POST /api/notes` – Create a new note (Authenticated users only)  
-- `PUT /api/notes/:id` – Update a note (Only the owner)  
-- `DELETE /api/notes/:id` – Delete a note (Only the owner)  
+- `GET  api/ ` – Get all notes (Authenticated users only)  
+- `POST /api/notes/create` – Create a new note (Authenticated users only)  
+- `PUT /api/notes/update/id` – Update a note (Only the owner)  
+- `DELETE /api/notes/delete/id` – Delete a note (Only the owner)  
 
 ## 🛠 Tech Stack  
 - **Backend:** Node.js, Express.js  
