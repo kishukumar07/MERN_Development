@@ -1,6 +1,6 @@
 ## Agenda of this File
 
-This is the second part of the fullstack CRUD project. All the code is copied from part one. We will continue from here.
+This is the second part of the fullstack CRUD project. All the code is copied from part one.{"https://github.com/kishukumar07/MERN_Development/blob/main/Full_Stack_CRUD_Project.js/FullstackCrud1/readme.md"} We will continue from here.
 
 1st : we will learn how to usecse and implement    
        relationships, then we will move onto the frontend part.
