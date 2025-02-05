@@ -12,8 +12,15 @@ userRouter.get('/', (req, res) => {
 
 
 userRouter.post('/register', async (req, res) => { //check async??
+    
     const { email, pass, name, age } = req.body //try validation here
-    try {
+    
+try {
+
+    if (!email || !pass || !name || !age) {  //error handeling for validation
+        return res.status(400).send({ "err":"All fields are required!email || !pass || !name || !age" });
+    }
+
         bcrypt.hash(pass, 5, async (err, hash) => {
             //hash is your hashed pass now
             const user = new Usermodel({ email, name, age, pass: hash });
@@ -23,7 +30,14 @@ userRouter.post('/register', async (req, res) => { //check async??
     } catch (err) {
         res.status(400).send({ "err": err.message });
     }
+
 });
+
+
+
+
+
+
 
 userRouter.post('/login', async (req, res) => {   //authenticationPart logic here 
     const { email, pass } = req.body;  //first you will take the email and pass from frontend /(postman)
@@ -32,7 +46,7 @@ userRouter.post('/login', async (req, res) => {   //authenticationPart logic her
         if (user) { //authentication
             bcrypt.compare(pass, user.pass, (err, result) => {
                 if (result) {
-                    var token = jwt.sign({ course: 'backend' }, 'masai');//jwt usage~generating random token (authorisation) weneed to verfy the token in protected routes also in way to acess it ~also verified by jwt 
+                    var token = jwt.sign({authorID:user._id,author:user.name }, 'masai');//jwt usage~generating random token (authorisation) weneed to verfy the token in protected routes also in way to acess it ~also verified by jwt    //payload -course:backend will be changed to { authorID:user._id }
                     res.status(200).send({ 'msg': "Login Sucessful", "token": token });   //one the user authenticated at that point of time we'll generate and asign the token to the clint
                 } else {
                     res.status(200).send({ "msg": "Wrong Credentials" });

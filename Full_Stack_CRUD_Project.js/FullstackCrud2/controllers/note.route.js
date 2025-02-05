@@ -5,9 +5,6 @@ const Notemodel = require('../model/note.model')
 
 
 noteRouter.post("/create", async (req, res) => {
-    //logic
-    // let data=req.body; 
-
     try {
         let note = new Notemodel(req.body)
         await note.save()
@@ -16,6 +13,12 @@ noteRouter.post("/create", async (req, res) => {
         res.status(400).send({ "err": err.message });
     }
 })
+
+
+
+//need to check who is going to acsess which thing ...relationship verification
+//payload can help mean decode the token again>?
+
 
 
 noteRouter.get("/", async (req, res) => {
@@ -49,6 +52,14 @@ noteRouter.delete("/delete/:noteID", async (req, res) => {
         res.status(400).send({ "err": err.message });
     }
 })
+
+
+
+
+
+
+
+
 
 
 module.exports = {
