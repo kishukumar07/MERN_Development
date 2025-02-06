@@ -1,0 +1,91 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Parent Container */
+#parent {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* Glassmorphic Note Card */
+#parent > div {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    border-left: 5px solid #ff9a9e;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect - Smooth Lift & Color Shift */
+#parent > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: #ff5722;
+}
+
+/* Title Styling */
+#parent > div h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+    color: #ffcc70;
+    border-bottom: 2px solid #ffcc70;
+    padding-bottom: 5px;
+}
+
+/* Paragraph Styling */
+#parent > div p {
+    font-size: 16px;
+    color: #fff;
+    margin: 8px 0;
+    font-weight: 300;
+}
+
+/* Note ID Styling */
+#parent > div p:last-child {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Floating Animation on Hover */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+#parent > div:hover {
+    animation: float 1s infinite;
+}
+
+/* Responsive Grid */
+@media (min-width: 600px) {
+    #parent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    #parent {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

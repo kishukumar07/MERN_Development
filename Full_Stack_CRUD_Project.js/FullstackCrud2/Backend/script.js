@@ -5,10 +5,14 @@ dotenv.config();
 const { userRouter } = require('./controllers/User.routes')
 const { auth } = require('./middleware/authmiddleware')
 const { noteRouter } = require('./controllers/note.route');
-
+const cors=require('cors'); 
 const app = express();
 
+
 app.use(express.json());// Middleware to parse JSON requests
+
+app.use(cors())
+
 
 const port = process.env.port; // Default port
 

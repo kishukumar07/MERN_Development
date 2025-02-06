@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Create Notes</h1>
+        <input type="text" id="tittle" placeholder="tittle....">
+        <input type="text"  id="category" placeholder="category......">
+        <input type="text"  id="body" placeholder="Body....">
+        <input type="text" id="author" placeholder="Author...">
+        <button onclick="onCreate()">Create</button>
+    </div>
+</body>
+</html>
+<script>
+    const onCreate=()=>{
+          const payload ={
+             tittle:document.getElementById("tittle").value,
+             body:document.getElementById("body").value,
+             author:document.getElementById("author").value,
+             category:document.getElementById("category").value,
+            
+          }
+        //   console.log(payload);
+  fetch("http://localhost:8080/notes/create",{
+    method:"POST",
+    headers:{
+        "Content-type":"application/json",
+        "Authorization":"Bearear "+localStorage.getItem("token")//here we are passing token  for Authorization in Header
+    },
+    body : JSON.stringify(payload)
+  }).then(res=>res.json())
+  .then(res=>{
+    console.log(res)
+  })
+  .catch(err=>console.log(err))
+    }
+
+</script>
