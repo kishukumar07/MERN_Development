@@ -1,57 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #parent > div {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        #parent > div h1 { margin-top: 0; }
-    </style>
-    <link rel="stylesheet" href="./getnotes.css">
-</head>
-<body>
-    <div id="parent"></div>
-</body>
-</html>
-<script>
-    const onGet=()=>{
-        fetch("http://localhost:8080/notes/",{
-            method:"GET",
-            headers:{
-                "Content-type":"application/json",
-                "Authorization":"Bearer "+localStorage.getItem("token")
-            },
-        }).then(res=>res.json())
-        .then(res=>{
-            console.log(res);
 
-            if (Array.isArray(res)) {
-                const parent = document.getElementById("parent");
-                parent.innerHTML = "";
-                res.forEach(note => {
-                    const noteDiv = document.createElement("div");
-                    noteDiv.innerHTML = `
-                        <h1>${note.tittle}</h1>
-                        <p>Category: ${note.category}</p>
-                        <p>Body: ${note.body}</p>
-                        <p>Author: ${note.author}</p>
-                        <p>Note ID: ${note._id}</p>  `;
-                    parent.appendChild(noteDiv);
-                });
-            } else {
-                console.error("Invalid response format: Expected an array, got:", res);
-                document.getElementById("parent").innerHTML = "<p>Error loading notes: Invalid data format.</p>";
-            }
-        })
-        .catch(err=>{
-            console.error("Fetch Error:", err);
-            document.getElementById("parent").innerHTML = "<p>Error loading notes.</p>";
-        });
-    }
-    onGet();
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Document</title>
+
+</head>
+
+<body>
+
+<div id="parent">
+
+<h1 id="tittle"></h1>
+
+<p id="category"></p>
+
+<p id="body"></p>
+
+<p id="author"></p>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+const onGet=()=>{
+
+fetch("http://localhost:8080/notes/",{
+
+method:"GET",
+
+headers:{
+
+"Content-type":"application/json",
+
+"Authorization":"Bearear "+localStorage.getItem("token")//here we are passing token for Authorization in Header
+
+},
+
+}).then(res=>res.json())
+
+.then(res=>{
+
+console.log(res)
+
+//have to append the resdata on ui
+
+
+
+})
+
+.catch(err=>console.log(err))
+
+}
+
+onGet(); //invoking the function
 </script>
