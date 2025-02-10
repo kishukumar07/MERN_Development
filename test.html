@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2a7d2e;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #2a7d2e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Evergreen Wellness Hospital</h1>
+    <p>123 Harmony Street Sunnyville, CA 90210 USA</p>
+    <hr>
+    <h2>Medical Report</h2>
+    <form id="medicalForm">
+        <div class="section">
+            <h3>Visit Info</h3>
+            <label>Doctor's Name: <input type="text" id="doctorName"></label><br>
+            <label>Specialization: <input type="text" id="specialization"></label><br>
+            <label>Visit Date: <input type="date" id="visitDate"></label><br>
+        </div>
+        <div class="section">
+            <h3>Patient Info</h3>
+            <label>Full Name: <input type="text" id="fullName"></label><br>
+            <label>Birth Date: <input type="date" id="birthDate"></label><br>
+            <label>Med. Number: <input type="text" id="medNumber"></label><br>
+            <label>IHI: <input type="text" id="ihi"></label><br>
+            <label>Phone: <input type="text" id="phone"></label><br>
+            <label>Email: <input type="email" id="email"></label><br>
+        </div>
+        <div class="section">
+            <h3>Assessment</h3>
+            <textarea id="assessment" rows="3"></textarea>
+        </div>
+        <div class="section">
+            <h3>Diagnosis</h3>
+            <textarea id="diagnosis" rows="3"></textarea>
+        </div>
+        <div class="section">
+            <h3>Prescription</h3>
+            <textarea id="prescription" rows="3"></textarea>
+        </div>
+        <button type="button" onclick="generateReport()">Generate Report</button>
+    </form>
+    <div id="report" style="display: none;">
+        <hr>
+        <h2>Generated Medical Report</h2>
+        <p><span class="bold">Doctor's Name:</span> <span id="rDoctorName"></span></p>
+        <p><span class="bold">Specialization:</span> <span id="rSpecialization"></span></p>
+        <p><span class="bold">Visit Date:</span> <span id="rVisitDate"></span></p>
+        <h3>Patient Info</h3>
+        <p><span class="bold">Full Name:</span> <span id="rFullName"></span></p>
+        <p><span class="bold">Birth Date:</span> <span id="rBirthDate"></span></p>
+        <p><span class="bold">Med. Number:</span> <span id="rMedNumber"></span></p>
+        <p><span class="bold">IHI:</span> <span id="rIHI"></span></p>
+        <p><span class="bold">Phone:</span> <span id="rPhone"></span></p>
+        <p><span class="bold">Email:</span> <span id="rEmail"></span></p>
+        <h3>Assessment</h3>
+        <p id="rAssessment"></p>
+        <h3>Diagnosis</h3>
+        <p id="rDiagnosis"></p>
+        <h3>Prescription</h3>
+        <p id="rPrescription"></p>
+    </div>
+    <script>
+        function generateReport() {
+            document.getElementById('rDoctorName').textContent = document.getElementById('doctorName').value;
+            document.getElementById('rSpecialization').textContent = document.getElementById('specialization').value;
+            document.getElementById('rVisitDate').textContent = document.getElementById('visitDate').value;
+            document.getElementById('rFullName').textContent = document.getElementById('fullName').value;
+            document.getElementById('rBirthDate').textContent = document.getElementById('birthDate').value;
+            document.getElementById('rMedNumber').textContent = document.getElementById('medNumber').value;
+            document.getElementById('rIHI').textContent = document.getElementById('ihi').value;
+            document.getElementById('rPhone').textContent = document.getElementById('phone').value;
+            document.getElementById('rEmail').textContent = document.getElementById('email').value;
+            document.getElementById('rAssessment').textContent = document.getElementById('assessment').value;
+            document.getElementById('rDiagnosis').textContent = document.getElementById('diagnosis').value;
+            document.getElementById('rPrescription').textContent = document.getElementById('prescription').value;
+            document.getElementById('report').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

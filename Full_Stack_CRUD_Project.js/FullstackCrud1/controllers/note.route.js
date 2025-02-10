@@ -25,7 +25,6 @@ noteRouter.get("/", async (req, res) => {
     } catch (err) {
         res.status(400).send({ "err": err.message });
     }
-
 })
 
 noteRouter.patch("/update/:noteID", async (req, res) => {
@@ -49,6 +48,7 @@ noteRouter.delete("/delete/:noteID", async (req, res) => {
         res.status(400).send({ "err": err.message });
     }
 })
+
 
 module.exports={
     noteRouter
