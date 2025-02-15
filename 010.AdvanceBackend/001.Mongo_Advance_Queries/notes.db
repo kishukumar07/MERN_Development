@@ -1,0 +1,47 @@
+advQuery> db.heroes.find()
+[
+  {
+    _id: ObjectId('67b0b04140f6991b87cb0ce2'),
+    name: 'IronMan',
+    powers: [ 'robot', 'money' ],
+    health: 33,
+    villains: [
+      { name: 'Mandarin', health: 50 },
+      { name: 'Titanium Man', health: 54 }
+    ],
+    metadata: { favouriteColor: 'red', age: 13 }
+  },
+  {
+    _id: ObjectId('67b0b04140f6991b87cb0ce3'),
+    name: 'Batman',
+    powers: [ 'intelligence', 'money' ],
+    health: 40,
+    villains: [
+      { name: 'TwoFace', health: 20 },
+      { name: 'Redhood', health: 65 }
+    ],
+    metadata: { favouriteColor: 'blue', age: 44 }
+  },
+  {
+    _id: ObjectId('67b0b04140f6991b87cb0ce4'),
+    name: 'Spider-Man',
+    powers: [ 'intelligence' ],
+    health: 60,
+    villains: [
+      { name: 'Venom', health: 65 },
+      { name: 'Dr. Octavio', health: 76 }
+    ],
+    metadata: { favouriteColor: 'red', age: 44 }
+  },
+  {
+    _id: ObjectId('67b0b04140f6991b87cb0ce5'),
+    name: 'Dr. Strange',
+    powers: [ 'magic', 'time manipulation', 'multiverse travel' ],
+    health: 75,
+    villains: [
+      { name: 'Dormammu', health: 100 },
+      { name: 'Kaecilius', health: 80 }
+    ],
+    metadata: { favouriteColor: 'green', age: 40 }
+  }
+]
