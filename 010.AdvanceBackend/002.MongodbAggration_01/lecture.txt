@@ -71,7 +71,7 @@ AggregationPipeline ->      [stage1(query1)-> stage2(query2) ->Stage3(query3)->s
    //and within each satge we have something called as  "Aggregation Operators"; 
 
 
-                    **There are various Aggregation Operators : 
+                    **There are various Aggregation Operators : may check docs for it
                     $match 
                     $filter 
                     $limit
@@ -99,4 +99,8 @@ you can search for ---- "Aggregation Operators documentation"
     2.$limit 
     db.orders.aggregate([{$limit:2}]) //like.... db.orders.find({}).limit(2) 
 
-    3.
+    3.$sort   
+    db.orders.aggregate([{$sort: {field : -1/1} }])   //like.... db.orders.find({}).sort(field:-1/1) ---->> -1 Descending/ +1Ascending 
+
+    4.using $sort and $limit together
+    db.orders.aggregate([{$limit:3},{$sort:{_id:-1}}])  //like... db.orders.find({}).limit(3).sort({field:1/-1})
