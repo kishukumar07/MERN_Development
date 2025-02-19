@@ -20,6 +20,19 @@ and so on.....for finding avg marks ......for each group ........ its getting co
 Thats when Aggregation comes in ....To write complex query in a BETTER WAY 
 
 
+Aggregation - helps us with writing complex queries and 1st point bellow. 
+  
+  1. Filtering happening on the DB level  - Basically reducing the server load 
+                 Vs
+  2. Filtering happening on the server    
+
+
+Advantages of Aggregation 
+                   -reducing the server load 
+                   -dont want to get unnessessary data from databse 
+                   -less codes on server side 
+                   -all those things
+
 
 
 
