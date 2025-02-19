@@ -597,3 +597,26 @@ mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}}])
     date: ISODate('2021-01-13T05:10:13.000Z')
   }
 ]
+
+
+
+//if there is one more stage for sorting by price    //we can add it  ,{.stage3..}
+mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}} ,{$sort:{price:-1}}])
+[
+  {
+    _id: 7,
+    name: 'Vegan',
+    size: 'medium',
+    price: 18,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:10:13.000Z')
+  },
+  {
+    _id: 4,
+    name: 'Cheese',
+    size: 'medium',
+    price: 13,
+    quantity: 50,
+    date: ISODate('2022-01-12T21:23:13.331Z')
+  }
+]

@@ -93,16 +93,16 @@ you can search for ---- "Aggregation Operators documentation"
   visit from here  for ./mongosh.md ==>> 
 
                          
-    1.Printing 
+1.Printing 
     db.orders.aggregate([]) //like.... db.orders.find({})
     
-    2.$limit 
+2.$limit 
     db.orders.aggregate([{$limit:2}]) //like.... db.orders.find({}).limit(2) 
 
-    3.$sort   
+3.$sort   
     db.orders.aggregate([{$sort: {field : -1/1} }])   //like.... db.orders.find({}).sort(field:-1/1) ---->> -1 Descending/ +1Ascending 
 
-    4.using $sort and $limit together
+4.using $sort and $limit together
     db.orders.aggregate([{$limit:3},{$sort:{_id:-1}}])  //like... db.orders.find({}).limit(3).sort({field:1/-1})
     eg.find to top 3 cheapest pizzas   
      
@@ -112,7 +112,7 @@ you can search for ---- "Aggregation Operators documentation"
       --- 
      assume that we have one more stage  so how many documents will stage 3 have ? three  
 
-     5.$match   
+5.$match   
      db.students.aggregate([{$match: {field:field'svalue} }])     //like.... db.students.find({city:"pune"})
       
      if there is stage2 where is the students be from ?
@@ -126,5 +126,22 @@ you can search for ---- "Aggregation Operators documentation"
       eg.find all the medium size pizzas whose price is lt 20 
 
 
-INSTEAD OF WRITTING THE $match in all stages we can do it in one 
-      //db.orders.aggregate([{$match:{key1:value1},{key2,value2}}])
+      INSTEAD OF WRITTING THE $match in all stages we can do it in one -->>
+       // can combine both in one as well
+      mongoAggregation> db.orders.aggregate([{$match:{size:"medium"}} ,{$match:{price:{$lt:20}}}])
+       // OR
+      mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}}]) //no need to use two $match mongo aggregation Operator 
+   
+
+   **   maybe at this time i need to short in one more stage 
+      then we can write otherstage containing $sort operator 
+    
+       ==>mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}} , {$sort:{price : -1 }}  ]) //no need to use two $match mongo aggregation Operator , other stage containing sort 
+
+
+    **again we can limit it and so on.... stage n....
+
+
+    
+
+
