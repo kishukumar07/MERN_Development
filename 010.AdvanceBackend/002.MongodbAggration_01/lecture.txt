@@ -65,22 +65,24 @@ AggregationPipeline ->      [stage1(query1)-> stage2(query2) ->Stage3(query3)->s
 
 
 //Syntax 
-  db.students.aggregate([ { stage1 } , { stage2 } ,{ stage3 } , { stage_n } ]) 
+ db.students.aggregate([ { stage1 } , { stage2 } ,{ stage3 } , { stage_n } ]) ->output
+
    //each stage in bracket format seperated with , inside an arraystructure
    //and within each satge we have something called as  "Aggregation Operators"; 
 
 
-**There are various Aggregation Operators : 
-
-        $match 
-        $filter 
-        $limit
-        $group 
-        $lookup 
-                     -you may have come across this dollor symbol  while expolored documentation for mongodb  right ! 
-                           like..$sum $average ....
+                    **There are various Aggregation Operators : 
+                    $match 
+                    $filter 
+                    $limit
+                    $group 
+                    $lookup 
+                                 -you may have come across this dollor symbol  while expolored documentation for mongodb  right ! 
+                                         like..$sum $average ....
 
 
 you can search for ---- "Aggregation Operators documentation"
+
+      #dtaset for performing actions on it :-  "https://gist.github.com/kishukumar07/057288cbc95673baca116e7c5ebc974b"
 
 
