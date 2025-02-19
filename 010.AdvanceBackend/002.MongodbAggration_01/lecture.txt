@@ -1,0 +1,19 @@
+Aggregation -Aggregate
+
+Aggregate -> what do u understand by it ? => is to collect something 
+
+
+Find all the students in a school, count the no of boys and girls, then you want to find average marks of each group in xyz evaluation , again do some operation on that
+
+===>>How will you do it  with normal query
+              const  boysgroup = db.collection.find({gender: "male"})
+              const  girlsgroup = db.collection.find({gender: "Female"})
+                 
+
+           const  boyscount =boygroup.length; 
+           const  girlscount =girlgroup.length;
+           const totalStudents = boysgroup.length+girlsgroup.length     
+
+
+and so on.....for finding avg marks ......for each group ........ its getting complex 
+                
