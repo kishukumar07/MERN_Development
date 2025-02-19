@@ -352,8 +352,12 @@ mongoAggregation> db.orders.aggregate([{$sort:{"price":-1}}])  //-1(decending)..
 ]
 
 
+
+
+
+
 //Both limit and sort together with .sort() and .limit()
-mongoAggregation> db.orders.find({}).limit(3).sort({_id:-1})
+mongoAggregation>  db.orders.find({}).limit(3).sort({_id:-1})
 [
   {
     _id: 7,
@@ -381,7 +385,34 @@ mongoAggregation> db.orders.find({}).limit(3).sort({_id:-1})
   }
 ]
 
-
+//order of stages changed  with .find()  does it matters ---nope 
+mongoAggregation> db.orders.find({}).sort({_id:-1}).limit(3)
+[
+  {
+    _id: 7,
+    name: 'Vegan',
+    size: 'medium',
+    price: 18,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:10:13.000Z')
+  },
+  {
+    _id: 6,
+    name: 'Vegan',
+    size: 'small',
+    price: 17,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:08:13.000Z')
+  },
+  {
+    _id: 5,
+    name: 'Cheese',
+    size: 'large',
+    price: 14,
+    quantity: 10,
+    date: ISODate('2022-01-12T05:08:13.000Z')
+  }
+]
 
 
 
@@ -416,7 +447,7 @@ mongoAggregation> db.orders.aggregate([{$limit:3},{$sort:{_id:-1}}])
 ]
 
 
-//Order changed first stage $sort and then 2nd stage $limit 
+//Order changed first stage $sort and then 2nd stage $limit  _-Does order matter ? yes 
 mongoAggregation> db.orders.aggregate([{$sort:{_id:-1}},{$limit:3}])
 [
   {
@@ -443,4 +474,17 @@ mongoAggregation> db.orders.aggregate([{$sort:{_id:-1}},{$limit:3}])
     quantity: 10,
     date: ISODate('2022-01-12T05:08:13.000Z')
   }
-]
+]//order of stages matters with  aggregation 
+
+
+
+
+
+
+
+
+
+
+
+
+
