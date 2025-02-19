@@ -414,3 +414,33 @@ mongoAggregation> db.orders.aggregate([{$limit:3},{$sort:{_id:-1}}])
     date: ISODate('2021-03-13T08:14:30.000Z')
   }
 ]
+
+
+//Order changed first stage $sort and then 2nd stage $limit 
+mongoAggregation> db.orders.aggregate([{$sort:{_id:-1}},{$limit:3}])
+[
+  {
+    _id: 7,
+    name: 'Vegan',
+    size: 'medium',
+    price: 18,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:10:13.000Z')
+  },
+  {
+    _id: 6,
+    name: 'Vegan',
+    size: 'small',
+    price: 17,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:08:13.000Z')
+  },
+  {
+    _id: 5,
+    name: 'Cheese',
+    size: 'large',
+    price: 14,
+    quantity: 10,
+    date: ISODate('2022-01-12T05:08:13.000Z')
+  }
+]

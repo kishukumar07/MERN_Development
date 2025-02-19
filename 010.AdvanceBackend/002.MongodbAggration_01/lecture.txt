@@ -104,3 +104,8 @@ you can search for ---- "Aggregation Operators documentation"
 
     4.using $sort and $limit together
     db.orders.aggregate([{$limit:3},{$sort:{_id:-1}}])  //like... db.orders.find({}).limit(3).sort({field:1/-1})
+    eg.find to top 3 cheapest pizzas   
+     
+    //can also interchange order of the stages like first we sort and then we limit the result  (try it )
+     
+     5.
