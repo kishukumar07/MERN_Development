@@ -54,5 +54,10 @@ AggregationPipeline ->      [stage1(query1)-> stage2(query2) ->Stage3(query3)->s
 
                             OneMore_Aggregation_Pipeline...
                             
-                            ====[1000ppldata --> stage1(anycriteria like height is less than x) -->200ppl -->> stage2(criteria indian ?) --->lets 0ppl---> stage3(printtop4ppl )---nope! 0 ]=====
+                            ====[1000ppldata --> stage1(anycriteria like height is less than 5.2feet) -->200ppl -->> stage2(criteria indian ?) --->let 0ppl---> stage3(printtop4ppl )---nope! 0 ]=====
                     
+
+         *The point is that " The Output of each Stage is  the input for the  next stage "
+          mean the input of n stage ===output of n-1 stage 
+
+
