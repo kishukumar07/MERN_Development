@@ -33,9 +33,24 @@ Advantages of Aggregation
                    -less codes on server side 
                    -all those things
 
+ 
+
+
+ Pipeline -  its connection of stages  like... =[  stage1 (each single pipe)..stage2...stage3....stage n ]=
+              
+              eg..stage1 passing fresh water to stage2  (here we have a process which add salt)....and passes to stage3 (adding suger ) passing the solution to last stage -end of the pipeline 
+    
+    *The point is that " The Output of each Stage is  the input for the  next stage "
 
 
 
+AggregationPipeline ->      [stage1(query1)-> stage2(query2) ->Stage3(query3)->stage n(query(n)) ]
 
 
-                
+                             eg. lets take AggregationPipeline1...
+
+                             ====[1000ppldata --> stage1(anycriteria like height is less than x)  -->> stage2(just printing ?is there 1000ppl data -nope) --->lets 200ppl---> stage3() ....and so on......]=====
+                               
+
+                            OneMore_Aggregation_Pipeline...
+                                
