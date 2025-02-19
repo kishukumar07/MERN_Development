@@ -15,5 +15,14 @@ Find all the students in a school, count the no of boys and girls, then you want
            const totalStudents = boysgroup.length+girlsgroup.length     
 
 
-and so on.....for finding avg marks ......for each group ........ its getting complex 
+and so on.....for finding avg marks ......for each group ........ its getting complex on server side right mean have to write codes for each step .....
+
+Thats when Aggregation comes in ....To write complex query in a BETTER WAY 
+
+
+
+
+
+
+
                 
