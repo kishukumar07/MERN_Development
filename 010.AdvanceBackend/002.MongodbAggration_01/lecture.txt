@@ -86,3 +86,8 @@ you can search for ---- "Aggregation Operators documentation"
       #dtaset for performing actions on it :-  "https://gist.github.com/kishukumar07/057288cbc95673baca116e7c5ebc974b"
 
 
+                 --acessed  data ??   created a collection in db "mongoAggregation"
+                                                              created a  collection  
+                                                              "orders and inserted   the data in it "      
+    
+  visit from here  for ./mongosh.md ==>> 
