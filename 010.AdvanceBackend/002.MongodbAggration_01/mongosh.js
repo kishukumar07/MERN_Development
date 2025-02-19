@@ -499,6 +499,14 @@ mongoAggregation> db.orders.find({price:17})
   }
 ]
 
+
+
+//getting error? 
+mongoAggregation> db.orders.aggregate([{price:17}])
+// MongoServerError[Location40324]: Unrecognized pipeline stage name: 'price'
+
+
+
 //samething with $match aggregation 
 
 mongoAggregation> db.orders.aggregate([{$match:{price:17}} ])
@@ -512,5 +520,22 @@ mongoAggregation> db.orders.aggregate([{$match:{price:17}} ])
     date: ISODate('2021-01-13T05:08:13.000Z')
   }
 ]
+
+
+
+//if there is 2nd stage 
+mongoAggregation> db.orders.aggregate([{$match:{price:14}},{$match:{size:"large"}}])   //like ...db.orders.find({field1:value1},{field2:value2}})
+[
+  {
+    _id: 5,
+    name: 'Cheese',
+    size: 'large',
+    price: 14,
+    quantity: 10,
+    date: ISODate('2022-01-12T05:08:13.000Z')
+  }
+]
+
+
 
 

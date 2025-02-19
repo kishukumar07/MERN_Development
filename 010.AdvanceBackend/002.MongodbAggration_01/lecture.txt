@@ -112,7 +112,9 @@ you can search for ---- "Aggregation Operators documentation"
       --- 
      assume that we have one more stage  so how many documents will stage 3 have ? three  
 
-
-
      5.$match   
      db.students.aggregate([{$match: {field:field'svalue} }])     //like.... db.students.find({city:"pune"})
+      
+      if there is stage2 where is the students be from ?
+
+       db.students.aggregate([{$match: {field:field'svalue} } ,{$match :{anotherfield:fieldvalue}} ])     //like.... db.students.find({city:"pune"},{place:"jharkhand"})
