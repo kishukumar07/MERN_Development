@@ -538,4 +538,62 @@ mongoAggregation> db.orders.aggregate([{$match:{price:14}},{$match:{size:"large"
 
 
 
+//finding pizzas of medium size whose price is lte 20
+mongoAggregation> db.orders.aggregate([{$match:{size:"medium"}} ,{ $match:{price:{$lte:20} }} ])
+[
+  {
+    _id: 1,
+    name: 'Pepperoni',
+    size: 'medium',
+    price: 20,
+    quantity: 20,
+    date: ISODate('2021-03-13T09:13:24.000Z')
+  },
+  {
+    _id: 4,
+    name: 'Cheese',
+    size: 'medium',
+    price: 13,
+    quantity: 50,
+    date: ISODate('2022-01-12T21:23:13.331Z')
+  },
+  {
+    _id: 7,
+    name: 'Vegan',
+    size: 'medium',
+    price: 18,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:10:13.000Z')
+  }
+]
 
+
+
+
+
+// can combine both in one as well
+mongoAggregation> db.orders.aggregate([{$match:{size:"medium"}} ,{$match:{price:{$lt:20}}}])
+// OR
+mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}}]) //no need to use two $match mongo aggregation Operator 
+
+
+
+
+[
+  {
+    _id: 4,
+    name: 'Cheese',
+    size: 'medium',
+    price: 13,
+    quantity: 50,
+    date: ISODate('2022-01-12T21:23:13.331Z')
+  },
+  {
+    _id: 7,
+    name: 'Vegan',
+    size: 'medium',
+    price: 18,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:10:13.000Z')
+  }
+]

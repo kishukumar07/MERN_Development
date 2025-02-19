@@ -115,6 +115,16 @@ you can search for ---- "Aggregation Operators documentation"
      5.$match   
      db.students.aggregate([{$match: {field:field'svalue} }])     //like.... db.students.find({city:"pune"})
       
-      if there is stage2 where is the students be from ?
+     if there is stage2 where is the students be from ?
 
-       db.students.aggregate([{$match: {field:field'svalue} } ,{$match :{anotherfield:fieldvalue}} ])     //like.... db.students.find({city:"pune"},{place:"jharkhand"})
+     db.students.aggregate([{$match: {field:field'svalue} } ,{$match :{anotherfield:fieldvalue}} ])     //like.... db.students.find({city:"pune"},{place:"jharkhand"})
+
+      eg.print all the small size pizzas 
+      =>> 
+      eg.find all the medium size pizzas whose price is less than 20 
+      =>>    //db.orders.aggregation([{$match:{size:"medium"}} ,{$match:{ price:{$lt:20} }} ])
+      eg.find all the medium size pizzas whose price is lt 20 
+
+
+INSTEAD OF WRITTING THE $match in all stages we can do it in one 
+      //db.orders.aggregate([{$match:{key1:value1},{key2,value2}}])
