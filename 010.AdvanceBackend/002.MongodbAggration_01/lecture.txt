@@ -88,6 +88,15 @@ you can search for ---- "Aggregation Operators documentation"
 
                  --acessed  data ??   created a collection in db "mongoAggregation"
                                                               created a  collection  
-                                                              "orders and inserted   the data in it "      
+                                                              "orders and inserted the data in it "      
     
   visit from here  for ./mongosh.md ==>> 
+
+                         
+    1.Printing 
+    db.orders.aggregate([]) //like.... db.orders.find({})
+    
+    2.$limit 
+    db.orders.aggregate([{$limit:2}]) //like.... db.orders.find({}).limit(2) 
+
+    3.
