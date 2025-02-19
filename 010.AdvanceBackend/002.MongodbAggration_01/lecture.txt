@@ -53,4 +53,6 @@ AggregationPipeline ->      [stage1(query1)-> stage2(query2) ->Stage3(query3)->s
                                
 
                             OneMore_Aggregation_Pipeline...
-                                
+                            
+                            ====[1000ppldata --> stage1(anycriteria like height is less than x) -->200ppl -->> stage2(criteria indian ?) --->lets 0ppl---> stage3(printtop4ppl )---nope! 0 ]=====
+                    
