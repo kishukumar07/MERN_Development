@@ -486,5 +486,31 @@ mongoAggregation> db.orders.aggregate([{$sort:{_id:-1}},{$limit:3}])
 
 
 
+//filtering only those where price is 17  .find()
+mongoAggregation> db.orders.find({price:17})
+[
+  {
+    _id: 6,
+    name: 'Vegan',
+    size: 'small',
+    price: 17,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:08:13.000Z')
+  }
+]
+
+//samething with $match aggregation 
+
+mongoAggregation> db.orders.aggregate([{$match:{price:17}} ])
+[
+  {
+    _id: 6,
+    name: 'Vegan',
+    size: 'small',
+    price: 17,
+    quantity: 10,
+    date: ISODate('2021-01-13T05:08:13.000Z')
+  }
+]
 
 

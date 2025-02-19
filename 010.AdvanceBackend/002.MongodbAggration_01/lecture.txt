@@ -108,6 +108,11 @@ you can search for ---- "Aggregation Operators documentation"
      
     //can also interchange order of the stages like first we sort and then we limit the result  (try it ) --//order of stages matters with  aggregation 100%
       
-      eg.find to top 3 cheapest pizzas   -and that why in this case we have to sort by price then limit  otherwise it'll not give  proper documents ... 
+    eg.find to top 3 cheapest pizzas   -and that why in this case we have to sort by price then limit  otherwise it'll not give  proper documents ... think why ? and try to explain  -its operation on only 3 pizzas if we limit first and then sort    & may be the all 3 limited pizzas have highes price then it will sort---- 
+      --- 
+     assume that we have one more stage  so how many documents will stage 3 have ? three  
 
-     5.
+
+
+     5.$match   
+     db.students.aggregate([{$match: {field:field'svalue} }])     //like.... db.students.find({city:"pune"})
