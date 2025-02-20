@@ -188,7 +188,26 @@ you can search for ---- "Aggregation Operators documentation"
          similarly...   {$group: {_id:"identityonwhichgroupshouldbe formed"} }
 
 
-db.orders.aggregate([{$group:{size:"small"}}])   
+==>>        db.orders.aggregate([{$group:{_id:"size"}}]) //grouping by small size   -but we want to acess the group by field's value (size value) so we have to put $ in front of the size(criteria)
+
+==>>         db.orders.aggregate([{$group:{_id:"$size"}}]) //grouping by  "$size" mean on the criteria of field's value
+
+
+for differciate b/w group on the basis of "field" vs "$field" check the dry run in mongosh.js 
+
+==>>         db.orders.aggregate([{$group:{_id:"$size" ,{total_sum :{$sum :"$price" }  } }}])    
+//added sum feature {total_sum :{$sum :"$price" } }
+
+
+
+
+now INSTEAD of $sum we also have $avg
+
+==>>  db.orders.aggregate([{$group:{_id:"$size" ,{total_sum :{$avg :"$price" }  } }}])    
+//added sum feature {total_avg :{$sum :"$price" } }
+
+
+??dont u think we got what we need ??  its too to write only one line of code to replace that one previous method 
 
 
 

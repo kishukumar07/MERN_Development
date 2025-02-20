@@ -622,13 +622,37 @@ mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}} ,
 ]
 
 
-
-
 //$group 
 /mongoAggregation> db.orders.aggregate([{$group:{}}])
 // MongoServerError[Location15955]: a group specification must include an _id
 // mongoAggregation>
 
+//grouping bt size of the pizza
+mongoAggregation> db.orders.aggregate([{$group:{_id:"size"}}])
+[ { _id: 'size' } ]
+
+//grouping by the size's value 
+mongoAggregation> db.orders.aggregate([{$group:{_id:"$size"}}])
+[ { _id: 'large' }, { _id: 'small' }, { _id: 'medium' } ]
+
+
+ 
+//adding sum feature with $sum by price's value ("$price") and storing it in total_sum
+mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" ,total_sum : {$sum:"$price"}}}])
+[
+  { _id: 'large', total_sum: 35 },
+  { _id: 'medium', total_sum: 51 },
+  { _id: 'small', total_sum: 48 }
+]
+
+
+//we have $avg also .... why not to use it ....
+mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" ,total_avg : {$avg:"$price"} }}])
+[
+  { _id: 'small', total_avg: 16 },
+  { _id: 'medium', total_avg: 17 },
+  { _id: 'large', total_avg: 17.5 }
+]
 
 
 
