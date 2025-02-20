@@ -655,7 +655,7 @@ mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" ,total_avg : {$avg:"
 ]
 
 
-// NOW I JUST WANT JUST AVG PRICE OF MEDIUM PIZZAS ONLY 
+//NOW I JUST WANT JUST AVG PRICE OF MEDIUM PIZZAS ONLY 
 mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" , avg_price:{$avg:"$price"} }  } ,{$match:{_id :"medium" }} ])
 [ { _id: 'medium', avg_price: 17 } ]
 
@@ -664,6 +664,12 @@ mongoAggregation> db.orders.aggregate([ {$match:{size:"medium"}},{$group:{_id:"$
 [ { _id: 'medium', avg_price: 17 } ]
 
 
+//you can add another stage like $sort  and many more .....
+
+
+//ALWAYS REMEMBER THAT THE ORDER MATTERS OF THE STAGE AND THE INPUT OF THE NEXT STAGE IS OUTPUT OF THE PREVIOUS STAGE -write it in the such way that will be optimal ...
+
+//PREFERING DOCUMENTATIONS... GO AND SOLVE ASSIGNMENT NIKET...
 
 
 
