@@ -196,7 +196,7 @@ you can search for ---- "Aggregation Operators documentation"
 for differciate b/w group on the basis of "field" vs "$field" check the dry run in mongosh.js 
 
 ==>>         db.orders.aggregate([{$group:{_id:"$size" ,{total_sum :{$sum :"$price" }  } }}])    
-//added sum feature {total_sum :{$sum :"$price" } }
+//added sum feature ,total_sum :{$sum :"$price" } 
 
 
 
@@ -204,12 +204,24 @@ for differciate b/w group on the basis of "field" vs "$field" check the dry run 
 now INSTEAD of $sum we also have $avg
 
 ==>>  db.orders.aggregate([{$group:{_id:"$size" ,{total_sum :{$avg :"$price" }  } }}])    
-//added sum feature {total_avg :{$sum :"$price" } }
+//added sum feature ,total_avg :{$sum :"$price" } 
 
 
-??dont u think we got what we need ??  its too to write only one line of code to replace that one previous method 
+         ??dont u think we got what we need ??  its too to write only one line of code to replace that one previous method 
+
+NOW I JUST WANT JUST AVG PRICE OF MEDIUM PIZZAS ONLY 
+
+db.orders.aggregate([{$group:{_id:"$size",total_avg: {$avg:"$price"} } } ,{$match:{_id :"medium" }}   ])
 
 
+//better to filler in satge 1   ....
+mongoAggregation> db.orders.aggregate([ {$match:{size:"medium"}},{$group:{_id:"$size", avg_price :{$avg : "$price"} }} ])
+[ { _id: 'medium', avg_price: 17 } ]
+
+
+
+
+ 
 
 
 

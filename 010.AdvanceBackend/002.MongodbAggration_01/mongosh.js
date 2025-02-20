@@ -655,4 +655,16 @@ mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" ,total_avg : {$avg:"
 ]
 
 
+// NOW I JUST WANT JUST AVG PRICE OF MEDIUM PIZZAS ONLY 
+mongoAggregation> db.orders.aggregate([{$group:{_id:"$size" , avg_price:{$avg:"$price"} }  } ,{$match:{_id :"medium" }} ])
+[ { _id: 'medium', avg_price: 17 } ]
+
+//better to fillter in stage 1 
+mongoAggregation> db.orders.aggregate([ {$match:{size:"medium"}},{$group:{_id:"$size", avg_price :{$avg : "$price"} }} ])
+[ { _id: 'medium', avg_price: 17 } ]
+
+
+
+
+
 
