@@ -620,3 +620,15 @@ mongoAggregation> db.orders.aggregate([{$match:{size:"medium",price:{$lt:20}}} ,
     date: ISODate('2022-01-12T21:23:13.331Z')
   }
 ]
+
+
+
+
+//$group 
+/mongoAggregation> db.orders.aggregate([{$group:{}}])
+// MongoServerError[Location15955]: a group specification must include an _id
+// mongoAggregation>
+
+
+
+

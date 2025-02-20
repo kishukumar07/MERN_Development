@@ -141,7 +141,57 @@ you can search for ---- "Aggregation Operators documentation"
 
     **again we can limit it and so on.... stage n....
 
+6.$group 
+    
+     eg..find the average price of each size pizzas 
+      1.avg price of small size pizzas =>  19 +12 +17/3==>16 
+      2.avg price of medium size pizzas  ->  20+13+18/3 ==> 17
+      3.avg price of large  pizzas     -> 21+14/2  =>> 17.5
+
+      /avgprice?size = small 
+             const avg_price_small = db.orders.aggregate([{$match:{size:small}}])
+       
 
     
+        let totalprice_small =0
+         avg_price_small.forEach((el)=>{
+                                    totalprice_small+=el.price; 
+                                       });
+
+         const avg_price_small = totalprice_small / avg_price_small.length
+        //this happening all in server lever 
+
+         //lets find this with aggregation operator $group 
+ 
+
+          eg.. lets say if there are 10,000 students at organization 
+           so we can make 
+          Groups --on the basis of 
+                     Parttime/fulltime 
+                     Java/Node/MERN 
+                     male/Female
+                     unit wise 
+      
+       so whenever we are creating groups we  need something common; 
+
+            like ....Group of part time students --what are the common among all group ? => they are all in the part time ?
+   
+   //$group operator
+   //some criteria to make a group (commonthing)
+   similarly when we use the group operator we have to give a particular id   
+  //_id:-> criteria/identity  on which the group should be formed  
+    
+
+//SYNTEX
+   {$group: {identityonwhichgroupshouldbe} }
+
+         similarly...   {$group: {_id:"identityonwhichgroupshouldbe formed"} }
+
+
+db.orders.aggregate([{$group:{size:"small"}}])   
+
+
+
+
 
 
