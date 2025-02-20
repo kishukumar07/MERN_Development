@@ -1,4 +1,9 @@
 YOU DONT NEED TO MEMORIZE ANY THING WHENEVER U NEED U SHOULD GO FOR documentation
-
+   but 
+you should know when and where to use which operator (aggregation operator)
 
 eg. need of $group operator just go for documentation and read from there ... and try to do it ....
+
+
+
+try to explore and practice more operators ......from docs
