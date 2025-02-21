@@ -1,17 +1,131 @@
-In today lect we are main focusing on the $lookup operator....
+Here are your notes from the Masai Experience session on MongoDB relationships and aggregation:
 
+---
 
+### **MongoDB Relationships**
+- **MongoDB** is a NoSQL database that stores data in a document-oriented format instead of a traditional tabular format.
+- Relationships in MongoDB are established through **references**, rather than **foreign keys**.
+- **Types of relationships in MongoDB:**
+  1. **One-to-One**: Embedded document or reference to another document.
+  2. **One-to-Many**: References stored in an array field.
+  3. **Many-to-Many**: Multiple references between documents.
 
+- **MongoDB Lookup**: 
+  - `$lookup` is used to join data from multiple collections based on a common field.
 
+---
 
+### **Connecting MongoDB Collections**
+#### **Using Manual References**
+- One way to connect collections is by storing the `_id` of one document in another document.
+- Example:
+  ```js
+  // User document
+  {
+    _id: ObjectId("..."),
+    name: "Alice"
+  }
 
+  // Post document
+  {
+    _id: ObjectId("..."),
+    title: "My first post",
+    content: "Hello world!",
+    user_id: ObjectId("...") // Reference to the user document
+  }
+  ```
 
+#### **Using `populate()` in Mongoose**
+- The `populate()` method in Mongoose automatically retrieves referenced documents.
+- Example:
+  ```js
+  const userSchema = new mongoose.Schema({
+    name: String,
+    email: String
+  });
+  const User = mongoose.model('User', userSchema);
 
+  const postSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  });
+  const Post = mongoose.model('Post', postSchema);
 
+  // Fetch posts with user details
+  Post.find().populate('user').exec((err, posts) => {
+    console.log(posts);
+  });
+  ```
 
+---
 
+### **Aggregation Pipeline Operators**
+#### **`$lookup` (Left Outer Join)**
+- Used to join documents from different collections.
+- Example:
+  ```js
+  db.orders.aggregate([
+    {
+      $lookup: {
+        from: "customers",
+        localField: "customer_id",
+        foreignField: "_id",
+        as: "customer_info"
+      }
+    }
+  ]);
+  ```
 
+#### **`$project` (Field Selection & Transformation)**
+- Used to include/exclude specific fields in the result.
+- Example:
+  ```js
+  db.students.aggregate([
+    { $project: { name: 1, age: 1 } }
+  ]);
+  ```
 
+- Renaming fields and adding computed fields:
+  ```js
+  db.students.aggregate([
+    { 
+      $project: {
+        name: 1,
+        age: 1,
+        grade: "$score",
+        status: { $cond: [{ $gte: ["$score", 60] }, "Pass", "Fail"] }
+      }
+    }
+  ]);
+  ```
 
+#### **`$out` (Writing Output to a New Collection)**
+- Saves aggregation results to a new collection.
+- Example:
+  ```js
+  db.collection.aggregate([
+    { $sort: { price: -1 } },
+    { $limit: 3 },
+    { $out: "pizza_totals" }
+  ]);
+  ```
 
+#### **`$graphLookup` (Recursive Lookup)**
+- Finds related documents within a collection.
+- Example:
+  ```js
+  {
+    $graphLookup: {
+      from: "employees",
+      startWith: "$manager_id",
+      connectFromField: "manager_id",
+      connectToField: "_id",
+      as: "subordinates"
+    }
+  }
+  ```
 
+---
+
+These notes summarize MongoDB relationships and aggregation concepts from the Masai Experience session. Let me know if you need further clarification! 🚀
