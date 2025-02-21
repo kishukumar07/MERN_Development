@@ -197,3 +197,23 @@ mongoAggregation> db.lectures.aggregate([     {$project:{InstructorEmail:"$I_ema
     InstructorEmail: 'pulkit@techschool.com'
   }
 ]
+//only while projecting 
+
+
+
+
+//trying to hide a field in stage 3
+mongoAggregation> db.instructor.aggregate([{$lookup:{from:"lectures", localField:"email" ,foreignField:"I_email" ,as:"course" }},{$project: {email:0 ,_id:0} } ,{$project:{"course._id":0}}  ])
+[
+  {
+    name: 'Pulkit',
+    course: [
+      {
+        name: 'Intro to MongoDB',
+        lecture: 'nxm201',
+        I_email: 'pulkit@techschool.com'
+      }
+    ]
+  }]
+
+
