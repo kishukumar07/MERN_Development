@@ -242,8 +242,7 @@ mongoAggregation> db.datasetOne.aggregate([{$group:{_id:"$state" , totalPop:{$su
   lectures
   orders
   top3PopuledState
-  mongoAggregation> db.top3PopulatedState.aggregate([])
-  
+
   mongoAggregation> db.top3PopuledState.aggregate([])
   [
     { _id: 'CA', totalPop: 29754890 },
@@ -252,8 +251,42 @@ mongoAggregation> db.datasetOne.aggregate([{$group:{_id:"$state" , totalPop:{$su
   ]
 
 
+  //$unwind :basically its destructure and form documents for each el of array 
+
+  //json
+  {
+    "_id": 1,
+    "item": "abc",
+    "price": 10,
+    "quantities": [2, 5, 10]
+  }
+
+  db.orders.aggregate([
+    { $unwind: "$quantities" }
+  ])//cli
 
 
+// ==>theouput
+   [
+  {
+    "_id": 1,
+    "item": "abc",
+    "price": 10,
+    "quantities": 2
+  },
+  {
+    "_id": 1,
+    "item": "abc",
+    "price": 10,
+    "quantities": 5
+  },
+  {
+    "_id": 1,
+    "item": "abc",
+    "price": 10,
+    "quantities": 10
+  }
+]
 
 
 
