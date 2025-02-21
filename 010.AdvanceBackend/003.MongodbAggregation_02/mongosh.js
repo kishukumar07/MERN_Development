@@ -188,5 +188,12 @@ mongoAggregation> db.instructor.aggregate([{$lookup:{from:"lectures", localField
 
 
 
-
-
+// $project can also be used to change field name while projecting like:
+mongoAggregation> db.lectures.aggregate([     {$project:{InstructorEmail:"$I_email" ,name:1}}])
+[
+  {
+    _id: ObjectId('67b87945d7630cda61cb0cee'),
+    name: 'Intro to MongoDB',
+    InstructorEmail: 'pulkit@techschool.com'
+  }
+]
