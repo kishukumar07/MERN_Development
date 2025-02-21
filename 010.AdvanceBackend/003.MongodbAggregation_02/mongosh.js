@@ -217,3 +217,51 @@ mongoAggregation> db.instructor.aggregate([{$lookup:{from:"lectures", localField
   }]
 
 
+//u rememberrrrr??? 
+  mongoAggregation> db.datasetOne.aggregate([{$group:{_id:"$state" , totalPop:{$sum:"$pop"}}} ,{$sort:{"totalPop":-1}},{$l
+    $limit:3}])
+    [
+      { _id: 'CA', totalPop: 29754890 },
+      { _id: 'NY', totalPop: 17990402 },
+      { _id: 'TX', totalPop: 16984601 }
+    ]
+    
+
+//does anywhere we storing this results.....
+
+//$out-we want to store the results in a collection 
+
+mongoAggregation> db.datasetOne.aggregate([{$group:{_id:"$state" , totalPop:{$sum:"$pop"}}} ,{$sort:{"totalPop":-1}},{$l
+  $limit:3} , {$out:top3PopusState} ]) //last stage 
+
+  ==>>
+  mongoAggregation> show collections
+  datasetOne
+  datasetTwo
+  instructor
+  lectures
+  orders
+  top3PopuledState
+  mongoAggregation> db.top3PopulatedState.aggregate([])
+  
+  mongoAggregation> db.top3PopuledState.aggregate([])
+  [
+    { _id: 'CA', totalPop: 29754890 },
+    { _id: 'NY', totalPop: 17990402 },
+    { _id: 'TX', totalPop: 16984601 }
+  ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
