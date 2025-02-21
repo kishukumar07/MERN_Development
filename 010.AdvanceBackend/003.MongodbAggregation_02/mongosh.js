@@ -104,3 +104,89 @@ mongoAggregation> db.instructor.aggregate([{$lookup : {from:"lectures" ,localFie
     ]
   }
 ]
+
+
+
+
+
+
+// Create Evaluation collection
+db.evaluation.insertMany([
+  {
+    "student_email": "student1@school.com",
+    "course": "nxm201",
+    "score": 85
+  },
+  {
+    "student_email": "student2@school.com",
+    "course": "nxm301",
+    "score": 90
+  },
+  {
+    "student_email": "student3@school.com",
+    "course": "dsa301",
+    "score": 75
+  },
+  {
+    "student_email": "student4@school.com",
+    "course": "sk101",
+    "score": 80
+  }
+])
+
+// Create Student collection
+db.student.insertMany([
+  {
+    "name": "Student One",
+    "email": "student1@school.com"
+  },
+  {
+    "name": "Student Two",
+    "email": "student2@school.com"
+  },
+  {
+    "name": "Student Three",
+    "email": "student3@school.com"
+  },
+  {
+    "name": "Student Four",
+    "email": "student4@school.com"
+  }
+])
+
+// Establish relationship with $lookup
+db.student.aggregate([
+  {
+    $lookup: {
+      from: "evaluation",
+      localField: "email",
+      foreignField: "student_email",
+      as: "evaluations"
+    }
+  }
+])
+
+//name and only sessions 
+mongoAggregation> db.instructor.aggregate([{$lookup:{from:"lectures", localField:"email" ,foreignField:"I_email" ,as:"course" }},{$project: {email:0 ,_id:0} } ]) //at stage projection at last 
+
+[
+  {
+    name: 'Pulkit',
+    course: [
+      {
+        _id: ObjectId('67b87945d7630cda61cb0cee'),
+        name: 'Intro to MongoDB',
+        lecture: 'nxm201',
+        I_email: 'pulkit@techschool.com'
+      }
+    ]
+  }
+]
+
+
+
+
+
+
+
+
