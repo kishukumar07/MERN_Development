@@ -1,0 +1,59 @@
+
+
+ 1. Write an aggregation pipeline to get the total number of orders for each customer.
+ 2. Write an aggregation pipeline to get the total price of all orders for each customer.
+ 3. Write an aggregation pipeline to get the average price of all orders for each customer.
+ 4. Write an aggregation pipeline to get the highest price of all orders for each customer.
+ 5. Write an aggregation pipeline to get the lowest price of all orders for each customer.
+ 6. Write an aggregation pipeline to get the total number of orders and the total price of all orders for each customer.
+ 7. Write an aggregation pipeline to get the total number of orders and the average price of all orders for each customer.
+ 8. Write an aggregation pipeline to get the highest price and the lowest price of all orders for each customer.
+ 9. Write an aggregation pipeline to get the total number of orders and the highest price of all orders for each customer.
+ 10. Write an aggregation pipeline to get the total number of orders, the total price, and the average price of all orders for
+ each customer.
+ For each of the above questions, provide the MongoDB Aggregation Pipeline query that solves the problem.
+
+
+
+
+1.=>
+ mongoAggregation> db.datasetTwo.aggregate([{$project:{name:1 ,totalorders:{$size:"$orders"}    }}])
+[
+  { _id: 1, name: 'John', totalorders: 2 },
+  { _id: 2, name: 'Jane', totalorders: 2 },
+  { _id: 3, name: 'Bob', totalorders: 2 }
+]
+
+2.=>
+ mongoAggregation> db.datasetTwo.aggregate([{$project:{name:1 ,totalOrderPrice:{$sum:"$orders.price"}}}])
+[
+  { _id: 1, name: 'John', totalOrderPrice: 3000 },
+  { _id: 2, name: 'Jane', totalOrderPrice: 800 },
+  { _id: 3, name: 'Bob', totalOrderPrice: 900 }
+]
+
+x.=>
+ db.datasetTwo.aggregate([{$project: {name:1,totalorder:{$size:"$orders"} ,orders:1 ,totalprice:{$sum:"$orders.price"}  }} ,{$project:{name:1,totalorder:1 ,totalprice:1}}   ])
+[
+  { _id: 1, name: 'John', totalorder: 2, totalprice: 3000 },
+  { _id: 2, name: 'Jane', totalorder: 2, totalprice: 800 },
+  { _id: 3, name: 'Bob', totalorder: 2, totalprice: 900 }
+]
+
+
+
+8.mongoAggregation> db.datasetTwo.aggregate([{$project: {name:1,higestprice:{$max:"$orders.price"}  ,lowestpriceorder:{$min:"orders.price"} ,_id:0}}   ])
+[
+  { name: 'John', higestprice: 2000, lowestpriceorder: 'orders.price' },
+  { name: 'Jane', higestprice: 500, lowestpriceorder: 'orders.price' },
+  { name: 'Bob', higestprice: 800, lowestpriceorder: 'orders.price' }
+]
+
+
+10.mongoAggregation> db.datasetTwo.aggregate([{$project:{ name:1,orders:1,totalOrders:{$size :"$orders" },totalprice:{$sum:"$orders.price" },avgprice:{$avg:"$orders.price"} }},{$project:{orders:0,_id:0}}])
+[
+  { name: 'John', totalOrders: 2, totalprice: 3000, avgprice: 1500 },
+  { name: 'Jane', totalOrders: 2, totalprice: 800, avgprice: 400 },
+  { name: 'Bob', totalOrders: 2, totalprice: 900, avgprice: 450 }
+]
+mongoAggreg

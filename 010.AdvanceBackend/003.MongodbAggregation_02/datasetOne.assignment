@@ -1,0 +1,38 @@
+{
+    _id: '01001',
+    city: 'AGAWAM',
+    loc: [ -72.622739, 42.070206 ],
+    pop: 15338,
+    state: 'MA'
+  },//json dataset
+
+
+
+
+1. find the state with totalPopulation ..
+  
+  =>first we have to make groups by state
+  => db.datasetOne.aggregate({$group:{_id:"$state"}})
+  =>we also want to add population 
+  mongoAggregation> db.datasetOne.aggregate({$group:{_id:"$state",totalPopulation:{$sum:"$pop"}}})
+[
+  { _id: 'WY', totalPopulation: 453528 },
+  { _id: 'KY', totalPopulation: 3675484 },
+ ...
+ ...
+ ...
+  { _id: 'SC', totalPopulation: 3486703 },
+  { _id: 'IA', totalPopulation: 2776420 },
+  { _id: 'IL', totalPopulation: 11427576 }
+]
+
+
+
+2.  finding the satate with the largest population 
+
+      =>  db.datasetOne.aggregate([{$group:{_id:"$state" ,totalPopulation :{$sum:"$pop"}}} ,{$sort:{totalPopulation:-1}}      ])
+
+   mongoAggregation>  db.datasetOne.aggregate([{$group:{_id:"$state" ,totalPopulation :{$sum:"$pop"}}} ,{$sort:{totalPopulation:-1}},{$limit:1} ])
+     [ { _id: 'CA', totalPopulation: 29754890 } ]
+
+3. 
