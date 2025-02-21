@@ -1,0 +1,17 @@
+In today lect we are main focusing on the $lookup operator....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
