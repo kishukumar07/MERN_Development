@@ -1,0 +1,59 @@
+mongoAggregation> db.peoples.aggregate([])
+[
+  { _id: 1, name: 'John', age: 25, address: '123 Main St' },
+  { _id: 2, name: 'Jane', age: 35, address: '456 Main St' },
+  { _id: 3, name: 'Bob', age: 45, address: '789 Main St' },
+  { _id: 4, name: 'Alice', age: 55, address: '246 Main St' }
+]
+mongoAggregation> db.zipcodes.aggregate([])
+[
+  { _id: 1, address: '123 Main St', zipcode: '12345' },
+  { _id: 2, address: '456 Main St', zipcode: '54321' },
+  { _id: 3, address: '789 Main St', zipcode: '98765' },
+  { _id: 4, address: '246 Main St', zipcode: '24680' }
+]
+mongoAggregation> db.details.aggregate([])
+[
+  { _id: 1, zipcode: '12345', city: 'New York', state: 'NY' },
+  { _id: 2, zipcode: '54321', city: 'Chicago', state: 'IL' },
+  { _id: 3, zipcode: '98765', city: 'Los Angeles', state: 'CA' },
+  { _id: 4, zipcode: '24680', city: 'Miami', state: 'FL' }
+]
+mongoAggregation> db.countries.aggregate([])
+[
+  { _id: 1, state: 'NY', country: 'USA' },
+  { _id: 2, state: 'IL', country: 'USA' },
+  { _id: 3, state: 'CA', country: 'USA' },
+  { _id: 4, state: 'FL', country: 'USA' }
+mongoAggregation> db.peoples.aggregate([{$lookup:{from:"zipcodes",localField:"address", foreignField:"address", as:"location"}},{$unwind:"$location"} ,{$lookup :{from: "details" ,localField:"location.zipcode",foreignField : "zipcode" ,as:"cityInfo"}},{$unwind:"$cityInfo"},{$lookup:{from: "countries" , localField:"cityInfo.state",foreignField : "state" , as:"country"}} ,{$unwind:"$country"}                     ,{$project:{_id:0 , address:0 ,"location._id":0 ,"cityInfo._id":0 ,"cityInfo.zipcode":0 ,"country._id" :0 ,"country.state":0 }}                      ]    )
+[
+  {
+    name: 'John',
+    age: 25,
+    location: { address: '123 Main St', zipcode: '12345' },
+    cityInfo: { city: 'New York', state: 'NY' },
+    country: { country: 'USA' }
+  },
+  {
+    name: 'Jane',
+    age: 35,
+    location: { address: '456 Main St', zipcode: '54321' },
+    cityInfo: { city: 'Chicago', state: 'IL' },
+    country: { country: 'USA' }
+  },
+  {
+    name: 'Bob',
+    age: 45,
+    location: { address: '789 Main St', zipcode: '98765' },
+    cityInfo: { city: 'Los Angeles', state: 'CA' },
+    country: { country: 'USA' }
+  },
+  {
+    name: 'Alice',
+    age: 55,
+    location: { address: '246 Main St', zipcode: '24680' },
+    cityInfo: { city: 'Miami', state: 'FL' },
+    country: { country: 'USA' }
+  }
+]
+mongoAggregation>

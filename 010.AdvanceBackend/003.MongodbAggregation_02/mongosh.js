@@ -290,11 +290,3 @@ mongoAggregation> db.datasetOne.aggregate([{$group:{_id:"$state" , totalPop:{$su
 
 
 
-
-
-
-
-
-
-
-
