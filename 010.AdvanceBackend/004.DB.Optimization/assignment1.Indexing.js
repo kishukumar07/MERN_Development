@@ -1,5 +1,5 @@
 // 1. Switch to or create a database
-use myDatabase;
+// use myDatabase;
 
 // 2. Create a collection and insert 10 documents
 db.users.insertMany([
