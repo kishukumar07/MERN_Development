@@ -1,0 +1,97 @@
+### Summary of Regular Expressions (Regex):
+
+#### 1. **What are Regular Expressions?**
+- Regular expressions (Regex) are sequences of characters that define a search pattern. They are used in:
+  - **Programming languages**
+  - **Text processing tools** (e.g., Google forms)
+  
+#### 2. **Uses of Regular Expressions**:
+- **Check if a string matches a pattern**
+- **Replace matched patterns**
+- **Extract parts of a string**
+
+#### 3. **Basic Syntax**:
+- **Literal Syntax**: `/some pattern/`
+- **Constructor Syntax**: `new RegExp("some pattern")`
+
+#### 4. **Common Regex Characters**:
+- **`.`**: Matches any single character (except newline).
+- **`*`**: Zero or more repetitions of the preceding character.
+- **`+`**: One or more repetitions of the preceding character.
+- **`^`**: Matches the beginning of a line.
+- **`$`**: Matches the end of a line.
+
+#### 5. **Regex Methods**:
+- **`.test()`**: Tests if the pattern is found in a string, returns `true` or `false`.
+  - Example: `regex.test(string)`
+- **`.match()`**: Returns an array of matched values or `null` if no match is found.
+  - Example: `string.match(regex)`
+
+#### 6. **Flags/Modifiers**:
+- **`g`**: Global search (finds all matches).
+- **`i`**: Case-insensitive search.
+- **`m`**: Multiline search.
+- **`u`**: Unicode search.
+
+#### 7. **MetaCharacters**:
+- **`[]`**: Specifies a set of characters to match.
+  - Example: `[abc]` matches 'a', 'b', or 'c'.
+- **`.`**: Matches any single character.
+- **`^`**: Matches the start of a string.
+- **`$`**: Matches the end of a string.
+- **`*`**: Zero or more occurrences of the previous pattern.
+- **`+`**: One or more occurrences of the previous pattern.
+- **`?`**: Zero or one occurrence of the previous pattern.
+- **`{n,m}`**: Matches between `n` and `m` repetitions of the previous pattern.
+- **`|`**: OR operator (matches one of several patterns).
+- **`()`**: Groups sub-patterns.
+
+#### 8. **Special Sequences**:
+- **`\d`**: Matches any decimal digit (`[0-9]`).
+- **`\D`**: Matches any non-digit (`[^0-9]`).
+- **`\s`**: Matches any whitespace character.
+- **`\S`**: Matches any non-whitespace character.
+- **`\w`**: Matches any alphanumeric character (`[a-zA-Z0-9_]`).
+- **`\W`**: Matches any non-alphanumeric character.
+- **`\b`**: Matches the beginning or end of a word.
+- **`\B`**: Matches if the characters are not at the start or end of a word.
+
+#### 9. **Creating Regular Expressions**:
+- **Using literals**: `const regex = /abc/`
+- **Using the RegExp constructor**: `const regex = new RegExp('abc')`
+
+#### 10. **Example Use Cases**:
+- **Matching a Phone Number**:
+  - Regex: `/^\d{3}-\d{3}-\d{4}$/`
+  - Validates a phone number in the format `###-###-####`.
+  
+- **Matching Emails**:
+  - Regex: `/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g`
+  - Example: `info@example.com`, `support@example.com`.
+
+#### 11. **Common Methods**:
+- **`.search()`**: Searches for a match and returns the index of the match, or `-1` if not found.
+- **`.replace()`**: Replaces matched substring with a replacement.
+- **`.split()`**: Splits a string into an array of substrings.
+
+#### 12. **Examples**:
+- **Matching a Word**: 
+  ```javascript
+  const str = 'The quick brown fox';
+  const regex = /the/gi;
+  console.log(str.match(regex)); // ["The"]
+  ```
+- **Searching for a Word**:
+  ```javascript
+  const str = 'The quick brown fox';
+  const regex = /quick/;
+  console.log(str.search(regex)); // 4 (index of first match)
+  ```
+- **Testing for a Match**:
+  ```javascript
+  const str = 'The quick brown fox';
+  const regex = /fox/;
+  console.log(regex.test(str)); // true
+  ```
+
+This covers the key points about regular expressions and their use in JavaScript!
