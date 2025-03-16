@@ -84,8 +84,7 @@ let users_2 = [
 groupById(users_2); 
 
 /*
-// after the call we should have:
-
+// after the call we should have: ---
 usersById = {
   john: {id: 'john', name: "John Smith", age: 20},
   ann: {id: 'ann', name: "Ann Smith", age: 24},
@@ -93,22 +92,18 @@ usersById = {
 }
 */
 
-groupById = (arr) => {
+function groupById(arr){
 
-let reducedArr_3 = arr.reduce((acc,item)={
-    
-    //logic here ....
-
+let reducedArr_3 = arr.reduce((acc,item)=>{
+    //logic here....
+acc[`${item.id}`]  = item; 
+// console.log(acc)
+return acc; 
 },
-{
+{})
 
-})
-
-
-
-
-
-
+console.log(reducedArr_3); 
+return reducedArr_3; 
 }
 
 
