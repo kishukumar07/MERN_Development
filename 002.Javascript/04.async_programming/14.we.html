@@ -29,7 +29,7 @@ let fetchedData =[]; //we are storing data globaly reason-- for filtering purpos
     try{
         let res =await fetch(APIURL); 
         let data =await res.json(); 
-        // console.log(data); 
+        // console.log(data);   //data is an array containing  obj with diff key value pairs .....
         data = data.map((element)=>{ //map returns the array of same length with the different objects 
             return {
                 name : element.name.official , 
@@ -38,7 +38,7 @@ let fetchedData =[]; //we are storing data globaly reason-- for filtering purpos
             }; //returning the new object -with these keys only 
         });
     fetchedData = data; 
-    // console.log(data);  //.filter will change the length of array 
+    //console.log(data);      //.filter will change the length of array 
      DisplayCountries(fetchedData); 
     }catch(errr){
 console.log(errr); 
@@ -70,8 +70,6 @@ function DisplayCountries(data){
     function FetchDataNormal(){
    //you have to complete it with normal method  .then .catch
     }
-
- 
 
 
 

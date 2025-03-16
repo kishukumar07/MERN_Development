@@ -1,0 +1,40 @@
+<!-- STATEMENT : - USER SHOULD BE ABLE TO ENTER OTP AND WHEN CLICKING ON SUBMIT MAKE A NEW PROMISE ,PROMISE SHOULD RESOLVE IF ENTERED OTP IS "1234" ELSE REJECTED-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We.otp</title>
+</head>
+
+<body>
+    <input type="number" id="otp">
+    <button id="submit">Submit</button>
+
+</body>
+<script>
+    let otp = document.getElementById("otp");
+    let submitBtn = document.getElementById("submit");
+    submitBtn.addEventListener("click", () => {
+
+        let promise = new Promise(function (resolve, reject) {
+            if (otp.value === "1234") {
+                resolve("otp matched");
+            }
+            else {
+                // console.log(otp.value)
+                reject("otp matching failed");
+            }
+        })
+        .then((res)=>{
+  console.log(res); 
+        })
+        .catch((err)=>{
+            console.log(err); 
+        })
+
+    }); 
+</script>
+
+</html>

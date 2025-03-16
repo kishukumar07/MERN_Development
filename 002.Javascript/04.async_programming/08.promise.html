@@ -1,0 +1,46 @@
+TAKE A COUNT VALUE AS A VARIABLE
+CREAT A NEW PROMISE IN SUCH A WAY THAT IF COUNT IS >0 RESOLVE IT WITH "POSITIVE COUNT" ,ELSE REJECT IT WITH "NEGATIVE
+COUNT"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+  let count = Math.floor(Math.random() * 100);
+
+  let s = new Promise((resolve, reject) => {
+    if (count >= 0) {
+      resolve("Positive Count"+count);
+    } else {
+      reject("Negative Count"+count); //only first data
+    }
+  }); 
+
+
+  s
+  .then((res)=>{
+    console.log(res ); 
+  })
+  .catch((err)=>{
+    console.warn(err); 
+  })
+
+
+
+  console.log(s); 
+</script>
+
+
+
+
+
+</html>

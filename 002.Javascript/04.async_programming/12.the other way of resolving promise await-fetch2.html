@@ -1,12 +1,12 @@
-<!-- TODAY - BEFORE WE DIVE INTO ANYTHING LETS US FIRST UNDERSTAND a different way of fetching data ..
+<!-- TODAY - BEFORE WE DIVE INTO ANYTHING LETS US FIRST UNDERSTAND a different way of fetching data ...
 
-1.the previous method
+1.the previous method .....
 
 const APIURL ="";
 let fetchedData=[];
 fetch(APIURL)
 .then((response)=>{
-return response.json(); //asyncronous behaviour
+return response.json();                      //asyncronous behaviour
 })
 .then((data)=>{
 console.log(data);
@@ -15,14 +15,16 @@ fetchedData = data;
 .catch((err)=>{
 console.log(err);
 })
-// Display(fetchedData);
+
+// Display(fetchedData);                      //syncronous behaviour 
+
 
 /*
-this will run first and it will show nothing TO THE TABLE bcs the upper code is asyncronous so UPTILL NOW fetchedData
+This will run first and it will show nothing TO THE TABLE bcs the upper code is asyncronous so UPTILL NOW fetchedData 
 will not have data ITS'EMPTY ARRAY & bcs it will run firstly .. IT WILL DISPLAY NOTHING
 after that the asyncronous code will run
 THIS CREATES CONFUSION SOMETIME SO WE HAVE ONE MORE WAY TO FETCH THE DATA ....OF APIURL(I CAN SAY I HAVE ONE MORE WAY OF
-RSOLVING THE PROMISE ).
+RSOLVING THE PROMISE ). //sync resolving ...
 AND FOR THIS NEW WAY WE MUST HAVE TO CREAT A FUNCTION .....AND BFR THE FUNCTION WE MUST HAVE TO USE THE KEYWORD 'async'
 THAT TELLS THIS FUNCTION IS asyncronous FROM NOW OWNWARDS...
 */
@@ -36,7 +38,7 @@ let res = await fetch(APIURL); //~is equivalent to =>>>> .then(response) whateve
 // console.log(res);
 
 //TILL HERE ONLY ONE PROMISE HAS BEEN RESOLVED I HAVE TO resolve ANOTHER ONE AS IN previous METHOD SO ..
-let data = await res.json();
+let data = await res.json(); //the 2nd .then code...
 console.log(data);
 //u have to use async keyword to the function to use await without async it will give error
 

@@ -33,13 +33,13 @@
     const selectFilter = document.getElementById("filter");
 
     let fetchedData = [];
-    fetch(APIURL)
-      .then((response) => {
+    fetch(APIURL) //this returns a promise 
+    .then((response) => {
         return response.json();
       })
       .then((data) => {
         fetchedData = data;
-        DisplayTable(data);
+        DisplayTable(data);   //you remember two .then we during promise channing 
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +60,7 @@
 
     
     function DisplayTable(data) {
-      tbodyEl.innerHTML = null;
+      tbodyEl.innerHTML = null;    //...what if we not make this as null oky !!
       data.forEach((element) => {
         let tr = document.createElement("tr");
 
