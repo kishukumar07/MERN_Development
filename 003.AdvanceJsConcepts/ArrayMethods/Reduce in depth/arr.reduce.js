@@ -1,3 +1,4 @@
+// You are receiving data from backend in the following format: 
 let developers_array = [
     {
         first: "John",
@@ -20,7 +21,7 @@ let developers_array = [
 ];
 
 
-// The OutPut i want ....  
+// Problem1 ...The OutPut i want ....  
 //   {
 //     BE: ["Jane", "James"]
 //     FE: ["John"]
@@ -40,10 +41,14 @@ let reducedArr = developers_array.reduce((acc, item) => {
 console.log(reducedArr)
 
 
+// Problem 2. write reduce function that returns the total number of commits by all the developers
 
+let reducedArr_2 = developers_array.reduce((acc, item) => {
+    sum +=item.commits; 
+    return sum;
+}, sum=0)
 
-
-
+console.log(reducedArr_2) ;
 
 
 
