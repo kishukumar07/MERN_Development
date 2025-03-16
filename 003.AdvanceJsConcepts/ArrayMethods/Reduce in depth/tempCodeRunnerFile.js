@@ -1,0 +1,1 @@
+nsole.log(sum/users.length) 
