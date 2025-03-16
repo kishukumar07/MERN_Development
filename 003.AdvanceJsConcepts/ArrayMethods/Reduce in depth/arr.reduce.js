@@ -95,6 +95,17 @@ usersById = {
 
 groupById = (arr) => {
 
+let reducedArr_3 = arr.reduce((acc,item)={
+    
+    //logic here ....
+
+},
+{
+
+})
+
+
+
 
 
 
