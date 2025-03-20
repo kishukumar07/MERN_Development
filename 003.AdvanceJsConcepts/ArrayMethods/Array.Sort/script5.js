@@ -35,7 +35,6 @@ mapped.sort((a, b) => {
 console.log(mapped)
 
 
-
 const result = mapped.map((el) => data[el.i]); //reducing the mapped value   (data is declared array )
 
 console.log(result)
