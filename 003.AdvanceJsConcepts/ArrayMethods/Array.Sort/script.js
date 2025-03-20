@@ -4,7 +4,7 @@
 const months = ["March", "Jan", "Feb", "Dec"];
 months.sort();
 console.log(months);
-// Expected output: Array ["Dec", "Feb", "Jan", "March"]
+// Expected output: Array ["Dec", "Feb", "Jan", "March"] //a...z
 
 
 
@@ -48,11 +48,17 @@ Syntax-js
 
 /*  
     Oky so what is the diff b/w both syntax if compareFn is supplied as param or  if not supplied as param ??    
+ 
 
-
-
-
-
-
-
+    **If compareFn is not supplied
+                                      ~ all non-undefined array elements are sorted by converting them to strings and comparing strings in UTF-16 code units order. For example, "banana" comes before "cherry". In a numeric sort, 9 comes before 80, but because numbers are converted to strings, "80" comes before "9" in the Unicode order. All undefined elements are sorted to the end of the array.
+                         summary --> sorting happens based on only first place character .  if undefined will be sorted  at the end of the array ...  
+    
+    
+    
+        **If compareFn is  supplied
+                                      ~ all non-undefined array elements are sorted by converting them to strings and comparing strings in UTF-16 code units order. For example, "banana" comes before "cherry". In a numeric sort, 9 comes before 80, but because numbers are converted to strings, "80" comes before "9" in the Unicode order. All undefined elements are sorted to the end of the array.
+                         summary --> sorting happens based on only first place character .  if undefined will be sorted  at the end of the array ...  
 */
+
+
