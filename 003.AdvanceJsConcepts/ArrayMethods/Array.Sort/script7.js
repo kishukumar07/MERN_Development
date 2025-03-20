@@ -1,3 +1,4 @@
+// Calling sort() on non-array objects
 const arrayLike = {
     length: 3,
     unrelated: "foo",
