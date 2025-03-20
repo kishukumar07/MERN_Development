@@ -30,9 +30,29 @@ Syntax-js
         what the callback as a param returns ? 
                  
                It should return a number where:
-                         *A negative value indicates that a should come   before b.
+                         *A negative value indicates that a should come   before b.  
+                                 ~remember that (a, b) => a - b sorts numbers in ascending order 
                          *A positive value indicates that a should come     
-                          after b.
+                         after b.
+                                ~remember that (a, b) => b - a sorts numbers in descending order
+
+
                          *Zero or NaN indicates that a and b are considered equal.
+
+                         */
+/* Return value ~sort method 
+                         The reference to the original array, now sorted. Note that the array is sorted in place, and no copy is made.
+   */                         
+
+
+
+/*  
+    Oky so what is the diff b/w both syntax if compareFn is supplied as param or  if not supplied as param ??    
+
+
+
+
+
+
 
 */
