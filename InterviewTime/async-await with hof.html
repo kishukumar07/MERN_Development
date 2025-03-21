@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Issues in JavaScript Loops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        pre {
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .output {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 Async Issues in JavaScript Loops</h1>
+
+    <p>Many developers assume that <b>forEach, map, and filter</b> will <b>await</b> asynchronous functions, but they don’t! Let’s break it down.</p>
+
+    <h2>🔴 Issue with <code>forEach</code></h2>
+    <pre>
+const ratings = [5, 4, 5];
+let sum = 0;
+
+const sumFunction = async (a, b) => a + b;
+
+ratings.forEach(async (rating) => {
+  sum = await sumFunction(sum, rating);
+});
+
+console.log(sum); // ❌ Expected: 14, Actual: 0
+    </pre>
+
+    <p><b>❌ Why?</b> <code>forEach</code> does not wait for the async function, so <code>sum</code> remains unchanged.</p>
+
+    <h3>✅ Corrected Code Using <code>for...of</code></h3>
+    <pre>
+(async () => {
+    for (const rating of ratings) {
+        sum = await sumFunction(sum, rating);
+    }
+    console.log(sum); // ✅ Output: 14
+})();
+    </pre>
+
+    <h2>🔴 Issue with <code>map</code></h2>
+    <pre>
+const ratings = [5, 4, 5];
+
+const doubleValue = async (num) => num * 2;
+
+const results = ratings.map(async (rating) => {
+  return await doubleValue(rating);
+});
+
+console.log(results); // ❌ [Promise, Promise, Promise]
+    </pre>
+
+    <p><b>❌ Why?</b> <code>map</code> returns an array of Promises, not resolved values.</p>
+
+    <h3>✅ Fix: Use <code>Promise.all()</code></h3>
+    <pre>
+(async () => {
+    const results = await Promise.all(ratings.map(async (rating) => {
+        return await doubleValue(rating);
+    }));
+    console.log(results); // ✅ Output: [10, 8, 10]
+})();
+    </pre>
+
+    <h2>🔴 Issue with <code>filter</code></h2>
+    <pre>
+const numbers = [1, 2, 3, 4, 5];
+
+const isEven = async (num) => num % 2 === 0;
+
+const filtered = numbers.filter(async (num) => {
+  return await isEven(num);
+});
+
+console.log(filtered); // ❌ Incorrect filtering!
+    </pre>
+
+    <p><b>❌ Why?</b> <code>filter</code> does not wait for <code>isEven()</code> to resolve, treating all Promises as truthy.</p>
+
+    <h3>✅ Fix: Use <code>Promise.all()</code> and <code>map</code></h3>
+    <pre>
+(async () => {
+    const filtered = await Promise.all(numbers.map(async (num) => ({
+        num,
+        keep: await isEven(num),
+    })));
+
+    const result = filtered.filter(item => item.keep).map(item => item.num);
+    console.log(result); // ✅ Output: [2, 4]
+})();
+    </pre>
+
+    <h2>🔑 Key Takeaways</h2>
+    <ul>
+        <li>🚀 <b>Use <code>for...of</code></b> instead of <code>forEach</code> if you need to await inside a loop.</li>
+        <li>⚡ <b>Use <code>Promise.all()</code></b> with <code>map</code> to resolve promises properly.</li>
+        <li>✔️ <b>For <code>filter</code>, use <code>map</code> first</b> before filtering.</li>
+    </ul>
+
+    <h2>🎯 Try It Yourself!</h2>
+    <button onclick="runExample()">Run Corrected Example</button>
+    <p class="output" id="output"></p>
+
+    <script>
+        async function runExample() {
+            const ratings = [5, 4, 5];
+            let sum = 0;
+
+            const sumFunction = async (a, b) => a + b;
+
+            for (const rating of ratings) {
+                sum = await sumFunction(sum, rating);
+            }
+
+            document.getElementById('output').innerText = `✅ Corrected Sum: ${sum}`;
+        }
+    </script>
+
+</body>
+</html>
