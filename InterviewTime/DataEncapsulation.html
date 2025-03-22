@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Encapsulation Notes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; }
+        .container { max-width: 800px; margin: auto; }
+        .question { font-weight: bold; margin-top: 20px; }
+        .code-box { background: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Encapsulation - Interview Notes</h1>
+        
+        <div class="question">Q1: What is Data Encapsulation?</div>
+        <p><strong>Answer:</strong> Data Encapsulation is the process of bundling data (variables) and methods that operate on the data into a single unit (like an object). It helps in restricting direct access to some components.</p>
+
+        <div class="question">Q2: Why is Encapsulation important?</div>
+        <ul>
+            <li>✔ Protects data from accidental modification</li>
+            <li>✔ Hides internal implementation</li>
+            <li>✔ Improves code maintainability</li>
+            <li>✔ Provides controlled access using getters & setters</li>
+        </ul>
+
+        <div class="question">Q3: How is Encapsulation achieved in JavaScript?</div>
+        <p>Encapsulation can be implemented using:</p>
+        <ul>
+            <li>✔ Closures</li>
+            <li>✔ Private properties (ES6 <code>#</code>)</li>
+            <li>✔ Getters & Setters</li>
+        </ul>
+
+        <div class="question">Q4: Example of Encapsulation using Closures?</div>
+        <div class="code-box">
+<code>function createCounter() {
+    let count = 0; // Private variable
+    return {
+        increment: function () {
+            count++;
+            console.log(count);
+        },
+        getCount: function () {
+            return count;
+        }
+    };
+}
+
+const counter = createCounter();
+counter.increment(); // Output: 1
+console.log(counter.getCount()); // Output: 1</code>
+        </div>
+
+        <div class="question">Q5: Example using ES6 Private Fields?</div>
+        <div class="code-box">
+<code>class Counter {
+    #count = 0; // Private field
+
+    increment() {
+        this.#count++;
+        console.log(this.#count);
+    }
+}
+
+const counter = new Counter();
+counter.increment(); // Output: 1
+console.log(counter.#count); // ❌ Error: Private field</code>
+        </div>
+
+        <div class="question">Q6: Example using Getters & Setters?</div>
+        <div class="code-box">
+<code>class Person {
+    constructor(name, age) {
+        this._name = name;
+        this._age = age;
+    }
+
+    get age() {
+        return this._age;
+    }
+
+    set age(newAge) {
+        if (newAge > 0) {
+            this._age = newAge;
+        } else {
+            console.log("Age must be positive!");
+        }
+    }
+}
+
+const person = new Person("Niket", 20);
+person.age = 25; // Allowed
+console.log(person.age); // Output: 25</code>
+        </div>
+    </div>
+</body>
+</html>
