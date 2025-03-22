@@ -37,12 +37,17 @@
         </ul>
 
         <div class="question">Q4: Example of Encapsulation using Closures?</div>
+        <p>Closures allow us to hide variables inside a function, preventing direct access.</p>
         <div class="code-box">
 <code>function createCounter() {
     let count = 0; // Private variable
     return {
         increment: function () {
             count++;
+            console.log(count);
+        },
+        decrement: function () {
+            count--;
             console.log(count);
         },
         getCount: function () {
@@ -53,10 +58,13 @@
 
 const counter = createCounter();
 counter.increment(); // Output: 1
-console.log(counter.getCount()); // Output: 1</code>
+counter.increment(); // Output: 2
+console.log(counter.getCount()); // Output: 2
+console.log(counter.count); // Undefined (Cannot access private variable)</code>
         </div>
 
         <div class="question">Q5: Example using ES6 Private Fields?</div>
+        <p>With ES6, we can use the <code>#</code> symbol to create truly private properties inside classes.</p>
         <div class="code-box">
 <code>class Counter {
     #count = 0; // Private field
@@ -65,18 +73,24 @@ console.log(counter.getCount()); // Output: 1</code>
         this.#count++;
         console.log(this.#count);
     }
+
+    getCount() {
+        return this.#count;
+    }
 }
 
 const counter = new Counter();
 counter.increment(); // Output: 1
-console.log(counter.#count); // ❌ Error: Private field</code>
+console.log(counter.getCount()); // Output: 1
+console.log(counter.#count); // ❌ Syntax Error: Private field cannot be accessed</code>
         </div>
 
         <div class="question">Q6: Example using Getters & Setters?</div>
+        <p>Getters and setters allow controlled access to private properties.</p>
         <div class="code-box">
 <code>class Person {
     constructor(name, age) {
-        this._name = name;
+        this._name = name; // Convention: _name means "private"
         this._age = age;
     }
 
@@ -85,18 +99,24 @@ console.log(counter.#count); // ❌ Error: Private field</code>
     }
 
     set age(newAge) {
-        if (newAge > 0) {
-            this._age = newAge;
-        } else {
-            console.log("Age must be positive!");
-        }
+        if (newAge > 0) this._age = newAge;
+        else console.log("Age must be positive!");
     }
 }
 
 const person = new Person("Niket", 20);
-person.age = 25; // Allowed
-console.log(person.age); // Output: 25</code>
+console.log(person.age); // Output: 20
+person.age = 25; // ✅ Allowed (through setter)
+person.age = -5; // ❌ Age must be positive!</code>
         </div>
+
+        <h2>🔥 Why Use Encapsulation?</h2>
+        <ul>
+            <li>✔ <strong>Data Security:</strong> Prevents accidental modification of data.</li>
+            <li>✔ <strong>Data Hiding:</strong> Internal details are hidden from external users.</li>
+            <li>✔ <strong>Controlled Access:</strong> Modifications happen only through well-defined methods.</li>
+            <li>✔ <strong>Code Maintainability:</strong> Changes in implementation do not affect external code.</li>
+        </ul>
     </div>
 </body>
 </html>
