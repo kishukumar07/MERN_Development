@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Closures - Interview Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Closures - Interview Notes</h1>
+    <h2>Definition</h2>
+    <p>A closure is a function that retains access to its parent function's variables, even after the parent function has executed.</p>
+
+    <h2>Key Concepts</h2>
+    <ul>
+        <li><strong>Lexical Scoping:</strong> JavaScript uses lexical scoping, meaning a function's scope is defined by where it is written in the code.</li>
+        <li><strong>Inner Function Access:</strong> Functions inside another function can access the outer function's variables.</li>
+        <li><strong>Closure Creation:</strong> When an inner function is returned or referenced outside its scope, it forms a closure.</li>
+    </ul>
+
+    <h2>Why Use Closures?</h2>
+    <ul>
+        <li><strong>Data Encapsulation:</strong> Helps create private variables and prevent unintended modifications.</li>
+        <li><strong>Memory Efficiency:</strong> Stores only required variables instead of polluting global scope.</li>
+        <li><strong>Function Factories:</strong> Can create multiple instances of functions with different values.</li>
+        <li><strong>Event Handling:</strong> Useful in setting up event listeners while keeping access to specific data.</li>
+        <li><strong>SetTimeout & SetInterval:</strong> Retains reference to variables when executing delayed functions.</li>
+    </ul>
+
+    <h2>Common Interview Questions on Closures</h2>
+    <ol>
+        <li>What is a closure in JavaScript?</li>
+        <li>How do closures work in JavaScript?</li>
+        <li>Why are closures useful?</li>
+        <li>Give an example of a closure in JavaScript.</li>
+        <li>What are some real-world use cases of closures?</li>
+        <li>How do closures help in data hiding?</li>
+        <li>Can closures lead to memory leaks? If so, how?</li>
+        <li>What are some alternatives to closures?</li>
+    </ol>
+
+    <h2>Example</h2>
+    <pre><code>function outerFunction() {
+    let outerVariable = "Hello";
+
+    function innerFunction() {
+        console.log(outerVariable); // Accessing the outer variable
+    }
+
+    return innerFunction;
+}
+
+let myClosure = outerFunction();
+myClosure(); // Output: Hello</code></pre>
+
+    <h2>Key Takeaways</h2>
+    <ul>
+        <li>Closures allow functions to maintain access to their outer scope.</li>
+        <li>They help in data encapsulation and state persistence.</li>
+        <li>Widely used in JavaScript for event handling, timers, and functional programming.</li>
+    </ul>
+</body>
+</html>
