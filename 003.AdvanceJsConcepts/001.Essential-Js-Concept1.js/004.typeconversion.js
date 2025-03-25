@@ -56,6 +56,20 @@ console.log(+undefined) //NaN
 
  Number(123)  becomes 123 */
 
-
 console.log(typeof(String(1))); 
 
+/* ParseInt 
+MDN
+The parseInt method parses a value as a string and returns the first integer. If it finds anything other than a number or empty spaces first, it returns NaN
+*/
+parseInt('400 Rs.') //becomes 400
+parseInt('Rs. 400') // becomes NaN
+
+
+
+
+
+/*Technique most used in the industry (coercion technique)
+Put a + Mathematical operator in front of a number & it will convert value to a number automatically. If the string represents a non number, NaN is returned.
+console.log(+"123")
+*/
