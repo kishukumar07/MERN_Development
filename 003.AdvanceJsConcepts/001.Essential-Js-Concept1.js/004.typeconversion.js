@@ -66,8 +66,6 @@ parseInt('Rs. 400') // becomes NaN
 
 
 
-
-
 /*Technique most used in the industry (coercion technique)
 Put a + Mathematical operator in front of a number & it will convert value to a number automatically. If the string represents a non number, NaN is returned.
 console.log(+"123")
@@ -82,3 +80,28 @@ console.log(+(true)) // 1
 console.log(+(false)) //0 
 
 console.log(+(123) ) // becomes 123 
+
+/*
+## Boolean Conversion
+
+The `Boolean` function converts falsey values to `false` and the rest of the values to `true`
+
+```jsx
+*/
+console.log(Boolean("ABC")); // true
+console.log(Boolean("")); // false
+
+
+/*
+Boolean conversion technique most used in the industry (coercion technique, double negation)
+
+```jsx
+*/
+
+console.log(!!("ABC")); // true
+console.log(!!("")); // false
+
+/*
+> do not be scared by the heavy word coercion. It simply means automatic type conversion
+>
+*/
