@@ -43,19 +43,18 @@ let converted = String(original);
 */
 // **Edge cases:** 
 
-console.log(+undefined) //NaN 
+console.log(Number(undefined)) //NaN
 
-/*
-+undefined` becomes `NaN`
+console.log(Number(null)) // 0
 
-+null becomes 0
+console.log(Number(true)) // 1
 
-+true becomes 1
+console.log(Number(false)) //0 
 
-+false becomes 0
+console.log( Number(123) ) // becomes 123 
 
- Number(123)  becomes 123 */
-
+//no to string .
+console.log(String(0)) // 0
 console.log(typeof(String(1))); 
 
 /* ParseInt 
@@ -73,3 +72,13 @@ parseInt('Rs. 400') // becomes NaN
 Put a + Mathematical operator in front of a number & it will convert value to a number automatically. If the string represents a non number, NaN is returned.
 console.log(+"123")
 */
+console.log(+"123")  //123 
+console.log(+(undefined)) //NaN 
+
+console.log(+(null)) // 0
+
+console.log(+(true)) // 1
+
+console.log(+(false)) //0 
+
+console.log(+(123) ) // becomes 123 
