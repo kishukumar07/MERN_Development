@@ -41,10 +41,21 @@ let converted = String(original);
 - We can use the `Number(value)` function to explicitly convert a `value` to a number
 - Non valid strings passed into `Number` returns `NaN`
 */
+// **Edge cases:** 
+
+console.log(+undefined) //NaN 
+
+/*
++undefined` becomes `NaN`
+
++null becomes 0
+
++true becomes 1
+
++false becomes 0
+
+ Number(123)  becomes 123 */
 
 
-
-
-
-
+console.log(typeof(String(1))); 
 
