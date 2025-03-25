@@ -74,3 +74,57 @@ let ans = (bankbalance2 > 0) && (accountactive2) && console.log('not active');
 let ans2 = (bankbalance2 > 0) && undefined && console.log('not active');
 
 console.log(ans+"\n"+ans2) // false  \n  undefined 
+
+
+
+// The precedence of AND `&&` is higher than `||`, so it executes first......
+
+/* 
+Statements vs Expressions
+An expression is anything that evaluates to a value. Expressions are usually on the right-hand side of statements. 
+examples:-
+1+2
+true ? 'yes' : 'no'
+[1,2,3]
+{name: 'Vivek'}
+
+
+statements: In JavaScript, statements are instructions that are executed by the browser or Node. js
+MDN
+let sum = 1+2;
+if .. else
+while
+try .. catch
+let arr = [1,2,3]
+let obj = {name: 'Vivek'}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
