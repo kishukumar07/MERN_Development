@@ -1,6 +1,9 @@
 this is the code demonstrating the codebase of the devops terms like monotering and logging ..
 
 
+
+**logging ......
+
 --> using morgan and winston (logger middleware -package ) <--
 we are going to implement this using that packages....
 
@@ -18,6 +21,14 @@ any no of req we made get logged ... and we are now able for Root cause analysis
 
 best to read the complete docs for information...
 
+
+
+
+**monitoring....
+
+
+Lets move to pm2 ...
+used for monitoring --> pm2
 
   
 
