@@ -1,57 +1,60 @@
 import express from 'express';
 import pkg from 'winston';
-const { transports, format, transport } =pkg;
+const { transports, format } = pkg;
 import expressWinston from 'express-winston';
-
-
 
 const app = express();
 
-
+// Request logger
 app.use(expressWinston.logger({
-
-    //transports are basically where we log(record )the logs ...
     transports: [
-        new transports.File({
-            level: 'error',
-            filename: 'errorlogs.log'
-        }),
-        //we can add as many  transports we wants ...
         new transports.File({
             level: 'info',
             filename: 'infologs.log'
         })
     ],
-    //format :how u want the data 
     format: format.combine(
         format.json(),
         format.prettyPrint(),
         format.timestamp()
     )
-}) //thats it we have aded the logger 
-);
+}));
 
 
 
+// Your normal routes
+app.get('/', (req, res) => {
+    res.send('Hi this is Niket logger');
+});
 
-app.get('/',(req,res)=>{
-
-    res.send('hii this niket logger'); 
-
-})
-
-
-
-app.listen(8080,()=>{
-    console.log('server is started at 8080')
-}); 
+app.get('/err', (req, res, next) => {
+    next(new Error('This is an error'));
+});
 
 
 
+// Error logger (this will catch errors passed to `next()`)
+// 👇 Error logger (MUST come after routes)
+app.use(expressWinston.errorLogger({
+    transports: [
+        new transports.File({
+            level: 'error',
+            filename: 'errorlogs.log'
+        })
+    ],
+    format: format.combine(
+        format.json(),
+        format.prettyPrint(),
+        format.timestamp()
+    )
+}));
 
 
-
-
-
-
-
+// Default error handler (optional but recommended)
+app.use((err, req, res, next) => {
+        res.status(500).send('Something went wrong!');
+    });
+    
+app.listen(8080, () => {
+    console.log('Server is started at 8080');
+});
