@@ -8,11 +8,18 @@ we are going to implement this using that packages....
 I hope u know these terms right?? ...
 
 
+logger Properties --> .logger 
+                      .err logger 
+
+** 
+any no of req we made get logged ... and we are now able for Root cause analysis ...
+
+**
+
+best to read the complete docs for information...
 
 
-
-
-
+  
 
 
 
